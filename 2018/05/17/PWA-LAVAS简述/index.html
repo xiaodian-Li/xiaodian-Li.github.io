@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Li_xiaodian&#39;s personal blog">
 <meta property="og:description" content="以下文章只是自己学习的小总结，“我不生产知识，我只是知识的搬运工。” PWA1.首先，什么是pwa?Progressive Web App, 简称 PWA，是提升 Web App 的体验的一种新方法，能给用户原生应用的体验">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-17T04:45:45.329Z">
+<meta property="og:updated_time" content="2018-05-17T04:49:11.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PWA+LAVAS简述">
 <meta name="twitter:description" content="以下文章只是自己学习的小总结，“我不生产知识，我只是知识的搬运工。” PWA1.首先，什么是pwa?Progressive Web App, 简称 PWA，是提升 Web App 的体验的一种新方法，能给用户原生应用的体验">
@@ -177,7 +177,7 @@
 <li>粘性 - 像设备上的原生应用，具有沉浸式的用户体验，用户可以添加到桌面</li>
 </ul>
 <p>1） 用户点击（pwa）可以安装到桌面，创建一个PWA应用，不需从应用商店下载<br>2） 可以借助 Web App Manifest 提供给用户和 Native App 一样的沉浸式体验<br>3） 可以通过给用户发送离线通知</p>
-<h4 id="4-pwa的特性？"><a href="#4-pwa的特性？" class="headerlink" title="4.pwa的特性？"></a>4.pwa的特性？</h4><ul>
+<h3 id="4-pwa的特性？"><a href="#4-pwa的特性？" class="headerlink" title="4.pwa的特性？"></a>4.pwa的特性？</h3><ul>
 <li>渐进式 - 适用于所有浏览器，因为它是以渐进式增强作为宗旨开发的</li>
 <li>连接无关性 - 能够借助 Service Worker 在离线或者网络较差的情况下正常访问</li>
 <li>类似应用 - 由于是在 App Shell 模型基础上开发，因为应具有 Native App 的交互和导航，给用户 Native App 的体验</li>
@@ -186,7 +186,9 @@
 <li>可索引 - 应用清单文件和 Service Worker 可以让搜索引擎索引到，从而将其识别为『应用』</li>
 <li>粘性 - 通过推送离线通知等，可以让用户回流</li>
 <li>可安装 - 用户可以添加常用的 webapp 到桌面，免去去应用商店下载的麻烦</li>
-<li>可链接 - 通过链接即可分享内容，无需下载安装<h4 id="5-PWA-改造的成本考虑"><a href="#5-PWA-改造的成本考虑" class="headerlink" title="5.PWA 改造的成本考虑"></a>5.PWA 改造的成本考虑</h4></li>
+<li>可链接 - 通过链接即可分享内容，无需下载安装</li>
+</ul>
+<h3 id="5-PWA-改造的成本考虑"><a href="#5-PWA-改造的成本考虑" class="headerlink" title="5.PWA 改造的成本考虑"></a>5.PWA 改造的成本考虑</h3><ul>
 <li>第一步，应该是安全，将全站 HTTPS 化，因为这是 PWA 的基础，没有 HTTPS，就没有 Service Worker</li>
 <li>第二步，应该是 Service Worker 来提升基础性能，离线提供静态文件，把用户首屏体验提升上来</li>
 <li>第三步，App Manifest，这一步可以和第二步同时进行<br>后续，再考虑其他的特性，离线消息推送等  </li>
@@ -203,16 +205,20 @@
 <li>Vue, Vuex, Vue-router 等基本的开发知识 (教程、API 文档 和 编程风格指南)</li>
 <li>Webpack, Node.js 等基本知识 （推荐）  </li>
 </ul>
-<h4 id="3-Lavas-解决方案能够帮助开发者完成？"><a href="#3-Lavas-解决方案能够帮助开发者完成？" class="headerlink" title="3.Lavas 解决方案能够帮助开发者完成？"></a>3.Lavas 解决方案能够帮助开发者完成？</h4><ul>
+<h3 id="3-Lavas-解决方案能够帮助开发者完成？"><a href="#3-Lavas-解决方案能够帮助开发者完成？" class="headerlink" title="3.Lavas 解决方案能够帮助开发者完成？"></a>3.Lavas 解决方案能够帮助开发者完成？</h3><ul>
 <li>最基本的移动站点建设，包括 Vue, Vuex, Vue-router, webpack 等常用且成套的技术提供支持</li>
 <li>允许站点添加至手机桌面，再次打开时全屏运行，摆脱浏览器的固定显示框架(地址栏，菜单栏等)</li>
 <li>强化缓存，允许站点在弱网甚至离线的情况下继续显示内容</li>
 <li>支持消息推送，帮助站长主动推送用户感兴趣的信息，提升业务指标</li>
 <li>支持服务端渲染(SSR)，对搜索引擎更加友好</li>
-<li>支持App Shell模型，在正常情况下提升加载性能，在异常情况下优化错误显示。   <h4 id="4-Lavas-2-0新增功能？"><a href="#4-Lavas-2-0新增功能？" class="headerlink" title="4.Lavas 2.0新增功能？"></a>4.Lavas 2.0新增功能？</h4></li>
+<li>支持App Shell模型，在正常情况下提升加载性能，在异常情况下优化错误显示。   </li>
+</ul>
+<h3 id="4-Lavas-2-0新增功能？"><a href="#4-Lavas-2-0新增功能？" class="headerlink" title="4.Lavas 2.0新增功能？"></a>4.Lavas 2.0新增功能？</h3><ul>
 <li>服务端渲染 (SSR) 和浏览器端渲染 (SPA) 可以快速切换</li>
 <li>自动生成路由规则，避免重复代码</li>
-<li>针对 SSR 提供了更加合理的AppShell支持，享受更加顺滑和健壮的浏览体验<h4 id="5-lavas基本命令？"><a href="#5-lavas基本命令？" class="headerlink" title="5.lavas基本命令？"></a>5.lavas基本命令？</h4><h6 id="安装"><a href="#安装" class="headerlink" title="(安装)"></a>(安装)</h6></li>
+<li>针对 SSR 提供了更加合理的AppShell支持，享受更加顺滑和健壮的浏览体验</li>
+</ul>
+<h3 id="5-lavas基本命令？"><a href="#5-lavas基本命令？" class="headerlink" title="5.lavas基本命令？"></a>5.lavas基本命令？</h3><h6 id="安装"><a href="#安装" class="headerlink" title="(安装)"></a>(安装)</h6><ul>
 <li><p>安装lavas命令行工具</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i lavas -g</span><br></pre></td></tr></table></figure>
 </li>
