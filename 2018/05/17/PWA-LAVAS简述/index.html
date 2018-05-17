@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Li_xiaodian&#39;s personal blog">
 <meta property="og:description" content="以下文章只是自己学习的小总结，“我不生产知识，我只是知识的搬运工。” PWA1.首先，什么是pwa?Progressive Web App, 简称 PWA，是提升 Web App 的体验的一种新方法，能给用户原生应用的体验">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-17T03:53:01.655Z">
+<meta property="og:updated_time" content="2018-05-17T04:45:45.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PWA+LAVAS简述">
 <meta name="twitter:description" content="以下文章只是自己学习的小总结，“我不生产知识，我只是知识的搬运工。” PWA1.首先，什么是pwa?Progressive Web App, 简称 PWA，是提升 Web App 的体验的一种新方法，能给用户原生应用的体验">
@@ -163,31 +163,21 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>以下文章只是自己学习的小总结，“我不生产知识，我只是知识的搬运工。”</p>
-<h2 id="PWA"><a href="#PWA" class="headerlink" title="PWA"></a>PWA</h2><h3 id="1-首先，什么是pwa"><a href="#1-首先，什么是pwa" class="headerlink" title="1.首先，什么是pwa?"></a>1.首先，什么是pwa?</h3><p>Progressive Web App, 简称 PWA，是提升 Web App 的体验的一种新方法，能给用户原生应用的体验 <br><a id="more"></a> </p>
+<h2 id="PWA"><a href="#PWA" class="headerlink" title="PWA"></a>PWA</h2><h3 id="1-首先，什么是pwa"><a href="#1-首先，什么是pwa" class="headerlink" title="1.首先，什么是pwa?"></a>1.首先，什么是pwa?</h3><p>Progressive Web App, 简称 PWA，是提升 Web App 的体验的一种新方法，能给用户原生应用的体验  <br><a id="more"></a></p>
 <h3 id="2-pwa的优点？"><a href="#2-pwa的优点？" class="headerlink" title="2.pwa的优点？"></a>2.pwa的优点？</h3><p>PWA 本质上是 Web App，借助一些新技术也具备了 Native App 的一些特性，兼具 Web App 和 Native App 的优点。  </p>
 <h3 id="3-pwa的主要特点？"><a href="#3-pwa的主要特点？" class="headerlink" title="3.pwa的主要特点？"></a>3.pwa的主要特点？</h3><ul>
 <li>可靠 - 即使在不稳定的网络环境下，也能瞬间加载并展现</li>
 </ul>
-<ul>
-<li style="list-style: none"><input type="checkbox" checked> 当用户打开站点后，通过Service Worker 能让用户在网络很差的情况下也能瞬间加载展现  </li>
-<li style="list-style: none"><input type="checkbox" checked> 开发者可以预存储关键文件，淘汰过期文件，给用户提供可靠体验</li>
-</ul>
+<p>1）当用户打开站点后，通过Service Worker 能让用户在网络很差的情况下也能瞬间加载展现<br>2） 开发者可以预存储关键文件，淘汰过期文件，给用户提供可靠体验</p>
 <ul>
 <li>体验 - 快速响应，并且有平滑的动画响应用户的操作</li>
 </ul>
-<ul>
-<li style="list-style: none"><input type="checkbox" checked> 页面在展现之后，有平滑的体验和过渡动画以及快速响应</li>
-<li style="list-style: none"><input type="checkbox" checked> 在内容请求完成后，优先保证App shell的渲染，做到和 Native App 一样的体验，App Shell 是 PWA 界面展现所需的最小资源。</li>
-</ul>
+<p>1） 页面在展现之后，有平滑的体验和过渡动画以及快速响应<br>2）在内容请求完成后，优先保证App shell的渲染，做到和 Native App 一样的体验，App Shell 是 PWA 界面展现所需的最小资源。</p>
 <ul>
 <li>粘性 - 像设备上的原生应用，具有沉浸式的用户体验，用户可以添加到桌面</li>
 </ul>
-<ul>
-<li style="list-style: none"><input type="checkbox" checked> 用户点击（pwa）可以安装到桌面，创建一个PWA应用，不需从应用商店下载</li>
-<li style="list-style: none"><input type="checkbox" checked> 可以借助 Web App Manifest 提供给用户和 Native App 一样的沉浸式体验</li>
-<li style="list-style: none"><input type="checkbox" checked> 可以通过给用户发送离线通知<h4 id="4-pwa的特性？"><a href="#4-pwa的特性？" class="headerlink" title="4.pwa的特性？"></a>4.pwa的特性？</h4></li>
-</ul>
-<ul>
+<p>1） 用户点击（pwa）可以安装到桌面，创建一个PWA应用，不需从应用商店下载<br>2） 可以借助 Web App Manifest 提供给用户和 Native App 一样的沉浸式体验<br>3） 可以通过给用户发送离线通知</p>
+<h4 id="4-pwa的特性？"><a href="#4-pwa的特性？" class="headerlink" title="4.pwa的特性？"></a>4.pwa的特性？</h4><ul>
 <li>渐进式 - 适用于所有浏览器，因为它是以渐进式增强作为宗旨开发的</li>
 <li>连接无关性 - 能够借助 Service Worker 在离线或者网络较差的情况下正常访问</li>
 <li>类似应用 - 由于是在 App Shell 模型基础上开发，因为应具有 Native App 的交互和导航，给用户 Native App 的体验</li>
@@ -201,26 +191,28 @@
 <li>第二步，应该是 Service Worker 来提升基础性能，离线提供静态文件，把用户首屏体验提升上来</li>
 <li>第三步，App Manifest，这一步可以和第二步同时进行<br>后续，再考虑其他的特性，离线消息推送等  </li>
 </ul>
-<p>另外，PWA 采用的最新技术，当前浏览器还没有达到完全支持的程度。W3C 关于这些技术的标准也没有定稿。</p>
+<p>另外，PWA 采用的最新技术，当前浏览器还没有达到完全支持的程度。W3C 关于这些技术的标准也没有定稿。<br>  <br><br>  <br></p>
 <blockquote>
 <p>关于更多pwa请查看pwa文档<br><a href="https://lavas.baidu.com/doc" target="_blank" rel="noopener">https://lavas.baidu.com/doc</a></p>
 </blockquote>
 <h2 id="LAVAS"><a href="#LAVAS" class="headerlink" title="LAVAS"></a>LAVAS</h2><h3 id="1-什么是lavas"><a href="#1-什么是lavas" class="headerlink" title="1.什么是lavas?"></a>1.什么是lavas?</h3><p>Lavas = Vue + PWA  </p>
-<p>LAVAS基于 Vue.js 的 PWA 解决方案<br>帮助开发者快速搭建 PWA 应用，解决接入 PWA 的各种问题，<br>且开发者无须过多的关注 PWA 开发本身。</p>
+<p>LAVAS基于 Vue.js 的 PWA 解决方案<br>帮助开发者快速搭建 PWA 应用，解决接入 PWA 的各种问题，<br>且开发者无须过多的关注 PWA 开发本身。  </p>
 <h3 id="2-学习lavas前提你需要掌握？"><a href="#2-学习lavas前提你需要掌握？" class="headerlink" title="2.学习lavas前提你需要掌握？"></a>2.学习lavas前提你需要掌握？</h3><ul>
 <li>HTML, CSS(less或stylus), JavaScript 等前端编程基础</li>
 <li>ES6/7 部分常用语法，如 Promise, import/export 等</li>
 <li>Vue, Vuex, Vue-router 等基本的开发知识 (教程、API 文档 和 编程风格指南)</li>
-<li>Webpack, Node.js 等基本知识 （推荐）<h4 id="3-Lavas-解决方案能够帮助开发者完成？"><a href="#3-Lavas-解决方案能够帮助开发者完成？" class="headerlink" title="3.Lavas 解决方案能够帮助开发者完成？"></a>3.Lavas 解决方案能够帮助开发者完成？</h4></li>
+<li>Webpack, Node.js 等基本知识 （推荐）  </li>
+</ul>
+<h4 id="3-Lavas-解决方案能够帮助开发者完成？"><a href="#3-Lavas-解决方案能够帮助开发者完成？" class="headerlink" title="3.Lavas 解决方案能够帮助开发者完成？"></a>3.Lavas 解决方案能够帮助开发者完成？</h4><ul>
 <li>最基本的移动站点建设，包括 Vue, Vuex, Vue-router, webpack 等常用且成套的技术提供支持</li>
 <li>允许站点添加至手机桌面，再次打开时全屏运行，摆脱浏览器的固定显示框架(地址栏，菜单栏等)</li>
 <li>强化缓存，允许站点在弱网甚至离线的情况下继续显示内容</li>
 <li>支持消息推送，帮助站长主动推送用户感兴趣的信息，提升业务指标</li>
 <li>支持服务端渲染(SSR)，对搜索引擎更加友好</li>
-<li>支持App Shell模型，在正常情况下提升加载性能，在异常情况下优化错误显示。<h4 id="4-Lavas-2-0新增功能？"><a href="#4-Lavas-2-0新增功能？" class="headerlink" title="4.Lavas 2.0新增功能？"></a>4.Lavas 2.0新增功能？</h4></li>
+<li>支持App Shell模型，在正常情况下提升加载性能，在异常情况下优化错误显示。   <h4 id="4-Lavas-2-0新增功能？"><a href="#4-Lavas-2-0新增功能？" class="headerlink" title="4.Lavas 2.0新增功能？"></a>4.Lavas 2.0新增功能？</h4></li>
 <li>服务端渲染 (SSR) 和浏览器端渲染 (SPA) 可以快速切换</li>
 <li>自动生成路由规则，避免重复代码</li>
-<li>针对 SSR 提供了更加合理的AppShell支持，享受更加顺滑和健壮的浏览体验<h4 id="5-lavas基本命令？"><a href="#5-lavas基本命令？" class="headerlink" title="5.lavas基本命令？"></a>5.lavas基本命令？</h4><h6 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h6></li>
+<li>针对 SSR 提供了更加合理的AppShell支持，享受更加顺滑和健壮的浏览体验<h4 id="5-lavas基本命令？"><a href="#5-lavas基本命令？" class="headerlink" title="5.lavas基本命令？"></a>5.lavas基本命令？</h4><h6 id="安装"><a href="#安装" class="headerlink" title="(安装)"></a>(安装)</h6></li>
 <li><p>安装lavas命令行工具</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i lavas -g</span><br></pre></td></tr></table></figure>
 </li>
@@ -234,7 +226,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lavas dev</span><br><span class="line">lavas dev --port 8000 监听其他端口，eg:8000</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h6 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h6><ul>
+<h6 id="构建"><a href="#构建" class="headerlink" title="(构建)"></a>(构建)</h6><ul>
 <li><p>使用 Lavas 对项目进行构建(内部会调用 babel, webpack 等，最终生成在 /dist/ 目录中,可以通过 /lavas.config.js 进行修改)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lavas build</span><br></pre></td></tr></table></figure>
 </li>
@@ -250,6 +242,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">用法：</span><br><span class="line">1.在 构建后的 Lavas SPA 项目(默认 /dist/)启动</span><br><span class="line">2.在任何其他目录启动</span><br><span class="line"></span><br><span class="line">lavas static</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<p><br><br><br></p>
 <blockquote>
 <p>关于更多lavas请查看lavas文档 <a href="https://lavas.baidu.com/guide" target="_blank" rel="noopener">https://lavas.baidu.com/guide</a></p>
 </blockquote>
