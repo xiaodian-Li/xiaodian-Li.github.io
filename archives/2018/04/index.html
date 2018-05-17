@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xiaodian-li.github.io">
-  <title>常用数组操作方法 | Li_xiaodian&#39;s personal blog</title>
+  <title>Archives: 2018/4 | Li_xiaodian&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="(最近除了项目在练习自己的编程能力，以下是牛客网练习的知识点小总结🍭)   1.查找数组元素位置eg: 找出元素 item 在给定数组 arr 中的位置">
-<meta name="keywords" content="数组方法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="常用数组操作方法">
-<meta property="og:url" content="https://xiaodian-li.github.io/2018/03/09/常用数组操作方法/index.html">
+  <meta name="description" content="学习总结 思考感悟 知识管理">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Li_xiaodian&#39;s personal blog">
+<meta property="og:url" content="https://xiaodian-li.github.io/archives/2018/04/index.html">
 <meta property="og:site_name" content="Li_xiaodian&#39;s personal blog">
-<meta property="og:description" content="(最近除了项目在练习自己的编程能力，以下是牛客网练习的知识点小总结🍭)   1.查找数组元素位置eg: 找出元素 item 在给定数组 arr 中的位置">
+<meta property="og:description" content="学习总结 思考感悟 知识管理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-09T08:52:26.598Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常用数组操作方法">
-<meta name="twitter:description" content="(最近除了项目在练习自己的编程能力，以下是牛客网练习的知识点小总结🍭)   1.查找数组元素位置eg: 找出元素 item 在给定数组 arr 中的位置">
+<meta name="twitter:title" content="Li_xiaodian&#39;s personal blog">
+<meta name="twitter:description" content="学习总结 思考感悟 知识管理">
   
     <link rel="alternative" href="/atom.xml" title="Li_xiaodian&#39;s personal blog" type="application/atom+xml">
   
@@ -142,247 +140,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-常用数组操作方法" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      常用数组操作方法
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/04/17/commit-message-规范/" class="archive-article-date">
+  	<time datetime="2018-04-17T02:58:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/04/17/commit-message-规范/">commit message 规范</a>
     </h1>
   
 
-        
-        <a href="/2018/03/09/常用数组操作方法/" class="archive-article-date">
-  	<time datetime="2018-03-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>(最近除了项目在练习自己的编程能力，以下是牛客网练习的知识点小总结🍭)  </p>
-<h3 id="1-查找数组元素位置"><a href="#1-查找数组元素位置" class="headerlink" title="1.查找数组元素位置"></a>1.查找数组元素位置</h3><p>eg: 找出元素 item 在给定数组 arr 中的位置<br><a id="more"></a></p>
-<ul>
-<li>解决方案<br>for循环<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function indexOf(arr, item) &#123;</span><br><span class="line">    if (Array.prototype.indexOf) &#123;</span><br><span class="line">        return arr.indexOf(item); // 可返回某个指定的字符串值在字符串中首次出现的位置</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        for (var i=0; i&lt;arr.length; i++) &#123;</span><br><span class="line">            if (arr[i] === item) &#123;</span><br><span class="line">                return i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="2-数组求和"><a href="#2-数组求和" class="headerlink" title="2.数组求和"></a>2.数组求和</h3><p>eg: 计算给定数组 arr 中所有元素的总和</p>
-<ul>
-<li>解决方案<br>（1）for循环<br>（2）reduce方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function sum(arr) &#123;</span><br><span class="line">    // var len = arr.length;</span><br><span class="line">    // if (len === 0) &#123;</span><br><span class="line">        // return 0;</span><br><span class="line">    // &#125; else if (len === 1) &#123;</span><br><span class="line">        // return arr[0]</span><br><span class="line">    // &#125; else &#123;</span><br><span class="line">        // return arr[0] + sum(arr.slice(1)); // sum(arr.slice(1) 递归。每次把第一个取出来</span><br><span class="line">    // &#125;</span><br><span class="line">    return arr.reduce(function(acc, curr) &#123;</span><br><span class="line">        return acc + curr // 累计的结果+当前的知道为空</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="3-1-移除数组中的元素（返回新数组）"><a href="#3-1-移除数组中的元素（返回新数组）" class="headerlink" title="3-1.移除数组中的元素（返回新数组）"></a>3-1.移除数组中的元素（返回新数组）</h3><p>eg:移除数组 arr 中的所有值与 item 相等的元素。不要直接修改数组 arr，结果返回新的数组</p>
-<ul>
-<li>解决方案<br>（1）for循环<br>（2）filter过滤方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function remove(arr, item) &#123;</span><br><span class="line">    // var arr2 = [];</span><br><span class="line">    // for (var i=0; i&lt;arr.length; i++) &#123;</span><br><span class="line">        // if (arr[i] != item) &#123; // 循环一遍，看等不等于item项，不等于插入新数组</span><br><span class="line">            // arr2.push(arr[i]);</span><br><span class="line">        // &#125;</span><br><span class="line">    // &#125;</span><br><span class="line">     // return arr2; // 返回新数组</span><br><span class="line">    return arr.filter(function(ele)&#123;</span><br><span class="line">        return ele != item;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="3-2-移除数组中的元素（直接在数组上操作，并将结果返回）"><a href="#3-2-移除数组中的元素（直接在数组上操作，并将结果返回）" class="headerlink" title="3-2.移除数组中的元素（直接在数组上操作，并将结果返回）"></a>3-2.移除数组中的元素（直接在数组上操作，并将结果返回）</h3><p>eg:移除数组 arr 中的所有值与 item 相等的元素，直接在给定的 arr 数组上进行操作，并将结果返回</p>
-<ul>
-<li>解决方案<br>(1)splice方法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function removeWithoutCopy(arr, item) &#123;</span><br><span class="line">    for (var i=0; i&lt;arr.length; i++) &#123;</span><br><span class="line">        if (arr[i] === item) &#123;</span><br><span class="line">            arr.splice(i, 1) // 从下标i开始,删除一个长度 从i开始，J长度，z操作值</span><br><span class="line">            i--; // 永远从1开始</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return arr</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4-1-末尾添加元素"><a href="#4-1-末尾添加元素" class="headerlink" title="4-1.末尾添加元素"></a>4-1.末尾添加元素</h3><p>eg:在数组 arr 末尾添加元素 item。不要直接修改数组 arr，结果返回新的数组</p>
-<ul>
-<li>解决方案<br>（1）for循环<br>（2）slice+push 尾部插入方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function append(arr, item) &#123;</span><br><span class="line">    // var arr1 = [];</span><br><span class="line">    // for (var i=0; i&lt;arr.length; i++) &#123;</span><br><span class="line">        // arr1.push(arr[i])</span><br><span class="line">    // &#125;</span><br><span class="line">    // arr1.push(item)</span><br><span class="line">    // return arr1;</span><br><span class="line">    var arr1 = arr.slice(0); // slice(0) 从0位置开始知道以后</span><br><span class="line">    arr1.push(item)</span><br><span class="line">    return arr1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="4-2-头部添加元素"><a href="#4-2-头部添加元素" class="headerlink" title="4-2 头部添加元素"></a>4-2 头部添加元素</h3><p>eg :在数组 arr 开头添加元素 item。不要直接修改数组 arr，结果返回新的数组  </p>
-<ul>
-<li>解决方案<br>（1）for循环+unshift头部插入<br>（2）slice方法+unshift头部插入<br>（3）concat连接方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function prepend(arr, item) &#123;</span><br><span class="line">    // var newarr=[];</span><br><span class="line">    // for (var i=0; i&lt;arr.length; i++) &#123;</span><br><span class="line">        // newarr.push(arr[i])</span><br><span class="line">    // &#125;</span><br><span class="line">    // newarr.unshift(item); // unshift 从头部插入</span><br><span class="line">    // return newarr;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    // var newarr = arr.slice(0); // 从0开始到最后复制到新的数组</span><br><span class="line">    // newarr.unshift(item);</span><br><span class="line">    // return newarr;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    return [item].concat(arr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="4-3-任意位置添加元素"><a href="#4-3-任意位置添加元素" class="headerlink" title="4-3 任意位置添加元素"></a>4-3 任意位置添加元素</h3><p>eg:<br>在数组 arr 的 index 处添加元素 item。不要直接修改数组 arr，结果返回新的数组</p>
-<ul>
-<li>解决方案<br>（1）for + splice<br>（2）slice拷贝 + splice 添加方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function insert(arr, item, index) &#123;</span><br><span class="line">    // var newarr=[];</span><br><span class="line">    // for (var i=0; i&lt;arr.length; i++) &#123;</span><br><span class="line">         // newarr.push(arr[i])</span><br><span class="line">    // &#125;</span><br><span class="line">    // newarr.splice(index,0,item)</span><br><span class="line">    // return newarr;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    var newarr = arr.slice(0);</span><br><span class="line">    newarr.splice(index,0,item);  // 从index开始删除0，在index后添加item</span><br><span class="line">    return newarr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="5-1-删除数组最后一个元素"><a href="#5-1-删除数组最后一个元素" class="headerlink" title="5-1.删除数组最后一个元素"></a>5-1.删除数组最后一个元素</h3><p>eg: 删除数组 arr 最后一个元素。不要直接修改数组 arr，结果返回新的数组  </p>
-<ul>
-<li>解决方案<br>（1）slice方法<br>（2）apply+pop删除最后一个数组方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function truncate(arr) &#123;</span><br><span class="line">     var newarr = [];</span><br><span class="line">     [].push.apply(newarr, arr);</span><br><span class="line">     newarr.pop(); // pop删除最后一个数组元素</span><br><span class="line">     return newarr;</span><br><span class="line">    // return arr.slice(0, -1); // slice从位置0开始到后一个</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="5-2-删除数组第一个元素"><a href="#5-2-删除数组第一个元素" class="headerlink" title="5-2.删除数组第一个元素"></a>5-2.删除数组第一个元素</h3><p>eg: 删除数组 arr 第一个元素。不要直接修改数组 arr，结果返回新的数组 </p>
-<ul>
-<li>解决方案<br>（1）slice方法<br>（2）filter过滤方法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function curtail(arr) &#123;</span><br><span class="line">    // var newarr = arr.slice(1); // 拷贝 从下标为1开始到最后全部拷贝</span><br><span class="line">    // return newarr;</span><br><span class="line">    </span><br><span class="line">    return arr.filter(function(v, i)&#123;</span><br><span class="line">        return i !== 0;</span><br><span class="line">        </span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="6-数组合并"><a href="#6-数组合并" class="headerlink" title="6. 数组合并"></a>6. 数组合并</h3><p>eg: 合并数组 arr1 和数组 arr2。不要直接修改数组 arr，结果返回新的数组  </p>
-<ul>
-<li>解决方案<br>（1）slice拷贝+concat连接<br>（2）slice拷贝+push插入</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function concat(arr1, arr2) &#123;</span><br><span class="line">    // return newarr = arr1.slice(0).concat(arr2);</span><br><span class="line">    </span><br><span class="line">    // return newarr = arr1.concat(arr2) </span><br><span class="line">    </span><br><span class="line">    var newarr = arr1.slice(0);</span><br><span class="line">    [].push.apply(newarr, arr2);</span><br><span class="line">    return newarr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="7-计数"><a href="#7-计数" class="headerlink" title="7.计数"></a>7.计数</h3><p>eg: 统计数组 arr 中值等于 item 的元素出现的次数  </p>
-<ul>
-<li>解决方案<br>（1）for<br>（2）forEach枚举元素</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function count(arr, item) &#123;</span><br><span class="line">    var j = 0;</span><br><span class="line">    // for (var i=0; i&lt;arr.length; i++) &#123;</span><br><span class="line">        // if (arr[i] === item) &#123;</span><br><span class="line">            // j ++</span><br><span class="line">        // &#125;</span><br><span class="line">    // &#125;</span><br><span class="line">    // return j;</span><br><span class="line">    arr.forEach (function (e) &#123;</span><br><span class="line">        e == item? j++: 0</span><br><span class="line">    &#125;)</span><br><span class="line">    return j;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="8-查找重复元素"><a href="#8-查找重复元素" class="headerlink" title="8.查找重复元素"></a>8.查找重复元素</h3><p>eg :找出数组 arr 中重复出现过的元素  </p>
-<ul>
-<li>解决方案<br>（1）for 循环<br>（2）indexOf 元素所在位置</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">function duplicates(arr) &#123;</span><br><span class="line">    // var a =[], b = []; // a--结果数组，b--arr中数组</span><br><span class="line">    // for (var i=0; i&lt;arr.length; i++) &#123;</span><br><span class="line">        // if (!b[arr[i]]) &#123; // b里没有a[i]的值</span><br><span class="line">            // b[arr[i]] = 1;</span><br><span class="line">            // continue;</span><br><span class="line">        // &#125;</span><br><span class="line">        // b[arr[i]] ++ ; </span><br><span class="line">    // &#125;</span><br><span class="line">    </span><br><span class="line">    // for(var i=0; i&lt;b.length; i++) &#123;</span><br><span class="line">        // if (b[i] &gt; 1) &#123;</span><br><span class="line">            // a.push(i);</span><br><span class="line">        // &#125;</span><br><span class="line">    // &#125;</span><br><span class="line">    // return a;</span><br><span class="line">    var result = [];</span><br><span class="line">    arr.forEach(function(elem) &#123;</span><br><span class="line">        if (arr.indexOf(elem) != arr.lastIndexOf(elem) &amp;&amp; result.indexOf(elem) == -1) &#123;</span><br><span class="line">            result.push(elem);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="9-求二次方"><a href="#9-求二次方" class="headerlink" title="9. 求二次方"></a>9. 求二次方</h3><p>eg:<br>为数组 arr 中的每个元素求二次方。不要直接修改数组 arr，结果返回新的数组</p>
-<ul>
-<li>解决方案<br>（1）for   循环<br>（2）forEach  循环元素<br>（3）fliter  过滤<br>（4）map 映射<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function square(arr) &#123;</span><br><span class="line">    // var newarr = [];</span><br><span class="line">    // for (var i=0; i&lt;arr.length; i++) &#123;</span><br><span class="line">        // newarr.push(arr[i]*arr[i]);</span><br><span class="line">    // &#125;</span><br><span class="line">    // return newarr;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    // arr.forEach(function(elem)&#123;</span><br><span class="line">        // newarr.push(elem*elem);</span><br><span class="line">    // &#125;) </span><br><span class="line">    // return newarr;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    return arr.map(function(item, index, arry)&#123;</span><br><span class="line">        return item * item;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="10-查找元素位置"><a href="#10-查找元素位置" class="headerlink" title="10. 查找元素位置"></a>10. 查找元素位置</h3><p>eg: 在数组 arr 中，查找值与 item 相等的元素出现的所有位置</p>
-<ul>
-<li>解决方案<br>（1）for<br>（2）filter<br>（3）indexOf<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function findAllOccurrences(arr, target) &#123;</span><br><span class="line">    var newarr = [];</span><br><span class="line">    arr.filter(function(item, index)&#123;</span><br><span class="line">        // if (item !== target) &#123;</span><br><span class="line">            // newarr.push(index);</span><br><span class="line">        // &#125;</span><br><span class="line">        item !== target || newarr.push(index);</span><br><span class="line">    &#125;)</span><br><span class="line">    return newarr;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>注意：数组相关学习建议到MDN学习<br><a href="https://developer.mozilla.org" target="_blank" rel="noopener">https://developer.mozilla.org</a><br>关于用到的方法在下面代码中都会有注释</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数组方法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端知识//" class="article-tag-list-link color5">前端知识</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-      
 
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xiaodian-li.github.io/2018/03/09/常用数组操作方法/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/04/17/commit-message-规范/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          commit message 规范
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/01/25/相关html面试总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">html面试总结</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "https://xiaodian-li.github.io/2018/03/09/常用数组操作方法/", 
-    sourceId: "常用数组操作方法",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="常用数组操作方法" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "true",
-        conf: "true"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -405,8 +227,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
