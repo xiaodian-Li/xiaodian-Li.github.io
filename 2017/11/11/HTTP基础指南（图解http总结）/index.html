@@ -21,10 +21,11 @@
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/http3.png">
 <meta property="og:image" content="https://minisite.daojia.com/assets/minisite/2017/sy/img/14.png">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/http5.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/http6.png">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/http7.png">
 <meta property="og:image" content="https://minisite.daojia.com/assets/minisite/2017/sy/img/5.png">
 <meta property="og:image" content="https://minisite.daojia.com/assets/minisite/2017/sy/img/3.png">
-<meta property="og:updated_time" content="2018-05-25T06:42:34.795Z">
+<meta property="og:updated_time" content="2018-05-25T06:44:40.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP基础指南（图解http总结）">
 <meta name="twitter:description" content="(以下是http相关知识，在前端开发中知道这些基础的知识也是必要的，本文是根据图解http的小总结，希望可以帮助大家更好的理解http) 了解Web及网络基础1.相关概念：  DNS:位于应用层，提供域名到IP地址之间的解析服务。">
@@ -193,7 +194,7 @@
 <li>URL(Uniform Resource Locator)：统一资源定位符。<br>URI用字符串标识某一互联网资源，而URL表示资源的地点（互联网上所处的位置）。URL是URI的子集。</li>
 </ul>
 <p><br></p>
-<h2 id="简单的HTTP协议"><a href="#简单的HTTP协议" class="headerlink" title="简单的HTTP协议"></a>简单的HTTP协议</h2><p>1.HTTP是客户端和服务端之间的通信。（是不保存状态的协议）<br>客户端：请求访问文本或者图像资源的一方<br>服务端：提供资源响应的一方.<br>2.请求报文构成：包括请求方法，URI,协议版本，可选请求首部字段，内容，实体构成的。<br>常用请求方法：<br>（1）GET：获取资源，请求访问已被URI识别的资源。<br>（2）POST:传输实体的主体，常用于表单。<br>（3）PUT：传输文件，要求请求报文主体包含文件内容（有安全性问题，通常不用）<br>（4）HEAD:获得报文首部，（不返回主体部分，用于确认URI有效性以及资源更新的日期时间等）<br>（5）DELETE:删除文件<br>（6）OPTIONS: 客户端带着询问支持的方法。<br>（7）CONNECT:在于代理服务器通信时建立隧道，实现用隧道协议通信<br>3.因为http是不保存协议，所以用到Cookie状态管理。<br>第一次客户端没带cookie到服务端，服务端响应返回添加cookie，第二次以后请求服务端就带有cookie，最后得到响应。<br>请求报文——响应报文——–请求报文<br>![Alt text]<a href="http://images.daojia.com/assets/other/images/http6.png" target="_blank" rel="noopener">http://images.daojia.com/assets/other/images/http6.png</a>)</p>
+<h2 id="简单的HTTP协议"><a href="#简单的HTTP协议" class="headerlink" title="简单的HTTP协议"></a>简单的HTTP协议</h2><p>1.HTTP是客户端和服务端之间的通信。（是不保存状态的协议）<br>客户端：请求访问文本或者图像资源的一方<br>服务端：提供资源响应的一方.<br>2.请求报文构成：包括请求方法，URI,协议版本，可选请求首部字段，内容，实体构成的。<br>常用请求方法：<br>（1）GET：获取资源，请求访问已被URI识别的资源。<br>（2）POST:传输实体的主体，常用于表单。<br>（3）PUT：传输文件，要求请求报文主体包含文件内容（有安全性问题，通常不用）<br>（4）HEAD:获得报文首部，（不返回主体部分，用于确认URI有效性以及资源更新的日期时间等）<br>（5）DELETE:删除文件<br>（6）OPTIONS: 客户端带着询问支持的方法。<br>（7）CONNECT:在于代理服务器通信时建立隧道，实现用隧道协议通信<br>3.因为http是不保存协议，所以用到Cookie状态管理。<br>第一次客户端没带cookie到服务端，服务端响应返回添加cookie，第二次以后请求服务端就带有cookie，最后得到响应。<br>请求报文——响应报文——–请求报文<br><img src="http://images.daojia.com/assets/other/images/http6.png" alt="Alt text"></p>
 <p><br></p>
 <h2 id="返回结果的HTTP状态码"><a href="#返回结果的HTTP状态码" class="headerlink" title="返回结果的HTTP状态码"></a>返回结果的HTTP状态码</h2><p><img src="http://images.daojia.com/assets/other/images/http7.png" alt="Alt text"></p>
 <ul>
