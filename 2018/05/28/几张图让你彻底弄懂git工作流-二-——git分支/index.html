@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git20.png">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git201.png">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git21.png">
-<meta property="og:updated_time" content="2018-05-28T05:16:38.649Z">
+<meta property="og:updated_time" content="2018-05-28T05:19:22.960Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="几张图让你彻底弄懂git工作流(二) ——git分支">
 <meta name="twitter:description" content="上篇文章已经说了Git简史以及Git基础，那么这篇文章简单总结下Git分支 Git分支为了理解 Git 分支的实现方式,我们需要回顾一下,Git保存的不是文件差异或者变化量，而只是一系列文件快照.">
@@ -183,21 +183,9 @@
       
         <p>上篇文章已经说了Git简史以及Git基础，那么这篇文章简单总结下Git分支</p>
 <h1 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h1><p>为了理解 Git 分支的实现方式,我们需要回顾一下,<br>Git保存的不是文件差异或者变化量，而只是一系列文件快照. <br><a id="more"></a></p>
-<h4 id="Git分支-1"><a href="#Git分支-1" class="headerlink" title="Git分支"></a>Git分支</h4><table>
-<thead>
-<tr>
-<th>分支其实就是从某个提交对象往回看的历史</th>
-<th>文字描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="http://images.daojia.com/assets/other/images/gitimg/git4.png" alt=""></td>
-<td>Git中的分支，本质上就是个指向master对象的可变指针，master为默认分支，每次提交都会向前移动</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
+<ul>
+<li>Git分支<br>分支其实就是从某个提交对象往回看的历史 | 文字描述<br>—|—<br><img src="http://images.daojia.com/assets/other/images/gitimg/git4.png" alt=""> | Git中的分支，本质上就是个指向master对象的可变指针，master为默认分支，每次提交都会向前移动</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -212,7 +200,6 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <table>
 <thead>
 <tr>
@@ -227,7 +214,6 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <table>
 <thead>
 <tr>
@@ -257,7 +243,10 @@
 </tbody>
 </table>
 <p><br></p>
-<h4 id="Git—merge"><a href="#Git—merge" class="headerlink" title="Git—merge"></a>Git—merge</h4><table>
+<ul>
+<li>Git—merge</li>
+</ul>
+<table>
 <thead>
 <tr>
 <th>分支的合并 — merge #1</th>
@@ -275,7 +264,6 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <table>
 <thead>
 <tr>
@@ -295,7 +283,10 @@
 </tbody>
 </table>
 <p><br></p>
-<h4 id="Git—rebase"><a href="#Git—rebase" class="headerlink" title="Git—rebase"></a>Git—rebase</h4><table>
+<ul>
+<li>Git—rebase</li>
+</ul>
+<table>
 <thead>
 <tr>
 <th>分支的合并 — rebase #1</th>
@@ -317,7 +308,6 @@
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <table>
 <thead>
 <tr>
@@ -350,7 +340,10 @@
 </table>
 <p>现在 client 和 server 分支的变化都已经集成到主干分支来了，可以删掉它们了<br>git branch -d client<br>git branch -d server</p>
 <p><br></p>
-<h4 id="Git—rebase风险"><a href="#Git—rebase风险" class="headerlink" title="Git—rebase风险"></a>Git—rebase风险</h4><table>
+<ul>
+<li>Git—rebase风险</li>
+</ul>
+<table>
 <thead>
 <tr>
 <th>分支的合并 — rebase的风险</th>
@@ -365,7 +358,9 @@
 </tbody>
 </table>
 <p><br></p>
-<p>==#### Git分支—远端同步==</p>
+<ul>
+<li>Git分支—远端同步</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -609,6 +604,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">性能</a>
               </li>
              
@@ -618,14 +621,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">lavas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
