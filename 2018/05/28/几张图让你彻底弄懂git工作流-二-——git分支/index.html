@@ -6,24 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xiaodian-li.github.io">
-  <title>几张图让你彻底弄懂git工作流(一) | Li_xiaodian&#39;s personal blog</title>
+  <title>几张图让你彻底弄懂git工作流(二) ——git分支 | Li_xiaodian&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前提：现在好多开发者都用git作为版本控制，虽然很多人都在用，但是并不是所有人都知道为什么这样用。 git简史git属于分布式版本控制，客户端并不只是提取最新版本文件快照，而是把代码仓库完整的镜像下来每一次的提交操作都是对代码仓库的完整备份">
+  <meta name="description" content="上篇文章已经说了Git简史以及Git基础，那么这篇文章简单总结下Git分支 Git分支==#### Git分支==分支其实就是从某个提交对象往回看的历史 | 文字描述—|— | Git中的分支，本质上就是个指向master对象的可变指针，master为默认分支，每次提交都会向前移动">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="几张图让你彻底弄懂git工作流(一)">
-<meta property="og:url" content="https://xiaodian-li.github.io/2018/05/18/几张图让你彻底弄懂git工作流-一/index.html">
+<meta property="og:title" content="几张图让你彻底弄懂git工作流(二) ——git分支">
+<meta property="og:url" content="https://xiaodian-li.github.io/2018/05/28/几张图让你彻底弄懂git工作流-二-——git分支/index.html">
 <meta property="og:site_name" content="Li_xiaodian&#39;s personal blog">
-<meta property="og:description" content="前提：现在好多开发者都用git作为版本控制，虽然很多人都在用，但是并不是所有人都知道为什么这样用。 git简史git属于分布式版本控制，客户端并不只是提取最新版本文件快照，而是把代码仓库完整的镜像下来每一次的提交操作都是对代码仓库的完整备份">
+<meta property="og:description" content="上篇文章已经说了Git简史以及Git基础，那么这篇文章简单总结下Git分支 Git分支==#### Git分支==分支其实就是从某个提交对象往回看的历史 | 文字描述—|— | Git中的分支，本质上就是个指向master对象的可变指针，master为默认分支，每次提交都会向前移动">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git1.png">
-<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git2.png">
-<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git3.png">
-<meta property="og:updated_time" content="2018-05-18T11:05:29.079Z">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git4.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git5.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git20.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git21.png">
+<meta property="og:updated_time" content="2018-05-28T03:43:58.654Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="几张图让你彻底弄懂git工作流(一)">
-<meta name="twitter:description" content="前提：现在好多开发者都用git作为版本控制，虽然很多人都在用，但是并不是所有人都知道为什么这样用。 git简史git属于分布式版本控制，客户端并不只是提取最新版本文件快照，而是把代码仓库完整的镜像下来每一次的提交操作都是对代码仓库的完整备份">
-<meta name="twitter:image" content="http://images.daojia.com/assets/other/images/gitimg/git1.png">
+<meta name="twitter:title" content="几张图让你彻底弄懂git工作流(二) ——git分支">
+<meta name="twitter:description" content="上篇文章已经说了Git简史以及Git基础，那么这篇文章简单总结下Git分支 Git分支==#### Git分支==分支其实就是从某个提交对象往回看的历史 | 文字描述—|— | Git中的分支，本质上就是个指向master对象的可变指针，master为默认分支，每次提交都会向前移动">
+<meta name="twitter:image" content="http://images.daojia.com/assets/other/images/gitimg/git4.png">
   
     <link rel="alternative" href="/atom.xml" title="Li_xiaodian&#39;s personal blog" type="application/atom+xml">
   
@@ -146,91 +147,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-几张图让你彻底弄懂git工作流-一" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-几张图让你彻底弄懂git工作流-二-——git分支" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      几张图让你彻底弄懂git工作流(一)
+      几张图让你彻底弄懂git工作流(二) ——git分支
     </h1>
   
 
         
-        <a href="/2018/05/18/几张图让你彻底弄懂git工作流-一/" class="archive-article-date">
-  	<time datetime="2018-05-18T10:57:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-18</time>
+        <a href="/2018/05/28/几张图让你彻底弄懂git工作流-二-——git分支/" class="archive-article-date">
+  	<time datetime="2018-05-28T03:40:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前提：现在好多开发者都用git作为版本控制，虽然很多人都在用，但是并不是所有人都知道为什么这样用。</p>
-<h1 id="git简史"><a href="#git简史" class="headerlink" title="git简史"></a>git简史</h1><p>git属于分布式版本控制，客户端并不只是提取最新版本文件快照，而是把代码仓库完整的镜像下来<br>每一次的提交操作都是对代码仓库的完整备份 <br><a id="more"></a></p>
-<h5 id="1-git使命"><a href="#1-git使命" class="headerlink" title="1.git使命"></a>1.git使命</h5><p>Git在设计之初就是为了搞定linux内核这种巨无霸而设计的，所以制定了自己的使命  </p>
-<ul>
-<li>速度</li>
-<li>简单的设计</li>
-<li>对非线性开发模式的强力支持（允许成千上万个并行开发的分支）</li>
-<li>完全分布式</li>
-<li>有能力高效管理类似Linux内核一样的超大规模项目（速度和数据量）<h5 id="2-git优点"><a href="#2-git优点" class="headerlink" title="2.git优点"></a>2.git优点</h5>Git作为分布式版本控制的代表，优点如下：  </li>
-<li>快</li>
-<li>本地仓库</li>
-<li>轻量级分支</li>
-<li>分布式</li>
-<li>各种工作流<h5 id="3-谁在使用"><a href="#3-谁在使用" class="headerlink" title="3.谁在使用"></a>3.谁在使用</h5>经过10多年的发展，目前绝大部分开源项目都在使用Git，目前Git已经处于霸主地位</li>
-<li>Git</li>
-<li>Linux Kernel</li>
-<li>Eclipse</li>
-<li>Perl</li>
-<li>Android</li>
-<li>TypeScript</li>
-<li>webkit</li>
-</ul>
-<h1 id="git基础"><a href="#git基础" class="headerlink" title="git基础"></a>git基础</h1><table>
-<thead>
-<tr>
-<th>文件流转</th>
-<th>文字描述（取）</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="http://images.daojia.com/assets/other/images/gitimg/git1.png" alt=""></td>
-<td><strong>文件三种状态</strong>:<br>==已提交（committed)==–该文件已经被安全地保存在本地数据库中 &amp; ==已修改（modified)==–修改了某个文件,没提交保存 &amp; ==已暂存（staged）==–已修改的文件放在下次提交时要保存的清单中<br><strong>每个项目都有一个 Git 目录</strong>:<br>git clone 下的.git目录就是，每次克隆镜像仓库时，实际拷贝的是.git目录里面的数据<br><strong>文件流转的三个工作区域</strong>:<br>工作目录–从项目中取出某个版本的所有文件和目录,开始后续工作<br>暂存区域–简单文件，一般放在.git目录中<br><strong>基本的 Git 工作流程（左图）:</strong><br>在工作目录中修改某些文件。对修改后的文件进行快照，然后保存到暂存区域。提交更新，将保存在暂存区域的文件快照永久转储到 Git 目录中。</td>
-</tr>
-</tbody>
-</table>
+        <p>上篇文章已经说了Git简史以及Git基础，那么这篇文章简单总结下Git分支</p>
+<h1 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h1><p>==#### Git分支==<br>分支其实就是从某个提交对象往回看的历史 | 文字描述<br>—|—<br><img src="http://images.daojia.com/assets/other/images/gitimg/git4.png" alt=""> | Git中的分支，本质上就是个指向master对象的可变指针，master为默认分支，每次提交都会向前移动<br><a id="more"></a><br><br></p>
 <table>
 <thead>
 <tr>
-<th>文件状态</th>
-<th>文字描述（修）</th>
+<th>多个分支指向提交数据的历史</th>
+<th>文字描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><img src="http://images.daojia.com/assets/other/images/gitimg/git2.png" alt=""></td>
-<td><strong>工作目录下的文件状态</strong>:<br>已跟踪：本来纳入版本控制管理文件，上次快照中有他们的记录，工作一段时间状态可能是未更新，已修改，已放在暂缓区<br>未跟中（除已跟踪）：既没有上次更新时的快照，也不在当前的暂存区域<br>第一次克隆仓库时工作目录所有的文件属于已跟踪，未修改<br><strong>相关状态命令</strong><br> git status检查当前文件状态<br>git add 跟踪新文件<br>cat .gitignore .[oa] Git 忽略所有以 .o 或 .a 结尾的文件<br>git diff查看尚未暂存的文件更新了哪些<br>git diff –cached 查看已经暂存起来的变化<br>git commit提交更新<br>git rm从已跟踪文件清单中移除<br>git mv from to移动文件===mv A B , rmA ,git addB<br><strong>Git 时的文件状态变化周期（左图）:</strong><br>在编辑过某些文件之后，Git 将这些文件标为已修改。我们逐步把这些修改过的文件放到暂存区域，直到最后一次性提交所有这些暂存起来的文件，如此重复。</td>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git5.png" alt=""></td>
+<td>Git创建一个新分支指针从而创建分支，创建testing命令<br><figure class="highlight plain"><figcaption><span>branch testing```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">HEAD 指向当前所在的分支 | 文字描述</span><br><span class="line">---|---</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git6.png) | Git因为保存一个名为HEAD的指针，它指向正在工作中本地分支指针&lt;br&gt;```git branch```仅是创建新分支，但不会自动切换分支中去（如图还在master上）</span><br><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">HEAD 在你转换分支时指向新的分支 | 文字描述</span><br><span class="line">---|---</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git7.png) | 运行```git checkout testing```HEAD就指向testing分支了</span><br><span class="line"></span><br><span class="line">每次提交后 HEAD 随着分支一起向前移动 | 文字描述</span><br><span class="line">---|---</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git8.png) | 左图是又提交一次的结果，每次提交后HEAD随着分支一起向前移动&lt;br&gt;但master仍指向原来```git checkout```时所在的commit对象。再次执行```git checkout master```HEAD才会指向master</span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">==#### Git—merge==</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">分支的合并 — merge #1 | 文字描述</span><br><span class="line">---|---</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git10.png)  | **1. #53是第一滴修补问题的分支**&lt;br&gt;```git chackout -b iss53``` === ```git branch iss53```+```git checkout iss53```&lt;br&gt;**2.假如接到紧急任务**，这时候就不必花费大力气来复原这些修改，执行```git checkout master```创建紧急修补分支```git checkout -b hotfix```&lt;br&gt;**3.hotfix分支**是从master分支所在点分化出来的</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git11.png) | **1.测试成功后**回到master把它合并起来，然后发布服务器，命令为```git checkout master``` ```git merge hotfix``` 合并会出现“Fast forward”的提示&lt;br&gt;**2.因为**是master并入hotfix的直接上游，只需master指针右移动（顺着走）称为快进&lt;br&gt;**3.合并之后**，master 分支和 hotfix 分支指向同一位置</span><br><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">分支的合并 — merge #2 | 文字描述</span><br><span class="line">---|---</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git12.png) | 1.现在回来处理iss53，完成后合并回master,不同于hotfix,开发历史从早的地方开始分叉的&lt;br&gt;2.master-&gt;c4，git额外处理为找到共同祖先C2简单三方合并</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git13.png) | 三方合并后的结果重新快照，并自动创建指向它的提交对象C6,可以看到C6有两个祖先&lt;br&gt;  (git自动创建了一个包含了合并结果的提交对象，自己裁决哪个共同祖先才是最佳合并基础，这和 CVS及Subversion（1.5 以后的版本不同)</span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">==#### Git—rebase==</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">分支的合并 — rebase #1 | header 2</span><br><span class="line">---|---</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git14.png) | 把一个分支中的修改整合到另一个分支的办法有两种：merge 和 rebase（衍合）&lt;br&gt;如左图：分叉到两个不同分支，又各自提交了更新</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git141.png) | 除了merge两个分支最新的公共祖先三方合并&lt;br&gt;另外就是C3的变化补丁在C4中重新打一遍-&gt;衍合&lt;br&gt;有了衍合可以把分支中提交的变化移到另一个分支重放一遍&lt;br&gt;（原理：回到共同祖先，根据当前分支（ex··）提交的对象C3,生成补丁然后以master最后提交的C4为新的出发点，逐个应用之前准备好的补丁文件，最后会生成一个新的合并提交对象（C3&apos;），master成直接下游）</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git15.png) | 回到master进行快进合并</span><br><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">分支的合并 — rebase #2 | 文字描述</span><br><span class="line">---|---</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git17.png)  | 从一个特性分支里再分出一个特性分支的历史&lt;br&gt;服务器端代码添加功能创建server提C3C4-&gt;从C3增加client分支并提C8C9-&gt;回server提C10</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git18.png) | 将特性分支上的另一个特性分支衍合到其他分支&lt;br&gt;一次软件发布中，我们决定先把客户端的修改并到主线中，而暂缓并入服务端软件的修改&lt;br&gt;```git rebase --onto master server client```&lt;br&gt;取出 client 分支，找出 client 分支和 server 分支的共同祖先之后的变化，然后把它们在 master 上重演一遍</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git16.png) | 快进 master 分支，使之包含 client 分支的变化&lt;br&gt;```git checkout master```&lt;br&gt;```git merge client</span><br></pre></td></tr></table></figure></td>
 </tr>
 </tbody>
 </table>
+<p><img src="http://images.daojia.com/assets/other/images/gitimg/git20.png" alt=""> | 在 master 分支上衍合 server 分支<br><figure class="highlight plain"><figcaption><span>rebase [主分支] [特性分支] ```命令会先取出特性分支 server，然后在主分支 master 上重演<br>```git rebase master server```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git201.png) | 最终的提交历史&lt;br&gt;快进主干分支 master&lt;br&gt;```git checkout master &amp;&amp; git merge server</span><br></pre></td></tr></table></figure></p>
+<p>现在 client 和 server 分支的变化都已经集成到主干分支来了，可以删掉它们了<br><figure class="highlight plain"><figcaption><span>branch -d client```  </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```git branch -d server</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<p>==#### Git—rebase风险==</p>
 <table>
 <thead>
 <tr>
-<th>存储快照</th>
-<th>文字描述（存）</th>
+<th>分支的合并 — rebase的风险</th>
+<th>文字描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><img src="http://images.daojia.com/assets/other/images/gitimg/git3.png" alt=""></td>
-<td><strong>直接记录快照，而非差异比较</strong>:<br>1.git并不保存前后变化的差异数据，更像是吧变化文件作快照后，记录在一个微型文件系统中。<br>2.每次提交更新时，它会纵览一遍所有文件的指纹信息并对文件作一快照，然后保存一个指向这次快照的索引。为提高性能，若文件没有变化，Git 不会再次保存，而只对上次保存的快照作一链接。<br><strong>近乎所有操作都是本地执行</strong>:<br>在Git中的绝大多数操作都只需要访问本地文件和资源，不用连网<br><strong>时刻保持数据完整性</strong>:<br>1.在保存到 Git 之前，所有数据都要进行内容的校验和（checksum）计算，并将此结果作为数据的唯一标识和索引<br>2.Git 的工作完全依赖于这类指纹字串，所以你会经常看到这样的哈希值。实际上，所有保存在 Git 数据库中的东西都是用此哈希值来作索引的，而不是靠文件名。<br>3.文件在传输时变得不完整，或者磁盘损坏导致文件数据缺失，Git 都能立即察觉。<br><strong>多数操作仅添加数据:</strong><br> Git 操作大多仅仅是把数据添加到数据库。</td>
+<td>把衍合当成一种在推送之前清理提交历史的手段，而且仅仅衍合那些尚未公开的提交对象，就没问题。</td>
+<td>如果衍合那些已经公开的提交对象，并且已经有人基于这些提交对象开展了后续开发工作的话，就会出现叫人沮丧的麻烦</td>
 </tr>
 </tbody>
 </table>
-<p><br><br>更多内容请查看《几张图让你彻底弄懂git工作流(二)》（未完）😊 </p>
+<p><br></p>
+<p>==#### Git分支—远端同步==</p>
+<table>
+<thead>
+<tr>
+<th>git分支 — 和远端同步</th>
+<th>文字描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git21.png" alt=""></td>
+<td>如左图箭头中命名所示即可与远端同步  </td>
+</tr>
+</tbody>
+</table>
+<p><br><br>更多内容请查看《几张图让你彻底弄懂git工作流(三)——git深入》😊 </p>
 
       
 
@@ -300,7 +287,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xiaodian-li.github.io/2018/05/18/几张图让你彻底弄懂git工作流-一/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xiaodian-li.github.io/2018/05/28/几张图让你彻底弄懂git工作流-二-——git分支/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -315,8 +302,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2018/05/17/PWA-LAVAS简述/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">pwa+lavas简述</div>
+    <a href="/2018/05/18/几张图让你彻底弄懂git工作流(一)——git简史与git基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">几张图让你彻底弄懂git工作流(一)——git简史与git基础</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -347,8 +334,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://xiaodian-li.github.io/2018/05/18/几张图让你彻底弄懂git工作流-一/", 
-    sourceId: "几张图让你彻底弄懂git工作流-一",
+    url: "https://xiaodian-li.github.io/2018/05/28/几张图让你彻底弄懂git工作流-二-——git分支/", 
+    sourceId: "几张图让你彻底弄懂git工作流-二-——git分支",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -357,7 +344,7 @@
   
 
   
-  <div id="SOHUCS" sid="几张图让你彻底弄懂git工作流-一" ></div> 
+  <div id="SOHUCS" sid="几张图让你彻底弄懂git工作流-二-——git分支" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -455,23 +442,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">性能</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pwa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">lavas</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,6 +451,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">css面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,6 +487,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">html面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pwa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">lavas</a>
               </li>
             
             <div class="clearfix"></div>
