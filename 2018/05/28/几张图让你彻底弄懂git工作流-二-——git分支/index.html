@@ -18,9 +18,23 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git4.png">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git5.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git6.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git7.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git8.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git10.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git11.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git12.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git13.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git14.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git141.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git15.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git17.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git18.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git16.png">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git20.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git201.png">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git21.png">
-<meta property="og:updated_time" content="2018-05-28T05:13:30.569Z">
+<meta property="og:updated_time" content="2018-05-28T05:16:38.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="几张图让你彻底弄懂git工作流(二) ——git分支">
 <meta name="twitter:description" content="上篇文章已经说了Git简史以及Git基础，那么这篇文章简单总结下Git分支 Git分支为了理解 Git 分支的实现方式,我们需要回顾一下,Git保存的不是文件差异或者变化量，而只是一系列文件快照.">
@@ -194,12 +208,147 @@
 <tbody>
 <tr>
 <td><img src="http://images.daojia.com/assets/other/images/gitimg/git5.png" alt=""></td>
-<td>Git创建一个新分支指针从而创建分支，创建testing命令<figure class="highlight plain"><figcaption><span>branch testing```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">HEAD 指向当前所在的分支 | 文字描述</span><br><span class="line">---|---</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git6.png) | Git因为保存一个名为HEAD的指针，它指向正在工作中本地分支指针&lt;br&gt;```git branch```仅是创建新分支，但不会自动切换分支中去（如图还在master上）</span><br><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">HEAD 在你转换分支时指向新的分支 | 文字描述</span><br><span class="line">---|---</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git7.png) | 运行```git checkout testing```HEAD就指向testing分支了</span><br><span class="line"></span><br><span class="line">每次提交后 HEAD 随着分支一起向前移动 | 文字描述</span><br><span class="line">---|---</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git8.png) | 左图是又提交一次的结果，每次提交后HEAD随着分支一起向前移动&lt;br&gt;但master仍指向原来```git checkout```时所在的commit对象。再次执行```git checkout master```HEAD才会指向master</span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">#### Git—merge</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">分支的合并 — merge #1 | 文字描述</span><br><span class="line">---|---</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git10.png)  | **1. #53是第一滴修补问题的分支**&lt;br&gt;```git chackout -b iss53``` === ```git branch iss53```+```git checkout iss53```&lt;br&gt;**2.假如接到紧急任务**，这时候就不必花费大力气来复原这些修改，执行```git checkout master```创建紧急修补分支```git checkout -b hotfix```&lt;br&gt;**3.hotfix分支**是从master分支所在点分化出来的</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git11.png) | **1.测试成功后**回到master把它合并起来，然后发布服务器，命令为```git checkout master``` ```git merge hotfix``` 合并会出现“Fast forward”的提示&lt;br&gt;**2.因为**是master并入hotfix的直接上游，只需master指针右移动（顺着走）称为快进&lt;br&gt;**3.合并之后**，master 分支和 hotfix 分支指向同一位置</span><br><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">分支的合并 — merge #2 | 文字描述</span><br><span class="line">---|---</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git12.png) | 1.现在回来处理iss53，完成后合并回master,不同于hotfix,开发历史从早的地方开始分叉的&lt;br&gt;2.master-&gt;c4，git额外处理为找到共同祖先C2简单三方合并</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git13.png) | 三方合并后的结果重新快照，并自动创建指向它的提交对象C6,可以看到C6有两个祖先&lt;br&gt;  (git自动创建了一个包含了合并结果的提交对象，自己裁决哪个共同祖先才是最佳合并基础，这和 CVS及Subversion（1.5 以后的版本不同)</span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">#### Git—rebase</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">分支的合并 — rebase #1 | header 2</span><br><span class="line">---|---</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git14.png) | 把一个分支中的修改整合到另一个分支的办法有两种：merge 和 rebase（衍合）&lt;br&gt;如左图：分叉到两个不同分支，又各自提交了更新</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git141.png) | 除了merge两个分支最新的公共祖先三方合并&lt;br&gt;另外就是C3的变化补丁在C4中重新打一遍-&gt;衍合&lt;br&gt;有了衍合可以把分支中提交的变化移到另一个分支重放一遍&lt;br&gt;（原理：回到共同祖先，根据当前分支（ex··）提交的对象C3,生成补丁然后以master最后提交的C4为新的出发点，逐个应用之前准备好的补丁文件，最后会生成一个新的合并提交对象（C3&apos;），master成直接下游）</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git15.png) | 回到master进行快进合并</span><br><span class="line"></span><br><span class="line">&lt;br&gt;</span><br><span class="line"></span><br><span class="line">分支的合并 — rebase #2 | 文字描述</span><br><span class="line">---|---</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git17.png)  | 从一个特性分支里再分出一个特性分支的历史&lt;br&gt;服务器端代码添加功能创建server提C3C4-&gt;从C3增加client分支并提C8C9-&gt;回server提C10</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git18.png) | 将特性分支上的另一个特性分支衍合到其他分支&lt;br&gt;一次软件发布中，我们决定先把客户端的修改并到主线中，而暂缓并入服务端软件的修改&lt;br&gt;```git rebase --onto master server client```&lt;br&gt;取出 client 分支，找出 client 分支和 server 分支的共同祖先之后的变化，然后把它们在 master 上重演一遍</span><br><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git16.png) | 快进 master 分支，使之包含 client 分支的变化&lt;br&gt;```git checkout master```&lt;br&gt;```git merge client</span><br></pre></td></tr></table></figure></td>
+<td>Git创建一个新分支指针从而创建分支，创建testing命令git branch testing</td>
 </tr>
 </tbody>
 </table>
-<p><img src="http://images.daojia.com/assets/other/images/gitimg/git20.png" alt=""> | 在 master 分支上衍合 server 分支<br><figure class="highlight plain"><figcaption><span>rebase [主分支] [特性分支] ```命令会先取出特性分支 server，然后在主分支 master 上重演<br>```git rebase master server```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![](http://images.daojia.com/assets/other/images/gitimg/git201.png) | 最终的提交历史&lt;br&gt;快进主干分支 master&lt;br&gt;```git checkout master &amp;&amp; git merge server</span><br></pre></td></tr></table></figure></p>
-<p>现在 client 和 server 分支的变化都已经集成到主干分支来了，可以删掉它们了<br><figure class="highlight plain"><figcaption><span>branch -d client```  </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```git branch -d server</span><br></pre></td></tr></table></figure></p>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>HEAD 指向当前所在的分支</th>
+<th>文字描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git6.png" alt=""></td>
+<td>Git因为保存一个名为HEAD的指针，它指向正在工作中本地分支指针<br>git branch仅是创建新分支，但不会自动切换分支中去（如图还在master上）</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>HEAD 在你转换分支时指向新的分支</th>
+<th>文字描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git7.png" alt=""></td>
+<td>运行git checkout testingHEAD就指向testing分支了</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>每次提交后 HEAD 随着分支一起向前移动</th>
+<th>文字描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git8.png" alt=""></td>
+<td>左图是又提交一次的结果，每次提交后HEAD随着分支一起向前移动<br>但master仍指向原来git checkout时所在的commit对象。再次执行git checkout masterHEAD才会指向master</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="Git—merge"><a href="#Git—merge" class="headerlink" title="Git—merge"></a>Git—merge</h4><table>
+<thead>
+<tr>
+<th>分支的合并 — merge #1</th>
+<th>文字描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git10.png" alt=""></td>
+<td><strong>1. #53是第一滴修补问题的分支</strong><br>git chackout -b iss53 === git branch iss53+git checkout iss53<br><strong>2.假如接到紧急任务</strong>，这时候就不必花费大力气来复原这些修改，执行git checkout master创建紧急修补分支git checkout -b hotfix<br><strong>3.hotfix分支</strong>是从master分支所在点分化出来的</td>
+</tr>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git11.png" alt=""></td>
+<td><strong>1.测试成功后</strong>回到master把它合并起来，然后发布服务器，命令为git checkout master git merge hotfix 合并会出现“Fast forward”的提示<br><strong>2.因为</strong>是master并入hotfix的直接上游，只需master指针右移动（顺着走）称为快进<br><strong>3.合并之后</strong>，master 分支和 hotfix 分支指向同一位置</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>分支的合并 — merge #2</th>
+<th>文字描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git12.png" alt=""></td>
+<td>1.现在回来处理iss53，完成后合并回master,不同于hotfix,开发历史从早的地方开始分叉的<br>2.master-&gt;c4，git额外处理为找到共同祖先C2简单三方合并</td>
+</tr>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git13.png" alt=""></td>
+<td>三方合并后的结果重新快照，并自动创建指向它的提交对象C6,可以看到C6有两个祖先<br>  (git自动创建了一个包含了合并结果的提交对象，自己裁决哪个共同祖先才是最佳合并基础，这和 CVS及Subversion（1.5 以后的版本不同)</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h4 id="Git—rebase"><a href="#Git—rebase" class="headerlink" title="Git—rebase"></a>Git—rebase</h4><table>
+<thead>
+<tr>
+<th>分支的合并 — rebase #1</th>
+<th>header 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git14.png" alt=""></td>
+<td>把一个分支中的修改整合到另一个分支的办法有两种：merge 和 rebase（衍合）<br>如左图：分叉到两个不同分支，又各自提交了更新</td>
+</tr>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git141.png" alt=""></td>
+<td>除了merge两个分支最新的公共祖先三方合并<br>另外就是C3的变化补丁在C4中重新打一遍-&gt;衍合<br>有了衍合可以把分支中提交的变化移到另一个分支重放一遍<br>（原理：回到共同祖先，根据当前分支（ex··）提交的对象C3,生成补丁然后以master最后提交的C4为新的出发点，逐个应用之前准备好的补丁文件，最后会生成一个新的合并提交对象（C3’），master成直接下游）</td>
+</tr>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git15.png" alt=""></td>
+<td>回到master进行快进合并</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th>分支的合并 — rebase #2</th>
+<th>文字描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git17.png" alt=""></td>
+<td>从一个特性分支里再分出一个特性分支的历史<br>服务器端代码添加功能创建server提C3C4-&gt;从C3增加client分支并提C8C9-&gt;回server提C10</td>
+</tr>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git18.png" alt=""></td>
+<td>将特性分支上的另一个特性分支衍合到其他分支<br>一次软件发布中，我们决定先把客户端的修改并到主线中，而暂缓并入服务端软件的修改<br>git rebase –onto master server client<br>取出 client 分支，找出 client 分支和 server 分支的共同祖先之后的变化，然后把它们在 master 上重演一遍</td>
+</tr>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git16.png" alt=""></td>
+<td>快进 master 分支，使之包含 client 分支的变化<br>git checkout master<br>git merge client</td>
+</tr>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git20.png" alt=""></td>
+<td>在 master 分支上衍合 server 分支<br>git rebase [主分支] [特性分支] 命令会先取出特性分支 server，然后在主分支 master 上重演<br>git rebase master server</td>
+</tr>
+<tr>
+<td><img src="http://images.daojia.com/assets/other/images/gitimg/git201.png" alt=""></td>
+<td>最终的提交历史<br>快进主干分支 master<br>git checkout master &amp;&amp; git merge server </td>
+</tr>
+</tbody>
+</table>
+<p>现在 client 和 server 分支的变化都已经集成到主干分支来了，可以删掉它们了<br>git branch -d client<br>git branch -d server</p>
 <p><br></p>
 <h4 id="Git—rebase风险"><a href="#Git—rebase风险" class="headerlink" title="Git—rebase风险"></a>Git—rebase风险</h4><table>
 <thead>
