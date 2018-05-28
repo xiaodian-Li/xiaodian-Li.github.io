@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="https://xiaodian-li.github.io">
   <title>几张图让你彻底弄懂git工作流(三) ——git深入 | Li_xiaodian&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前两篇文章分别说了git简史与git基础%E2%80%94%E2%80%94git%E7%AE%80%E5%8F%B2%E4%B8%8Egit%E5%9F%BA%E7%A1%80/)以及git分支，那么这篇文章开始简单描述一下git深入 Git深入在 Git 中提交时，会保存一个提交（commit）对象，该对象包含一个指向暂存内容快照的指针，包含本次提交的作者等相关附属信息，包含零个或多个指向该提">
+  <meta name="description" content="前两篇文章分别说了git简史与git基础以及git分支，那么这篇文章开始简单描述一下git深入 Git深入在 Git 中提交时，会保存一个提交（commit）对象，该对象包含一个指向暂存内容快照的指针，包含本次提交的作者等相关附属信息，包含零个或多个指向该提交对象的父对象指针：首次提交是没有直接祖先的，普通提交有一个祖先，由两个或多个分支合并产生的提交则有多个祖先">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="几张图让你彻底弄懂git工作流(三) ——git深入">
 <meta property="og:url" content="https://xiaodian-li.github.io/2018/05/28/几张图让你彻底弄懂git工作流-三-——git深入/index.html">
 <meta property="og:site_name" content="Li_xiaodian&#39;s personal blog">
-<meta property="og:description" content="前两篇文章分别说了git简史与git基础%E2%80%94%E2%80%94git%E7%AE%80%E5%8F%B2%E4%B8%8Egit%E5%9F%BA%E7%A1%80/)以及git分支，那么这篇文章开始简单描述一下git深入 Git深入在 Git 中提交时，会保存一个提交（commit）对象，该对象包含一个指向暂存内容快照的指针，包含本次提交的作者等相关附属信息，包含零个或多个指向该提">
+<meta property="og:description" content="前两篇文章分别说了git简史与git基础以及git分支，那么这篇文章开始简单描述一下git深入 Git深入在 Git 中提交时，会保存一个提交（commit）对象，该对象包含一个指向暂存内容快照的指针，包含本次提交的作者等相关附属信息，包含零个或多个指向该提交对象的父对象指针：首次提交是没有直接祖先的，普通提交有一个祖先，由两个或多个分支合并产生的提交则有多个祖先">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git22.png">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git231.png">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git232.png">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git23.png">
-<meta property="og:updated_time" content="2018-05-28T07:49:02.094Z">
+<meta property="og:updated_time" content="2018-05-28T07:54:14.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="几张图让你彻底弄懂git工作流(三) ——git深入">
-<meta name="twitter:description" content="前两篇文章分别说了git简史与git基础%E2%80%94%E2%80%94git%E7%AE%80%E5%8F%B2%E4%B8%8Egit%E5%9F%BA%E7%A1%80/)以及git分支，那么这篇文章开始简单描述一下git深入 Git深入在 Git 中提交时，会保存一个提交（commit）对象，该对象包含一个指向暂存内容快照的指针，包含本次提交的作者等相关附属信息，包含零个或多个指向该提">
+<meta name="twitter:description" content="前两篇文章分别说了git简史与git基础以及git分支，那么这篇文章开始简单描述一下git深入 Git深入在 Git 中提交时，会保存一个提交（commit）对象，该对象包含一个指向暂存内容快照的指针，包含本次提交的作者等相关附属信息，包含零个或多个指向该提交对象的父对象指针：首次提交是没有直接祖先的，普通提交有一个祖先，由两个或多个分支合并产生的提交则有多个祖先">
 <meta name="twitter:image" content="http://images.daojia.com/assets/other/images/gitimg/git22.png">
   
     <link rel="alternative" href="/atom.xml" title="Li_xiaodian&#39;s personal blog" type="application/atom+xml">
@@ -167,7 +167,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前两篇文章分别说了<a href="https://xiaodian-li.github.io/2018/05/18/%E5%87%A0%E5%BC%A0%E5%9B%BE%E8%AE%A9%E4%BD%A0%E5%BD%BB%E5%BA%95%E5%BC%84%E6%87%82git%E5%B7%A5%E4%BD%9C%E6%B5%81(%E4%B8%80">git简史与git基础</a>%E2%80%94%E2%80%94git%E7%AE%80%E5%8F%B2%E4%B8%8Egit%E5%9F%BA%E7%A1%80/)以及<a href="https://xiaodian-li.github.io/2018/05/28/%E5%87%A0%E5%BC%A0%E5%9B%BE%E8%AE%A9%E4%BD%A0%E5%BD%BB%E5%BA%95%E5%BC%84%E6%87%82git%E5%B7%A5%E4%BD%9C%E6%B5%81-%E4%BA%8C-%E2%80%94%E2%80%94git%E5%88%86%E6%94%AF/">git分支</a>，那么这篇文章开始简单描述一下git深入</p>
+        <p>前两篇文章分别说了<a href="https://xiaodian-li.github.io/2018/05/18/%E5%87%A0%E5%BC%A0%E5%9B%BE%E8%AE%A9%E4%BD%A0%E5%BD%BB%E5%BA%95%E5%BC%84%E6%87%82git%E5%B7%A5%E4%BD%9C%E6%B5%81-%E4%B8%80-%E2%80%94%E2%80%94git%E7%AE%80%E5%8F%B2%E4%B8%8Egit%E5%9F%BA%E7%A1%80.md/">git简史与git基础</a>以及<a href="https://xiaodian-li.github.io/2018/05/28/%E5%87%A0%E5%BC%A0%E5%9B%BE%E8%AE%A9%E4%BD%A0%E5%BD%BB%E5%BA%95%E5%BC%84%E6%87%82git%E5%B7%A5%E4%BD%9C%E6%B5%81-%E4%BA%8C-%E2%80%94%E2%80%94git%E5%88%86%E6%94%AF/">git分支</a>，那么这篇文章开始简单描述一下git深入</p>
 <h1 id="Git深入"><a href="#Git深入" class="headerlink" title="Git深入"></a>Git深入</h1><p>在 Git 中提交时，会保存一个提交（commit）对象，该对象包含一个指向暂存内容快照的指针，包含本次提交的作者等相关附属信息，包含零个或多个指向该提交对象的父对象指针：首次提交是没有直接祖先的，普通提交有一个祖先，由两个或多个分支合并产生的提交则有多个祖先  <a id="more"></a><br><br></p>
 <ul>
 <li>存储快照——仓库中的各个对象保存的数据和相互关系如下</li>
@@ -497,11 +497,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">异步</a>
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+                <a href="javascript:void(0)" class="js-tag color3">异步</a>
               </li>
              
               <li class="article-tag-list-item">
