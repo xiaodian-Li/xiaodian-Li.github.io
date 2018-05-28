@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="https://xiaodian-li.github.io">
   <title>几张图让你彻底弄懂git工作流(二) ——git分支 | Li_xiaodian&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="上篇文章已经说了Git简史以及Git基础，那么这篇文章简单总结下Git分支 Git分支==#### Git分支==分支其实就是从某个提交对象往回看的历史 | 文字描述—|— | Git中的分支，本质上就是个指向master对象的可变指针，master为默认分支，每次提交都会向前移动     多个分支指向提交数据的历史 文字描述      Git创建一个新分支指针从而创建分支，创建testing命令">
+  <meta name="description" content="上篇文章已经说了Git简史以及Git基础，那么这篇文章简单总结下Git分支 Git分支为了理解 Git 分支的实现方式,我们需要回顾一下,Git保存的不是文件差异或者变化量，而只是一系列文件快照.">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="几张图让你彻底弄懂git工作流(二) ——git分支">
 <meta property="og:url" content="https://xiaodian-li.github.io/2018/05/28/几张图让你彻底弄懂git工作流-二-——git分支/index.html">
 <meta property="og:site_name" content="Li_xiaodian&#39;s personal blog">
-<meta property="og:description" content="上篇文章已经说了Git简史以及Git基础，那么这篇文章简单总结下Git分支 Git分支==#### Git分支==分支其实就是从某个提交对象往回看的历史 | 文字描述—|— | Git中的分支，本质上就是个指向master对象的可变指针，master为默认分支，每次提交都会向前移动     多个分支指向提交数据的历史 文字描述      Git创建一个新分支指针从而创建分支，创建testing命令">
+<meta property="og:description" content="上篇文章已经说了Git简史以及Git基础，那么这篇文章简单总结下Git分支 Git分支为了理解 Git 分支的实现方式,我们需要回顾一下,Git保存的不是文件差异或者变化量，而只是一系列文件快照.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git4.png">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git5.png">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git20.png">
 <meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/git21.png">
-<meta property="og:updated_time" content="2018-05-28T03:47:25.457Z">
+<meta property="og:updated_time" content="2018-05-28T03:50:34.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="几张图让你彻底弄懂git工作流(二) ——git分支">
-<meta name="twitter:description" content="上篇文章已经说了Git简史以及Git基础，那么这篇文章简单总结下Git分支 Git分支==#### Git分支==分支其实就是从某个提交对象往回看的历史 | 文字描述—|— | Git中的分支，本质上就是个指向master对象的可变指针，master为默认分支，每次提交都会向前移动     多个分支指向提交数据的历史 文字描述      Git创建一个新分支指针从而创建分支，创建testing命令">
+<meta name="twitter:description" content="上篇文章已经说了Git简史以及Git基础，那么这篇文章简单总结下Git分支 Git分支为了理解 Git 分支的实现方式,我们需要回顾一下,Git保存的不是文件差异或者变化量，而只是一系列文件快照.">
 <meta name="twitter:image" content="http://images.daojia.com/assets/other/images/gitimg/git4.png">
   
     <link rel="alternative" href="/atom.xml" title="Li_xiaodian&#39;s personal blog" type="application/atom+xml">
@@ -168,7 +168,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>上篇文章已经说了Git简史以及Git基础，那么这篇文章简单总结下Git分支</p>
-<h1 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h1><p>==#### Git分支==<br>分支其实就是从某个提交对象往回看的历史 | 文字描述<br>—|—<br><img src="http://images.daojia.com/assets/other/images/gitimg/git4.png" alt=""> | Git中的分支，本质上就是个指向master对象的可变指针，master为默认分支，每次提交都会向前移动</p>
+<h1 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h1><p>为了理解 Git 分支的实现方式,我们需要回顾一下,<br>Git保存的不是文件差异或者变化量，而只是一系列文件快照.<br><a id="more"></a></p>
+<p>==#### Git分支==<br>分支其实就是从某个提交对象往回看的历史 | 文字描述<br>—|—<br><img src="http://images.daojia.com/assets/other/images/gitimg/git4.png" alt=""> | Git中的分支，本质上就是个指向master对象的可变指针，master为默认分支，每次提交都会向前移动</p>
 <p><br></p>
 <table>
 <thead>
@@ -487,11 +488,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">异步</a>
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调试</a>
+                <a href="javascript:void(0)" class="js-tag color3">异步</a>
               </li>
              
               <li class="article-tag-list-item">
