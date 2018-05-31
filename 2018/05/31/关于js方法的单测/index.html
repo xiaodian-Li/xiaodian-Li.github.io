@@ -6,24 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xiaodian-li.github.io">
-  <title>commit message 规范 | Li_xiaodian&#39;s personal blog</title>
+  <title>关于js方法的单测 | Li_xiaodian&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="(这段时间做项目发现，多人合作时或者查看自己修改的以前版本，即使描述很清晰，一天提交很多版本的情况下，也要逐一仔细查看变化，不是很直观)下面分享下这两天用的Commit message 的格式">
-<meta name="keywords" content="git">
+  <meta name="description" content="基于封装的js方法库，了解了chai.js断言库以及Mocha测试框架，下面我简单介绍记录一下，以方便自己回顾。 chai.jschai.js有两种风格的API,分别是BDD风格的expect/should的API，TDD风格的Assert的API，下面主要介绍BDD风格的API">
+<meta name="keywords" content="js,单测">
 <meta property="og:type" content="article">
-<meta property="og:title" content="commit message 规范">
-<meta property="og:url" content="https://xiaodian-li.github.io/2018/04/17/commit-message-规范/index.html">
+<meta property="og:title" content="关于js方法的单测">
+<meta property="og:url" content="https://xiaodian-li.github.io/2018/05/31/关于js方法的单测/index.html">
 <meta property="og:site_name" content="Li_xiaodian&#39;s personal blog">
-<meta property="og:description" content="(这段时间做项目发现，多人合作时或者查看自己修改的以前版本，即使描述很清晰，一天提交很多版本的情况下，也要逐一仔细查看变化，不是很直观)下面分享下这两天用的Commit message 的格式">
+<meta property="og:description" content="基于封装的js方法库，了解了chai.js断言库以及Mocha测试框架，下面我简单介绍记录一下，以方便自己回顾。 chai.jschai.js有两种风格的API,分别是BDD风格的expect/should的API，TDD风格的Assert的API，下面主要介绍BDD风格的API">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://images.daojia.com/assets/other/images/1.png">
-<meta property="og:image" content="https://images.daojia.com/assets/other/images/2.png">
-<meta property="og:image" content="https://images.daojia.com/assets/other/images/3.png">
-<meta property="og:updated_time" content="2018-05-17T08:12:34.608Z">
+<meta property="og:updated_time" content="2018-05-31T03:49:29.081Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="commit message 规范">
-<meta name="twitter:description" content="(这段时间做项目发现，多人合作时或者查看自己修改的以前版本，即使描述很清晰，一天提交很多版本的情况下，也要逐一仔细查看变化，不是很直观)下面分享下这两天用的Commit message 的格式">
-<meta name="twitter:image" content="https://images.daojia.com/assets/other/images/1.png">
+<meta name="twitter:title" content="关于js方法的单测">
+<meta name="twitter:description" content="基于封装的js方法库，了解了chai.js断言库以及Mocha测试框架，下面我简单介绍记录一下，以方便自己回顾。 chai.jschai.js有两种风格的API,分别是BDD风格的expect/should的API，TDD风格的Assert的API，下面主要介绍BDD风格的API">
   
     <link rel="alternative" href="/atom.xml" title="Li_xiaodian&#39;s personal blog" type="application/atom+xml">
   
@@ -146,56 +142,98 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-commit-message-规范" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-关于js方法的单测" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      commit message 规范
+      关于js方法的单测
     </h1>
   
 
         
-        <a href="/2018/04/17/commit-message-规范/" class="archive-article-date">
-  	<time datetime="2018-04-17T02:58:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-17</time>
+        <a href="/2018/05/31/关于js方法的单测/" class="archive-article-date">
+  	<time datetime="2018-05-31T03:47:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>(这段时间做项目发现，多人合作时或者查看自己修改的以前版本，即使描述很清晰，<br>一天提交很多版本的情况下，也要逐一仔细查看变化，不是很直观)<br>下面分享下这两天用的Commit message 的格式<br><a id="more"></a></p>
-<h3 id="1-对比"><a href="#1-对比" class="headerlink" title="1.对比"></a>1.对比</h3><table>
-<thead>
-<tr>
-<th>before</th>
-<th>after</th>
-<th>after</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://images.daojia.com/assets/other/images/1.png" alt="速运前端团队 &gt; commit message &gt; image2018-4-13 18:8:37.png"></td>
-<td><img src="https://images.daojia.com/assets/other/images/2.png" alt="速运前端团队 &gt; commit message &gt; image2018-4-13 18:8:37.png"></td>
-<td><img src="https://images.daojia.com/assets/other/images/3.png" alt="速运前端团队 &gt; commit message &gt; image2018-4-13 18:8:12.png"> </td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-前提："><a href="#2-前提：" class="headerlink" title="2.前提："></a>2.前提：</h3><p>每次本地代码改动提交到远程，需要注明提交说明，否则不允许提交到远程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;hello word&quot; // -m: 指定hello word</span><br></pre></td></tr></table></figure></p>
-<p>提交多行信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit // 跳出文本编辑器，写多行信息</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-commit-message-格式"><a href="#3-commit-message-格式" class="headerlink" title="3.commit message 格式"></a>3.commit message 格式</h3><p>每次提交，包括三个部分： header, body, footer<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt; // 必须</span><br><span class="line"></span><br><span class="line">				&lt;body&gt; // 可省略</span><br><span class="line"></span><br><span class="line">				&lt;footer&gt; // 可省略</span><br></pre></td></tr></table></figure></p>
-<p>解释：</p>
-<p>type: 提交类别（下面基本会覆盖提交代码所需，建议只出现下面7种类别，多了会更乱）</p>
-<p>feat：新功能（feature）<br>fix：修补bug<br>docs：文档（documentation）<br>style： 格式（不影响代码运行的变动）<br>refactor：重构（即不是新增功能，也不是修改bug的代码变动）<br>test：增加测试<br>chore：构建过程或辅助工具的变动<br>scope：影响范围（可不写）<br>subject：对改变的正常描述，最好以动词开头语（尽量详细，必填）<br>body：详细描述（个人认为没必要，可不写）<br>footer：修改不兼容变动以及关闭   Issue时（个人认为没必要，可不写）  </p>
-<h3 id="4-撰写合格-Commit-message-的工具—-Commitizen"><a href="#4-撰写合格-Commit-message-的工具—-Commitizen" class="headerlink" title="4.撰写合格 Commit message 的工具—-Commitizen"></a>4.撰写合格 Commit message 的工具—-Commitizen</h3><p>安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g commitizen</span><br></pre></td></tr></table></figure></p>
-<p>在项目目录里运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">commitizen init cz-conventional-changelog --save --save-exact</span><br></pre></td></tr></table></figure></p>
-<p>END： 以后凡是用git commit命令 就换成  git cz </p>
-<p>这样会自动提示以上几个类别</p>
-<h3 id="5-建议不必安装Commitizen工具，自己强制写几天就记住这七种类别了，安装校验反而积累"><a href="#5-建议不必安装Commitizen工具，自己强制写几天就记住这七种类别了，安装校验反而积累" class="headerlink" title="5.建议不必安装Commitizen工具，自己强制写几天就记住这七种类别了，安装校验反而积累"></a>5.建议不必安装Commitizen工具，自己强制写几天就记住这七种类别了，安装校验反而积累</h3><p><br></p>
+        <p>基于封装的js方法库，了解了chai.js断言库以及Mocha测试框架，下面我简单介绍记录一下，以方便自己回顾。</p>
+<h1 id="chai-js"><a href="#chai-js" class="headerlink" title="chai.js"></a>chai.js</h1><p>chai.js有两种风格的API,分别是BDD风格的expect/should的API，TDD风格的Assert的API，下面主要介绍BDD风格的API  <br><a id="more"></a></p>
+<h4 id="1-expect与should区别"><a href="#1-expect与should区别" class="headerlink" title="1.expect与should区别"></a>1.expect与should区别</h4><ul>
+<li>初始化断言方式，expect使用构造函数来创建断言对象实例，而should通过为Object.prototype新增方法来实现断言（所以should不支持IE）  </li>
+<li>expect直接指向chai.expect，而should则是chai.should()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var chai = require(&apos;chai&apos;) ,</span><br><span class="line">  expect = chai.expect ,</span><br><span class="line">  should = chai.should()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-工具库用到的相关api"><a href="#2-工具库用到的相关api" class="headerlink" title="2.工具库用到的相关api"></a>2.工具库用到的相关api</h4><ul>
+<li><p>.not对之后的断言取反</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">expect(foo).to.not.equal(&apos;bar&apos;)</span><br><span class="line">expect(goodFn).to.not.throw(Error)</span><br><span class="line">expect(&#123; foo: &apos;baz&apos;&#125;).to.have.property(&apos;foo&apos;)</span><br><span class="line">  .and.not.equal(&apos;bar&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>.any在keys断言之前使用any标记（与all相反）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expect(foo).to.have.any.keys(&apos;bar&apos;, &apos;baz&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>.all在keys断言之前使用all标（与any相反）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expect(foo).to.have.all.keys(&apos;bar&apos;, &apos;baz&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>.a(type) / .an(type)<br>type：String，被测试的值的类型<br>a和an断言即可作为语言链又可作为断言使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 类型断言</span><br><span class="line">expect(&apos;test&apos;).to.be.a(&apos;string&apos;);</span><br><span class="line">expect(&#123; foo: &apos;bar&apos; &#125;).to.be.an(&apos;object&apos;);</span><br><span class="line">// es6 overrides</span><br><span class="line">expect(&#123;[Symbol.toStringTag]:()=&gt;&apos;foo&apos;&#125;).to.be.a(&apos;foo&apos;);</span><br><span class="line"></span><br><span class="line">// language chain</span><br><span class="line">expect(foo).to.be.an.instanceof(Foo);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>.include(value) / contains(value)<br>value：Object | String | Number<br>include()和contains()即可作为属性类断言前缀语言链又可作为作为判断数组、字符串是否包含某值的断言使用。当作为语言链使用时，常用于key()断言之前</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">expect([1, 2, 3]).to.include(2)</span><br><span class="line">expect(&apos;foobar&apos;).to.include(&apos;bar&apos;)</span><br><span class="line">expect(&#123; foo: &apos;bar&apos;, hello: &apos;universe&apos; &#125;).to.include.keys(&apos;foo&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>.ok断言目标为真值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expect(1).to.be.ok</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>.true断言目标为true，注意，这里与ok的区别是不进行类型转换，只能为true才能通过断言</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">expect(true).to.be.true</span><br><span class="line">expect(1)to.not.be.true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>.false断言目标为false</p>
+</li>
+<li>.exist断言目标存在，即非null也非undefined<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var foo = &apos;hi&apos;,</span><br><span class="line">  bar = null,</span><br><span class="line">  baz</span><br><span class="line"></span><br><span class="line">expect(foo).to.exist</span><br><span class="line">expect(bar).to.not.exist</span><br><span class="line">expect(baz).to.not.exist</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Mocha测试框架"><a href="#Mocha测试框架" class="headerlink" title="Mocha测试框架"></a>Mocha测试框架</h1><h4 id="1-目录内部安装"><a href="#1-目录内部安装" class="headerlink" title="1.目录内部安装"></a>1.目录内部安装</h4><p>安装,先安装这个库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/ruanyf/mocha-demos.git</span><br></pre></td></tr></table></figure></p>
+<p>进入mocha-demos,安装依赖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd mocha-demos</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<h4 id="2-全面环境安装"><a href="#2-全面环境安装" class="headerlink" title="2.全面环境安装"></a>2.全面环境安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --global</span><br></pre></td></tr></table></figure>
+<h4 id="3-测试脚本写法"><a href="#3-测试脚本写法" class="headerlink" title="3.测试脚本写法"></a>3.测试脚本写法</h4><ul>
+<li>测试脚本与所要测试的源码脚本同名，但是后缀名为.test.js（表示测试）<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// add.js</span><br><span class="line">function add(x, y) &#123;</span><br><span class="line">  return x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">module.exports = add;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// add.test.js</span><br><span class="line">var add = require(&apos;./add.js&apos;);</span><br><span class="line">var expect = require(&apos;chai&apos;).expect;</span><br><span class="line"></span><br><span class="line">describe(&apos;加法函数的测试&apos;, function() &#123;</span><br><span class="line">  it(&apos;1 加 1 应该等于 2&apos;, function() &#123;</span><br><span class="line">    expect(add(1, 1)).to.be.equal(2);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>测试脚本里面应该包括一个或多个describe块，每个describe块应该包括一个或多个it块。  </p>
+<p>describe块称为”测试套件”（test suite），表示一组相关的测试。它是一个函数，第一个参数是测试套件的名称（”加法函数的测试”），第二个参数是一个实际执行的函数。  </p>
+<p>it块称为”测试用例”（test case），表示一个单独的测试，是测试的最小单位。它也是一个函数，第一个参数是测试用例的名称（”1 加 1 应该等于 2”），第二个参数是一个实际执行的函数。  </p>
+<h4 id="4-Mocha的基本用法"><a href="#4-Mocha的基本用法" class="headerlink" title="4.Mocha的基本用法"></a>4.Mocha的基本用法</h4><ul>
+<li><p>进入要测试的测试目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mocha add.test.js</span><br><span class="line"></span><br><span class="line">  加法函数的测试</span><br><span class="line">    ✓ 1 加 1 应该等于 2</span><br><span class="line"></span><br><span class="line">  1 passing (8ms)</span><br><span class="line">  </span><br><span class="line">上面表示1个测试脚本通过测试，耗时8毫秒</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mocha命令后面紧跟测试脚本的路径和文件名，可以指定多个测试脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mocha file1 file2 file3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mocha默认运行test目录下面的测试脚本，运行test目录里面不需要后接参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mocha</span><br><span class="line">运行test目录下所有脚本</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果test里面嵌套测试脚本，或者更深层的嵌套测试脚本，只需要执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mocha --recursive</span><br><span class="line">不管多少嵌套测试脚本，都执行</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="5-配置文件mocha-opts"><a href="#5-配置文件mocha-opts" class="headerlink" title="5.配置文件mocha.opts"></a>5.配置文件mocha.opts</h4><p>将这三个参数–recursive、–reporter tap、–growl写入test目录下的mocha.opts文件。<br>然后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mocha</span><br><span class="line">等于</span><br><span class="line">mocha --recursive --reporter tap --growl</span><br><span class="line"></span><br><span class="line">打开--growl参数，就会将测试结果在桌面显示</span><br><span class="line">打开--reporter参数用来指定测试报告的格式，默认是spec格式，js工具库用的tap格式  </span><br><span class="line">打开--recursive不管多少嵌套测试脚本，都执行</span><br></pre></td></tr></table></figure></p>
+<p>如果测试用例不是存放在test子目录，可以在mocha.opts写入以下内容。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server-tests</span><br><span class="line">--recursive</span><br></pre></td></tr></table></figure></p>
+<p>上面代码指定运行server-tests目录及其子目录之中的测试脚本</p>
+<h4 id="6-ES6测试"><a href="#6-ES6测试" class="headerlink" title="6.ES6测试"></a>6.ES6测试</h4><p>如果测试脚本是用ES6写的，那么运行测试之前，需要先用Babel转码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import add from &apos;../src/add.js&apos;;</span><br><span class="line">import chai from &apos;chai&apos;;</span><br><span class="line"></span><br><span class="line">let expect = chai.expect;</span><br><span class="line"></span><br><span class="line">describe(&apos;加法函数的测试&apos;, function() &#123;</span><br><span class="line">  it(&apos;1 加 1 应该等于 2&apos;, function() &#123;</span><br><span class="line">    expect(add(1, 1)).to.be.equal(2);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>ES6转码，需要安装Babel。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install babel-core babel-preset-es2015 --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>然后，在项目目录下面，新建一个.babelrc配置文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [ &quot;es2015&quot; ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>最后，使用–compilers参数指定测试脚本的转码器。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ../node_modules/mocha/bin/mocha --compilers js:babel-core/register</span><br></pre></td></tr></table></figure></p>
+<p>上面代码中，–compilers参数后面紧跟一个用冒号分隔的字符串，冒号左边是文件的后缀名，右边是用来处理这一类文件的模块名。<br>上面代码表示，运行测试之前，先用babel-core/register模块，处理一下.js文件。由于这里的转码器安装在项目内，所以要使用项目内安装的Mocha；如果转码器安装在全局，就可以使用全局的Mocha。</p>
+<p>下面是另外一个例子，使用Mocha测试CoffeeScript脚本。测试之前，先将.coffee文件转成.js文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mocha --compilers coffee:coffee-script/register</span><br></pre></td></tr></table></figure></p>
+<p>注意，Babel默认不会对Iterator、Generator、Promise、Map、Set等全局对象，以及一些全局对象的方法（比如Object.assign）转码。如果你想要对这些对象转码，就要安装babel-polyfill。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install babel-polyfill --save</span><br></pre></td></tr></table></figure></p>
+<p>然后，在你的脚本头部加上一行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &apos;babel-polyfill&apos;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
-<p>更多内容:<br><a href="https://lixiaoyu2017.github.io/" target="_blank" rel="noopener">https://lixiaoyu2017.github.io/</a><br>参考文章:<br> <a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html</a>  </p>
+<p>参考文章：<br><a href="http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html</a><br><a href="http://www.chaijs.com/api/bdd/" target="_blank" rel="noopener">http://www.chaijs.com/api/bdd/</a></p>
 </blockquote>
 
       
@@ -210,7 +248,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">单测</a>
         		</li>
       		
 		</ul>
@@ -222,7 +264,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/前端知识//" class="article-tag-list-link color5">前端知识</a>
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -277,7 +319,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xiaodian-li.github.io/2018/04/17/commit-message-规范/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xiaodian-li.github.io/2018/05/31/关于js方法的单测/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -291,18 +333,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/05/10/开发之余的心灵鸡汤/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          开发之余的心灵鸡汤
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/09/常用数组操作方法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">常用数组操作方法</div>
+    <a href="/2018/05/30/beta——js通用工具库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">beta——js通用工具库</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -333,8 +366,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://xiaodian-li.github.io/2018/04/17/commit-message-规范/", 
-    sourceId: "commit-message-规范",
+    url: "https://xiaodian-li.github.io/2018/05/31/关于js方法的单测/", 
+    sourceId: "关于js方法的单测",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -343,7 +376,7 @@
   
 
   
-  <div id="SOHUCS" sid="commit-message-规范" ></div> 
+  <div id="SOHUCS" sid="关于js方法的单测" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
