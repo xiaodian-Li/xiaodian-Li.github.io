@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://xiaodian-li.github.io">
   <title>关于js方法的单测 | Li_xiaodian&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基于封装的js方法库，了解了chai.js断言库以及Mocha测试框架，下面我简单介绍记录一下，以方便自己回顾。">
+  <meta name="description" content="基于封装的js方法库，了解了chai.js断言库以及Mocha测试框架，下面我简单介绍记录一下，以方便自己回顾。 chai.jschai.js有两种风格的API,分别是BDD风格的expect/should的API，TDD风格的Assert的API，下面主要介绍BDD风格的API">
 <meta name="keywords" content="js,单测">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于js方法的单测">
 <meta property="og:url" content="https://xiaodian-li.github.io/2018/05/31/关于js方法的单测/index.html">
 <meta property="og:site_name" content="Li_xiaodian&#39;s personal blog">
-<meta property="og:description" content="基于封装的js方法库，了解了chai.js断言库以及Mocha测试框架，下面我简单介绍记录一下，以方便自己回顾。">
+<meta property="og:description" content="基于封装的js方法库，了解了chai.js断言库以及Mocha测试框架，下面我简单介绍记录一下，以方便自己回顾。 chai.jschai.js有两种风格的API,分别是BDD风格的expect/should的API，TDD风格的Assert的API，下面主要介绍BDD风格的API">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-20T08:24:16.631Z">
+<meta property="og:updated_time" content="2018-06-20T08:31:01.001Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于js方法的单测">
-<meta name="twitter:description" content="基于封装的js方法库，了解了chai.js断言库以及Mocha测试框架，下面我简单介绍记录一下，以方便自己回顾。">
+<meta name="twitter:description" content="基于封装的js方法库，了解了chai.js断言库以及Mocha测试框架，下面我简单介绍记录一下，以方便自己回顾。 chai.jschai.js有两种风格的API,分别是BDD风格的expect/should的API，TDD风格的Assert的API，下面主要介绍BDD风格的API">
   
     <link rel="alternative" href="/atom.xml" title="Li_xiaodian&#39;s personal blog" type="application/atom+xml">
   
@@ -162,8 +162,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>基于封装的js方法库，了解了chai.js断言库以及Mocha测试框架，下面我简单介绍记录一下，以方便自己回顾。<br><a id="more"></a></p>
-<h1 id="chai-js"><a href="#chai-js" class="headerlink" title="chai.js"></a>chai.js</h1><p>chai.js有两种风格的API,分别是BDD风格的expect/should的API，TDD风格的Assert的API，下面主要介绍BDD风格的API </p>
+        <p>基于封装的js方法库，了解了chai.js断言库以及Mocha测试框架，下面我简单介绍记录一下，以方便自己回顾。</p>
+<h1 id="chai-js"><a href="#chai-js" class="headerlink" title="chai.js"></a>chai.js</h1><p>chai.js有两种风格的API,分别是BDD风格的expect/should的API，TDD风格的Assert的API，下面主要介绍BDD风格的API  <br><a id="more"></a></p>
 <h4 id="1-expect与should区别"><a href="#1-expect与should区别" class="headerlink" title="1.expect与should区别"></a>1.expect与should区别</h4><ul>
 <li>初始化断言方式，expect使用构造函数来创建断言对象实例，而should通过为Object.prototype新增方法来实现断言（所以should不支持IE）  </li>
 <li>expect直接指向chai.expect，而should则是chai.should()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var chai = require(&apos;chai&apos;) ,</span><br><span class="line">  expect = chai.expect ,</span><br><span class="line">  should = chai.should()</span><br></pre></td></tr></table></figure>

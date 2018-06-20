@@ -162,7 +162,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>（以下是自己在网络上总结的css基础面试题）<br>
+        <p>（以下是自己在网络上总结的css基础面试题）</p>
+<h3 id="class和id有什么不同？"><a href="#class和id有什么不同？" class="headerlink" title="class和id有什么不同？"></a>class和id有什么不同？</h3><ul>
+<li>id类名唯一，在页面中只能出现一次，更多地被用来实现宏伟布局和设计包含块，或包含框的样式。<br>id是先确定页面的结构和内容，然后再为它定义样式  </li>
+<li>class类名不唯一，被多次调用，先确定样式在确定结构和内容<br>
         
           <a class="article-more-a" href="/2017/12/25/css面试题总结/#more">还有更多 = = Read More >></a>
         
@@ -240,7 +243,7 @@
       
         <ul>
 <li>js的执行环境是单线程的（一次只能完成一个任务），好处简单，坏处耗时长容易卡死。  </li>
-<li>异步:是一个关于现在和将来的问题，现在执行的代码和将来执行的代码。在浏览器端，耗时很长的操作都应该异步执行，避免浏览器失去响应，最好的例子就是Ajax操作。  <br>
+<li>异步:是一个关于现在和将来的问题，现在执行的代码和将来执行的代码。在浏览器端，耗时很长的操作都应该异步执行，避免浏览器失去响应，最好的例子就是Ajax操作。<br>下面代码如果同步，打印a的值是确认的；但是如果异步，a有两种可能（看哪个请求先回来）<br>
         
           <a class="article-more-a" href="/2017/12/19/异步编程-事件循环event-loops-总结/#more">还有更多 = = Read More >></a>
         
@@ -419,7 +422,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="cookie产生"><a href="#cookie产生" class="headerlink" title="cookie产生"></a>cookie产生</h3><p>1.因为http是无保留状态，所以才会用到cookie，<br>
+        <h3 id="cookie产生"><a href="#cookie产生" class="headerlink" title="cookie产生"></a>cookie产生</h3><p>1.因为http是无保留状态，所以才会用到cookie，</p>
+<ul>
+<li>第一次客户端向服务端发送请求时，服务器端会生成cookie,<br>服务器端在响应中添加cookie返回，</li>
+<li>第二次客户端向服务器端发送请求时，客户端携带cookie后发送，<br>服务器检查cookie，最后响应。<br>
         
           <a class="article-more-a" href="/2017/11/16/cookie简单介绍/#more">还有更多 = = Read More >></a>
         
@@ -506,7 +512,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>(以下是http相关知识，在前端开发中知道这些基础的知识也是必要的，本文是根据图解http的小总结，希望可以帮助大家更好的理解http)<br>
+        <p>(以下是http相关知识，在前端开发中知道这些基础的知识也是必要的，本文是根据图解http的小总结，希望可以帮助大家更好的理解http)</p>
+<h2 id="了解Web及网络基础"><a href="#了解Web及网络基础" class="headerlink" title="了解Web及网络基础"></a>了解Web及网络基础</h2><p>1.相关概念：</p>
+<ul>
+<li>DNS:位于应用层，提供域名到IP地址之间的解析服务。<br>
         
           <a class="article-more-a" href="/2017/11/11/HTTP基础指南（图解http总结）/#more">还有更多 = = Read More >></a>
         
@@ -593,7 +602,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>(以下是入职以来，经常用到的一些命令，可以说是频繁，以此总结希望大家一起进步，在总结中收获成长)<br>
+        <p>(以下是入职以来，经常用到的一些命令，可以说是频繁，以此总结希望大家一起进步，在总结中收获成长)</p>
+<h5 id="远程有仓库，怎样才能拉下代码至本地-（相当于开始的初始化）"><a href="#远程有仓库，怎样才能拉下代码至本地-（相当于开始的初始化）" class="headerlink" title="远程有仓库，怎样才能拉下代码至本地 （相当于开始的初始化）"></a>远程有仓库，怎样才能拉下代码至本地 （相当于开始的初始化）</h5><p>这里以远程B仓库为例<br>
         
           <a class="article-more-a" href="/2017/11/09/git命令小结/#more">还有更多 = = Read More >></a>
         
