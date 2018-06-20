@@ -8,23 +8,23 @@
   <link rel="dns-prefetch" href="https://xiaodian-li.github.io">
   <title>css面试题总结 | Li_xiaodian&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="（以下是自己在网络上总结的css基础面试题） class和id有什么不同？ id类名唯一，在页面中只能出现一次，更多地被用来实现宏伟布局和设计包含块，或包含框的样式。id是先确定页面的结构和内容，然后再为它定义样式   class类名不唯一，被多次调用，先确定样式在确定结构和内容">
+  <meta name="description" content="（以下是自己在网络上总结的css基础面试题）">
 <meta name="keywords" content="css面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css面试题总结">
 <meta property="og:url" content="https://xiaodian-li.github.io/2017/12/25/css面试题总结/index.html">
 <meta property="og:site_name" content="Li_xiaodian&#39;s personal blog">
-<meta property="og:description" content="（以下是自己在网络上总结的css基础面试题） class和id有什么不同？ id类名唯一，在页面中只能出现一次，更多地被用来实现宏伟布局和设计包含块，或包含框的样式。id是先确定页面的结构和内容，然后再为它定义样式   class类名不唯一，被多次调用，先确定样式在确定结构和内容">
+<meta property="og:description" content="（以下是自己在网络上总结的css基础面试题）">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://minisite.daojia.com/assets/img/imgcss1.png">
 <meta property="og:image" content="https://minisite.daojia.com//assets/img/imgcss6.png">
 <meta property="og:image" content="https://minisite.daojia.com//assets/img/imgcss3.png">
 <meta property="og:image" content="https://minisite.daojia.com//assets/img/imgcss4.png">
 <meta property="og:image" content="https://minisite.daojia.com//assets/img/imgcss5.png">
-<meta property="og:updated_time" content="2017-12-25T06:56:44.000Z">
+<meta property="og:updated_time" content="2018-06-20T08:23:12.347Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css面试题总结">
-<meta name="twitter:description" content="（以下是自己在网络上总结的css基础面试题） class和id有什么不同？ id类名唯一，在页面中只能出现一次，更多地被用来实现宏伟布局和设计包含块，或包含框的样式。id是先确定页面的结构和内容，然后再为它定义样式   class类名不唯一，被多次调用，先确定样式在确定结构和内容">
+<meta name="twitter:description" content="（以下是自己在网络上总结的css基础面试题）">
 <meta name="twitter:image" content="https://minisite.daojia.com/assets/img/imgcss1.png">
   
     <link rel="alternative" href="/atom.xml" title="Li_xiaodian&#39;s personal blog" type="application/atom+xml">
@@ -168,11 +168,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>（以下是自己在网络上总结的css基础面试题）</p>
+        <p>（以下是自己在网络上总结的css基础面试题）<br><a id="more"></a></p>
 <h3 id="class和id有什么不同？"><a href="#class和id有什么不同？" class="headerlink" title="class和id有什么不同？"></a>class和id有什么不同？</h3><ul>
 <li>id类名唯一，在页面中只能出现一次，更多地被用来实现宏伟布局和设计包含块，或包含框的样式。<br>id是先确定页面的结构和内容，然后再为它定义样式  </li>
-<li>class类名不唯一，被多次调用，先确定样式在确定结构和内容<br><a id="more"></a>
-<h3 id="CSS-resetting和CSS-normalizing-有什么不同？你倾向于使用哪种方案？"><a href="#CSS-resetting和CSS-normalizing-有什么不同？你倾向于使用哪种方案？" class="headerlink" title="CSS resetting和CSS normalizing 有什么不同？你倾向于使用哪种方案？"></a>CSS resetting和CSS normalizing 有什么不同？你倾向于使用哪种方案？</h3></li>
+<li>class类名不唯一，被多次调用，先确定样式在确定结构和内容<h3 id="CSS-resetting和CSS-normalizing-有什么不同？你倾向于使用哪种方案？"><a href="#CSS-resetting和CSS-normalizing-有什么不同？你倾向于使用哪种方案？" class="headerlink" title="CSS resetting和CSS normalizing 有什么不同？你倾向于使用哪种方案？"></a>CSS resetting和CSS normalizing 有什么不同？你倾向于使用哪种方案？</h3></li>
 <li>normalize相对平和，注重通用方案，重置掉该重置的样式，保留有用的 user agent 样式，同时进行一些 bug 的修复，他是模块化的，有详细的文档</li>
 <li>Reset 相对暴力，不管你有没有用，统统重置成一样的效果，且影响的范围很大，讲求跨浏览器的一致性。<br>几乎所有的元素施加默认样式<h3 id="描述一下float，并解释一下它的作用方式？"><a href="#描述一下float，并解释一下它的作用方式？" class="headerlink" title="描述一下float，并解释一下它的作用方式？"></a>描述一下float，并解释一下它的作用方式？</h3>float属性定义了元素是否浮动及在哪个方向浮动,在CSS中任何元素都可以浮动，且浮动元素会生成一个块级框，而不论它本身是何种元素。并且盒子的宽度不在伸展，而是根据盒子里面的内容的宽度来确定。  浮动属性会使得浮动的元素脱离文档流，所以文档的普通流中的块框会表现的像浮动框不存在一样<h3 id="解释一下z-index和叠加上下文是如何形成的？"><a href="#解释一下z-index和叠加上下文是如何形成的？" class="headerlink" title="解释一下z-index和叠加上下文是如何形成的？"></a>解释一下z-index和叠加上下文是如何形成的？</h3>负边距 margin为负值时元素会依参考线向外偏移，没有计算好会折叠，position会发生折叠，且有z-index属性<br>同级元素的z-index值如果相同，则堆叠顺序由元素在文档中的先后位置决定，后出现的会在上面，<br>z-index值只决定同一父元素中的同级子元素的堆叠顺序。父元素的z-index值（如果有）为子元素定义了堆叠顺序（css版堆叠“拼爹”）<h3 id="解释一下BFC（block-formatting-context）和工作原理？"><a href="#解释一下BFC（block-formatting-context）和工作原理？" class="headerlink" title="解释一下BFC（block formatting context）和工作原理？"></a>解释一下BFC（block formatting context）和工作原理？</h3></li>
 <li>BFC（Block Formatting Context）直译为“块级格式化范围”</li>
@@ -442,15 +441,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http网络</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">css面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">modules.exports/exports</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单测</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,27 +485,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">modules.exports/exports</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">css面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">单测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,10 +502,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
               </li>
              
               <li class="article-tag-list-item">
