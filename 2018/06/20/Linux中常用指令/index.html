@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Li_xiaodian&#39;s personal blog">
 <meta property="og:description" content="自我认为，命令行虽然不够直观，但是能沿用至今，好处不言而喻，其中本人感触最深的就是快，方便，能用命令行解决的，尽量别手动敲">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-21T03:17:31.054Z">
+<meta property="og:updated_time" content="2018-06-21T03:19:34.081Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux中常用指令">
 <meta name="twitter:description" content="自我认为，命令行虽然不够直观，但是能沿用至今，好处不言而喻，其中本人感触最深的就是快，方便，能用命令行解决的，尽量别手动敲">
@@ -175,112 +175,16 @@
 <tr>
 <td>pwd</td>
 <td>查看当前工作目录</td>
-<td><code>pwd</code></td>
-<td></td>
-</tr>
-<tr>
-<td>ls</td>
-<td>列出当前目录中的子目录及文件</td>
-<td><code>ls</code></td>
-<td></td>
-</tr>
-<tr>
-<td>cd</td>
-<td>切换转到指定路径</td>
-<td><code>cd /folder</code></td>
-<td></td>
-</tr>
-<tr>
-<td>mkdir</td>
-<td>创建新的目录</td>
-<td><code>mkdir 123 /demo 权限为123的demo文件夹</code></td>
-<td></td>
-</tr>
-<tr>
-<td>touch</td>
-<td>创建新文件</td>
-<td><code>touch xiaodian.text</code></td>
-<td></td>
-</tr>
-<tr>
-<td>rm</td>
-<td>删除文件/文件夹</td>
-<td><code>rm -i file // 删除文件file，在删除之前会询问是否进行该操作</code><br> <code>rm -rf dir // 删除文件夹</code></td>
-<td></td>
-</tr>
-<tr>
-<td>file</td>
-<td>查看文件类型</td>
-<td><code>file a.js</code></td>
-<td></td>
-</tr>
-<tr>
-<td>cp</td>
-<td>复制文件/目录</td>
-<td><code>cp a.js b.js</code></td>
-<td></td>
-</tr>
-<tr>
-<td>mv</td>
-<td>移动文件/目录</td>
-<td><code>mv a.js b.js</code></td>
-<td></td>
-</tr>
-<tr>
-<td>which</td>
-<td>查看可执行文件的位置</td>
-<td><code>which 可执行文件名称</code></td>
-<td></td>
-</tr>
-<tr>
-<td>ln</td>
-<td>创建文件/目录的链接</td>
-<td><code>ln node-v6.2 node</code></td>
-<td></td>
-</tr>
-<tr>
-<td>find</td>
-<td>查找文件或目录</td>
-<td>/</td>
-<td></td>
+<td><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls | 列出当前目录中的子目录及文件 | ```ls</span><br></pre></td></tr></table></figure></td>
 </tr>
 </tbody>
 </table>
-<h3 id="内容查看命令"><a href="#内容查看命令" class="headerlink" title="内容查看命令"></a>内容查看命令</h3><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>简介</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>vi</td>
-<td>进入某个文件</td>
-<td><code>vi aaa.txt</code></td>
-<td></td>
-</tr>
-<tr>
-<td>vi-&gt;i</td>
-<td>进入文件后，编辑模式</td>
-<td>/</td>
-<td></td>
-</tr>
-<tr>
-<td>vi-&gt;ESC</td>
-<td>进入文件后，回到一般模式</td>
-<td>/</td>
-<td></td>
-</tr>
-<tr>
-<td>vi-&gt;:wq</td>
-<td>进入文件后，退出保存</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><br><br>（未完待续）</p>
+<p>cd | 切换转到指定路径 | <figure class="highlight plain"><figcaption><span>/folder```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir | 创建新的目录 | ```mkdir 123 /demo 权限为123的demo文件夹</span><br></pre></td></tr></table></figure></p>
+<p>touch | 创建新文件 | <figure class="highlight plain"><figcaption><span>xiaodian.text```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm | 删除文件/文件夹 | ```rm -i file // 删除文件file，在删除之前会询问是否进行该操作```&lt;br&gt; ```rm -rf dir // 删除文件夹</span><br></pre></td></tr></table></figure></p>
+<p>file | 查看文件类型 | <figure class="highlight plain"><figcaption><span>a.js```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp | 复制文件/目录 | ```cp a.js b.js</span><br></pre></td></tr></table></figure></p>
+<p>mv | 移动文件/目录 | <figure class="highlight plain"><figcaption><span>a.js b.js```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">which | 查看可执行文件的位置 | ```which 可执行文件名称</span><br></pre></td></tr></table></figure></p>
+<p>ln | 创建文件/目录的链接 | <figure class="highlight plain"><figcaption><span>node-v6.2 node ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">find | 查找文件或目录 | /</span><br><span class="line"></span><br><span class="line">### 内容查看命令</span><br><span class="line"></span><br><span class="line">命令 | 简介 | 示例</span><br><span class="line">---|---|---|</span><br><span class="line">vi | 进入某个文件 | ```vi aaa.txt</span><br></pre></td></tr></table></figure></p>
+<p>vi-&gt;i | 进入文件后，编辑模式 | /<br>vi-&gt;ESC | 进入文件后，回到一般模式 | /<br>vi-&gt;:wq | 进入文件后，退出保存<br><br><br>（未完待续）</p>
 
       
 
@@ -525,11 +429,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
