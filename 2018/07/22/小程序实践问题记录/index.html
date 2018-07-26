@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Li_xiaodian&#39;s personal blog">
 <meta property="og:description" content="1.开始添加项目，报错如下VM838:2 未找到入口 app.json 文件，或者文件读取失败，请检查后重新编译。原因的项目目录不对，只识别app,文件夹下不能有二级目录，什么配置以及docs都是自己加的 ，小程序不识别">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-26T07:05:25.935Z">
+<meta property="og:updated_time" content="2018-07-26T07:06:07.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序实践问题记录">
 <meta name="twitter:description" content="1.开始添加项目，报错如下VM838:2 未找到入口 app.json 文件，或者文件读取失败，请检查后重新编译。原因的项目目录不对，只识别app,文件夹下不能有二级目录，什么配置以及docs都是自己加的 ，小程序不识别">
@@ -198,9 +198,7 @@
 </ul>
 <p>在父组件接收使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在wxll中：</span><br><span class="line">bind:PayDetail=&apos;PayDetail&apos;</span><br><span class="line"></span><br><span class="line">在js中：</span><br><span class="line">PayDetail () &#123;</span><br><span class="line">    console.log(PayDetail具体方法内容)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="4-map下marker的气泡动态传入值？"><a href="#4-map下marker的气泡动态传入值？" class="headerlink" title="4.map下marker的气泡动态传入值？"></a>4.map下marker的气泡动态传入值？</h4><p>不在data里，在发布里利用ES6字符串模板动态添加</p>
-<h4 id="5-组件形式和vue如出一辙"><a href="#5-组件形式和vue如出一辙" class="headerlink" title="5.组件形式和vue如出一辙"></a>5.组件形式和vue如出一辙</h4><p>需要注意text标签，合并写分开写的不同，分开写默认空行会解析，并不是传统的行级标签  </p>
-<p>如下lixiaodian<br>一行展示为<br>lixiaodian  </p>
-<p>在li处换行展示为<br>li<br>xiaodian</p>
+<h4 id="5-组件形式和vue如出一辙"><a href="#5-组件形式和vue如出一辙" class="headerlink" title="5.组件形式和vue如出一辙"></a>5.组件形式和vue如出一辙</h4><p>需要注意text标签，合并写分开写的不同，分开写默认空行会解析，并不是传统的行级标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">如下lixiaodian  </span><br><span class="line">一行展示为</span><br><span class="line">lixiaodian  </span><br><span class="line"></span><br><span class="line">在li处换行展示为  </span><br><span class="line">li</span><br><span class="line">xiaodian</span><br></pre></td></tr></table></figure></p>
 <h4 id="6-微信的滑块视图容器swiper组件"><a href="#6-微信的滑块视图容器swiper组件" class="headerlink" title="6.微信的滑块视图容器swiper组件"></a>6.微信的滑块视图容器swiper组件</h4><p>一个swiper会嵌套swiper-item，横向有几个就套几个swiper-item，  </p>
 <p>but  </p>
 <p>当纵向是列表时，ios8,9,10会出现swiper-item里的所有内容是150px;并出现滚动条， 下方留白，目前微信并没有修复这个问题  </p>
