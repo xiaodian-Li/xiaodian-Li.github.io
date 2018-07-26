@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Li_xiaodian&#39;s personal blog">
 <meta property="og:description" content="1.开始添加项目，报错如下VM838:2 未找到入口 app.json 文件，或者文件读取失败，请检查后重新编译。原因的项目目录不对，只识别app,文件夹下不能有二级目录，什么配置以及docs都是自己加的 ，小程序不识别">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-26T06:45:54.706Z">
+<meta property="og:updated_time" content="2018-07-26T06:49:28.290Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序实践问题记录">
 <meta name="twitter:description" content="1.开始添加项目，报错如下VM838:2 未找到入口 app.json 文件，或者文件读取失败，请检查后重新编译。原因的项目目录不对，只识别app,文件夹下不能有二级目录，什么配置以及docs都是自己加的 ，小程序不识别">
@@ -165,10 +165,16 @@
         <h4 id="1-开始添加项目，报错如下VM838-2-未找到入口-app-json-文件，或者文件读取失败，请检查后重新编译。"><a href="#1-开始添加项目，报错如下VM838-2-未找到入口-app-json-文件，或者文件读取失败，请检查后重新编译。" class="headerlink" title="1.开始添加项目，报错如下VM838:2 未找到入口 app.json 文件，或者文件读取失败，请检查后重新编译。"></a>1.开始添加项目，报错如下VM838:2 未找到入口 app.json 文件，或者文件读取失败，请检查后重新编译。</h4><p>原因的项目目录不对，只识别app,文件夹下不能有二级目录，什么配置以及docs都是自己加的 ，小程序不识别 <br><a id="more"></a></p>
 <h4 id="2-地图开发"><a href="#2-地图开发" class="headerlink" title="2.地图开发"></a>2.地图开发</h4><p>2-0.map等组件是由客户端创建的原生组件，层级最高，不能通过z-index控制层级覆盖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cover-view、cover-image 只有这两个可以在地图层级之上。</span><br><span class="line"></span><br><span class="line">1.9.0之下，上述两个标签只能嵌套在 map 等原生组件里面，以后的版本可以嵌套在view组件之上</span><br><span class="line"></span><br><span class="line">cover-view嵌套在map组件中时，宽高超过map的宽高的时候，会被剪切。</span><br></pre></td></tr></table></figure></p>
 <h4 id="2-1-地图满屏：-设置width：-100-；-height：100-不管用"><a href="#2-1-地图满屏：-设置width：-100-；-height：100-不管用" class="headerlink" title="2-1.地图满屏： 设置width： 100%； height：100% 不管用"></a>2-1.地图满屏： 设置width： 100%； height：100% 不管用</h4><p>这时候用，整个屏幕默认满屏为100vh;所以将地图的高度设置为100vh宽度设置为100% 即width： 100%； height：100vh即可 </p>
-<p>2-2.覆盖在原生组件之上的文本视图，可覆盖的原生组件包括map、video、canvas、camera、live-player、live-pusher，只支持嵌套cover-view、cover-image</p>
-<p>2-3.我也不知道经纬度中心设置之后，markers开始不显示，</p>
+<ul>
+<li><p>覆盖在原生组件之上的文本视图，可覆盖的原生组件包括map、video、canvas、camera、live-player、live-pusher，只支持嵌套cover-view、cover-image</p>
+</li>
+<li><p>我也不知道经纬度中心设置之后，markers开始不显示，</p>
+</li>
+</ul>
 <p>到最后就好了，不知道是缓存还是因为我设置的marker标记点离中心点太远，我没看见——–待解</p>
-<p>2-4.其他看文档就很详细</p>
+<ul>
+<li>其他看文档就很详细</li>
+</ul>
 <h4 id="3-点击事件"><a href="#3-点击事件" class="headerlink" title="3.点击事件"></a>3.点击事件</h4><ul>
 <li><p>事件是视图层到逻辑层的通信方式</p>
 </li>
@@ -193,15 +199,15 @@
 <p>在父组件接收使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在wxll中：</span><br><span class="line">bind:PayDetail=&apos;PayDetail&apos;</span><br><span class="line"></span><br><span class="line">在js中：</span><br><span class="line">PayDetail () &#123;</span><br><span class="line">    console.log(PayDetail具体方法内容)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="4-map下marker的气泡动态传入值？"><a href="#4-map下marker的气泡动态传入值？" class="headerlink" title="4.map下marker的气泡动态传入值？"></a>4.map下marker的气泡动态传入值？</h4><p>不在data里，在发布里利用ES6字符串模板动态添加</p>
 <h4 id="5-组件形式和vue如出一辙"><a href="#5-组件形式和vue如出一辙" class="headerlink" title="5.组件形式和vue如出一辙"></a>5.组件形式和vue如出一辙</h4><p>需要注意<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如下</span><br></pre></td></tr></table></figure></p>
-<p><text>lixiaodian</text><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">展示为</span><br></pre></td></tr></table></figure></p>
-<p>lixiaodian<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如下</span><br></pre></td></tr></table></figure></p>
-<p><text>li<br>xiaodian</text><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">li</span><br><span class="line">xiaodian</span><br></pre></td></tr></table></figure></p>
-<h4 id="6-微信的滑块视图容器swiper组件"><a href="#6-微信的滑块视图容器swiper组件" class="headerlink" title="6.微信的滑块视图容器swiper组件"></a>6.微信的滑块视图容器swiper组件</h4><p>一个swiper会嵌套swiper-item，横向有几个就套几个swiper-item，  </p>
-<p>but  </p>
-<p>当纵向是列表时，ios8,9,10会出现swiper-item里的所有内容是150px;并出现滚动条， 下方留白，目前微信并没有修复这个问题  </p>
-<p>暂时解决，不用swiper，自己用view写，缺点是少了过度动画，但是加上wx.loading会好很多</p>
-<h4 id="7-判断条件"><a href="#7-判断条件" class="headerlink" title="7.判断条件"></a>7.判断条件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wx:if ==&gt; v-if // 保条件块在切换时销毁或重新渲染</span><br><span class="line">wx:elif</span><br><span class="line">wx:else</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">hidden=&apos;&#123;&#123;haveOrders&#125;&#125;&apos;  ==&gt; v-show // 组件始终会被渲染，只是简单的控制显示与隐藏。 判断如果haveOrders是不展示，用于多种状态是很好选择</span><br></pre></td></tr></table></figure>
-<h4 id="8、-lt-block-gt"><a href="#8、-lt-block-gt" class="headerlink" title="8、&lt;block/&gt;"></a>8、<code>&lt;block/&gt;</code></h4><p>并不是一个组件，它仅仅是一个包装元素，不会在页面中做任何渲染，只接受控制属性。</p>
+<text>lixiaodian</text>
+
+<p>展示为<br>lixiaodian<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如下</span><br></pre></td></tr></table></figure></p>
+<text>li<br>xiaodian</text>
+
+<p>展示为<br>li<br>xiaodian<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 6.微信的滑块视图容器swiper组件</span><br><span class="line">一个swiper会嵌套swiper-item，横向有几个就套几个swiper-item，  </span><br><span class="line"></span><br><span class="line">but  </span><br><span class="line"></span><br><span class="line">当纵向是列表时，ios8,9,10会出现swiper-item里的所有内容是150px;并出现滚动条， 下方留白，目前微信并没有修复这个问题  </span><br><span class="line"></span><br><span class="line">暂时解决，不用swiper，自己用view写，缺点是少了过度动画，但是加上wx.loading会好很多</span><br><span class="line"></span><br><span class="line">#### 7.判断条件</span><br></pre></td></tr></table></figure></p>
+<p>wx:if ==&gt; v-if // 保条件块在切换时销毁或重新渲染<br>wx:elif<br>wx:else</p>
+<p>hidden=’‘  ==&gt; v-show // 组件始终会被渲染，只是简单的控制显示与隐藏。 判断如果haveOrders是不展示，用于多种状态是很好选择<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"></span><br><span class="line">#### 8、```&lt;block/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>并不是一个组件，它仅仅是一个包装元素，不会在页面中做任何渲染，只接受控制属性。</p>
 <h4 id="9-写法"><a href="#9-写法" class="headerlink" title="9.写法"></a>9.写法</h4><p>wx:if这种需要有双大括号， 事件不需要，定义的文本需要</p>
 <h4 id="10-列表切换可以在请求前加wx-showLoading提升体验"><a href="#10-列表切换可以在请求前加wx-showLoading提升体验" class="headerlink" title="10.列表切换可以在请求前加wx.showLoading提升体验"></a>10.列表切换可以在请求前加wx.showLoading提升体验</h4><h4 id="11-组件中使用slot插槽"><a href="#11-组件中使用slot插槽" class="headerlink" title="11.组件中使用slot插槽"></a>11.组件中使用slot插槽</h4><p>插槽的样式需要定义在组件调用的页面；并且在开发工具上看可能样式没有生效，在真机上看看。开发工具上显示的节点树有问题，如果真机上还不对，那可能是真的出问题了。</p>
 <h4 id="12-小程序接入高德地图"><a href="#12-小程序接入高德地图" class="headerlink" title="12.小程序接入高德地图"></a>12.小程序接入高德地图</h4><p>在真机上预览时，需要打开调试（放开url校验），否则地图不能正常显示</p>
@@ -454,7 +460,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -466,11 +472,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">单测</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -479,6 +481,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">modules.exports/exports</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单测</a>
               </li>
              
               <li class="article-tag-list-item">
