@@ -6,20 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xiaodian-li.github.io">
-  <title>git命令总结 | Li_xiaodian&#39;s personal blog</title>
+  <title>小程序开发问题总结2 | Li_xiaodian&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="(以下是入职以来，经常用到的一些命令，可以说是频繁，以此总结希望大家一起进步，在总结中收获成长) 远程有仓库，怎样才能拉下代码至本地 （相当于开始的初始化）这里以远程B仓库为例">
-<meta name="keywords" content="git">
+  <meta name="description" content="1.小程序支付问题前端来看需要做的的事情只是调用小程序的一个方法">
+<meta name="keywords" content="微信小程序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git命令总结">
-<meta property="og:url" content="https://xiaodian-li.github.io/2017/11/09/git命令小结/index.html">
+<meta property="og:title" content="小程序开发问题总结2">
+<meta property="og:url" content="https://xiaodian-li.github.io/2018/09/28/小程序开发问题总结2/index.html">
 <meta property="og:site_name" content="Li_xiaodian&#39;s personal blog">
-<meta property="og:description" content="(以下是入职以来，经常用到的一些命令，可以说是频繁，以此总结希望大家一起进步，在总结中收获成长) 远程有仓库，怎样才能拉下代码至本地 （相当于开始的初始化）这里以远程B仓库为例">
+<meta property="og:description" content="1.小程序支付问题前端来看需要做的的事情只是调用小程序的一个方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-20T08:30:49.842Z">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/8.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/1.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/2.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/3.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/4.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/5.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/6.png">
+<meta property="og:image" content="http://images.daojia.com/assets/other/images/gitimg/7.png">
+<meta property="og:updated_time" content="2018-09-28T07:20:20.874Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git命令总结">
-<meta name="twitter:description" content="(以下是入职以来，经常用到的一些命令，可以说是频繁，以此总结希望大家一起进步，在总结中收获成长) 远程有仓库，怎样才能拉下代码至本地 （相当于开始的初始化）这里以远程B仓库为例">
+<meta name="twitter:title" content="小程序开发问题总结2">
+<meta name="twitter:description" content="1.小程序支付问题前端来看需要做的的事情只是调用小程序的一个方法">
+<meta name="twitter:image" content="http://images.daojia.com/assets/other/images/gitimg/8.png">
   
     <link rel="alternative" href="/atom.xml" title="Li_xiaodian&#39;s personal blog" type="application/atom+xml">
   
@@ -142,63 +151,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-git命令小结" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-小程序开发问题总结2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      git命令总结
+      小程序开发问题总结2
     </h1>
   
 
         
-        <a href="/2017/11/09/git命令小结/" class="archive-article-date">
-  	<time datetime="2017-11-09T02:58:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+        <a href="/2018/09/28/小程序开发问题总结2/" class="archive-article-date">
+  	<time datetime="2018-09-28T07:19:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>(以下是入职以来，经常用到的一些命令，可以说是频繁，以此总结希望大家一起进步，在总结中收获成长)</p>
-<h5 id="远程有仓库，怎样才能拉下代码至本地-（相当于开始的初始化）"><a href="#远程有仓库，怎样才能拉下代码至本地-（相当于开始的初始化）" class="headerlink" title="远程有仓库，怎样才能拉下代码至本地 （相当于开始的初始化）"></a>远程有仓库，怎样才能拉下代码至本地 （相当于开始的初始化）</h5><p>这里以远程B仓库为例<br><a id="more"></a></p>
-<ul>
-<li>git clone B test<br>或者 git remote add origin B test  //把仓库克隆到本地并命名一个项目名称test</li>
-<li>git init   //在本地初始化创建仓库<br></li>
-<li>git branch master    //创建主支</li>
-<li>git branch dev //本地创建dev分支</li>
-<li>git checkout dev  //切换到dev分支</li>
-<li>git branch -b dev-1 //基于dev分支创建dev-1分支</li>
-<li>git checkout -b dev-1 //切换到dev-1分支并在其上操作</li>
-</ul>
-<h5 id="本地修改代码后，怎样使用git命令提交到远程仓库呢？"><a href="#本地修改代码后，怎样使用git命令提交到远程仓库呢？" class="headerlink" title="本地修改代码后，怎样使用git命令提交到远程仓库呢？"></a>本地修改代码后，怎样使用git命令提交到远程仓库呢？</h5><ul>
-<li>git status   //看本地修改状态</li>
-<li>git diff  ||  git diff (src)   //查看执行 git status 的结果的详细信息</li>
-<li>git rm <file>   //删除文件</file></li>
-<li>git add .（所有改变提交） //把改变添加到本地仓库</li>
-<li>git commit -m “提交信息   //提交到本地仓库</li>
-<li>git pull origin 远程分支名称   //先把远程分支拉取下来</li>
-<li>git push origin 自己的分支  //再把本地修改提交到远程</li>
-</ul>
-<h5 id="关于分支"><a href="#关于分支" class="headerlink" title="关于分支"></a>关于分支</h5><ul>
-<li>git branch //查看分支</li>
-<li>git branch -d <name> //删除分支</name></li>
-<li>git merge <name> //合并dev分支到当前分支</name></li>
-</ul>
-<h5 id="解决冲突，假定和A合作"><a href="#解决冲突，假定和A合作" class="headerlink" title="解决冲突，假定和A合作"></a>解决冲突，假定和A合作</h5><ul>
-<li>git reset –hard (跟A不一样，用A的)</li>
-<li>git status</li>
-<li>git stash (把自己本地的修改先暂存起来，避免冲突，再去拉A代码)</li>
-<li>git pull origin 分支名 (拉下来A的代码)</li>
-<li>git stash pop (把自己的代码释放)</li>
-<li>git log –pretty=oneline<br>//关于版本回退<br>//从最近到最远的提交日志 其中–pretty=oneline 目的为减少信息显示<br>3628164fb26d48395383f8f31179f24e0882e1e0 append GPL  //commit id + commit Msg<br>ea34578d5496d7dd233c827ed32a8cd576c5ee85 add distributed<br>cb926e7ea50ad11b8f9e909c05226233bf755030 wrote a readme file</li>
-<li>git reset –hard HEAD^ ||  git reset —hard HEAD~1 <br> //回退到 上一个版本 GPL -&gt; add distributed<br><br>注意：但是git log信息时，已经没有了 GPL的相关信息了</li>
-<li>再回到最新版本：<br>$ git reflog   //命令历史可以得到 commit id<br><br>$ git reset –hard 3628164 //回到 commit id  版本</li>
-<li>把远程主机更新版本重新拉取回本地<br><br>git fetch<h5 id="如何打tag"><a href="#如何打tag" class="headerlink" title="如何打tag"></a>如何打tag</h5>1.git tag -a 版本 -m “备注信息”<br><br>2.git push origin 版本 || git push origin –tags   // 把tag上传到远程<br><br>3.git show 版本 查看标签版本信息<br><br>4.git tag -d 版本  // 删除标签<br><br>5.git tag  // 查看当前分支下的标签</li>
-</ul>
-<h6 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章<br></h6><p>1.<a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">https://git-scm.com/book/zh/v2</a><br><br>2.<a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">http://www.bootcss.com/p/git-guide/</a><br><br>3.<a href="https://segmentfault.com/a/1190000009565961本" target="_blank" rel="noopener">https://segmentfault.com/a/1190000009565961本</a></p>
+        <h5 id="1-小程序支付问题"><a href="#1-小程序支付问题" class="headerlink" title="1.小程序支付问题"></a>1.小程序支付问题</h5><p>前端来看需要做的的事情只是调用小程序的一个方法  <br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">wx.requestPayment(</span><br><span class="line">&#123;</span><br><span class="line">&apos;timeStamp&apos;: &apos;&apos;,</span><br><span class="line">&apos;nonceStr&apos;: &apos;&apos;,</span><br><span class="line">&apos;package&apos;: &apos;&apos;,</span><br><span class="line">&apos;signType&apos;: &apos;MD5&apos;,</span><br><span class="line">&apos;paySign&apos;: &apos;&apos;,</span><br><span class="line">&apos;success&apos;:function(res)&#123;&#125;,</span><br><span class="line">&apos;fail&apos;:function(res)&#123;&#125;,</span><br><span class="line">&apos;complete&apos;:function(res)&#123;&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://pay.weixin.qq.com/wiki/doc/api/sl.html" target="_blank" rel="noopener">https://pay.weixin.qq.com/wiki/doc/api/sl.html</a><br>支付方式选择小程序支付<br><img src="http://images.daojia.com/assets/other/images/gitimg/8.png" alt=""> |<br>—|—</p>
+<h5 id="2-小程序内部跳转H5最佳实践"><a href="#2-小程序内部跳转H5最佳实践" class="headerlink" title="2.小程序内部跳转H5最佳实践"></a>2.小程序内部跳转H5最佳实践</h5><blockquote>
+<p><a href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;web-view&gt;&lt;/web-view&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>代码实现</p>
+<p>H5页面</p>
+<table>
+<thead>
+<tr>
+<th><img src="http://images.daojia.com/assets/other/images/gitimg/1.png" alt=""></th>
+<th><img src="http://images.daojia.com/assets/other/images/gitimg/2.png" alt=""></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>小程序内部跳转</p>
+<table>
+<thead>
+<tr>
+<th><img src="http://images.daojia.com/assets/other/images/gitimg/3.png" alt=""></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="3-关于函数封装"><a href="#3-关于函数封装" class="headerlink" title="3.关于函数封装"></a>3.关于函数封装</h5><p><img src="http://images.daojia.com/assets/other/images/gitimg/4.png" alt=""></p>
+<p>具体代码<br><img src="http://images.daojia.com/assets/other/images/gitimg/5.png" alt=""> | <img src="http://images.daojia.com/assets/other/images/gitimg/6.png" alt=""> | <img src="http://images.daojia.com/assets/other/images/gitimg/7.png" alt=""><br>—|—|—</p>
+<h5 id="4-cover-view会导致兼容性问题，尤其是iphone上，会出现文本的截断等"><a href="#4-cover-view会导致兼容性问题，尤其是iphone上，会出现文本的截断等" class="headerlink" title="4.cover-view会导致兼容性问题，尤其是iphone上，会出现文本的截断等"></a>4.cover-view会导致兼容性问题，尤其是iphone上，会出现文本的截断等</h5><h5 id="5-wx-showloading"><a href="#5-wx-showloading" class="headerlink" title="5.wx:showloading"></a>5.wx:showloading</h5><p>不必每次都加回调，官方文档上只是推荐的形式，具体可以是<br><code>wx:shoeloading({title: &#39;加载中....&#39;})</code>,<br>隐藏时加<br><code>wx:hideloading</code>,<br>不加<code>fail</code>,<code>success</code>,<code>compelet</code>的回调</p>
+<h5 id="6-关于图片"><a href="#6-关于图片" class="headerlink" title="6.关于图片"></a>6.关于图片</h5><p>从服务器获取来的图片，可能会出现缓存， 而且只出现在真机上，</p>
+<p>这时候官方给出的解决方案无非三种——–重新命名路径， 服务端通过设置”Cache-Control: no-cache”，Last-modified等响应头解决缓存问题， url上加随机参数</p>
+<p>建议每次图片可以加上需求的版本号避免出现类似缓存</p>
 
       
 
@@ -212,24 +223,13 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
         		</li>
       		
 		</ul>
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端知识//" class="article-tag-list-link color5">前端知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -279,7 +279,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xiaodian-li.github.io/2017/11/09/git命令小结/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xiaodian-li.github.io/2018/09/28/小程序开发问题总结2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -293,15 +293,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/11/HTTP基础指南（图解http总结）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          HTTP基础指南（图解http总结）
-        
-      </div>
-    </a>
   
+    <a href="/2018/08/23/小程序开发的姿势点/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">小程序开发问题总结1</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -330,8 +326,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://xiaodian-li.github.io/2017/11/09/git命令小结/", 
-    sourceId: "git命令小结",
+    url: "https://xiaodian-li.github.io/2018/09/28/小程序开发问题总结2/", 
+    sourceId: "小程序开发问题总结2",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -340,7 +336,7 @@
   
 
   
-  <div id="SOHUCS" sid="git命令小结" ></div> 
+  <div id="SOHUCS" sid="小程序开发问题总结2" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({

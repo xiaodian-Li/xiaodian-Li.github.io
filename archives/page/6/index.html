@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xiaodian-li.github.io">
-  <title>git命令总结 | Li_xiaodian&#39;s personal blog</title>
+  <title>Archives | Li_xiaodian&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="(以下是入职以来，经常用到的一些命令，可以说是频繁，以此总结希望大家一起进步，在总结中收获成长) 远程有仓库，怎样才能拉下代码至本地 （相当于开始的初始化）这里以远程B仓库为例">
-<meta name="keywords" content="git">
-<meta property="og:type" content="article">
-<meta property="og:title" content="git命令总结">
-<meta property="og:url" content="https://xiaodian-li.github.io/2017/11/09/git命令小结/index.html">
+  <meta name="description" content="学习总结 思考感悟 知识管理">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Li_xiaodian&#39;s personal blog">
+<meta property="og:url" content="https://xiaodian-li.github.io/archives/page/6/index.html">
 <meta property="og:site_name" content="Li_xiaodian&#39;s personal blog">
-<meta property="og:description" content="(以下是入职以来，经常用到的一些命令，可以说是频繁，以此总结希望大家一起进步，在总结中收获成长) 远程有仓库，怎样才能拉下代码至本地 （相当于开始的初始化）这里以远程B仓库为例">
+<meta property="og:description" content="学习总结 思考感悟 知识管理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-20T08:30:49.842Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git命令总结">
-<meta name="twitter:description" content="(以下是入职以来，经常用到的一些命令，可以说是频繁，以此总结希望大家一起进步，在总结中收获成长) 远程有仓库，怎样才能拉下代码至本地 （相当于开始的初始化）这里以远程B仓库为例">
+<meta name="twitter:title" content="Li_xiaodian&#39;s personal blog">
+<meta name="twitter:description" content="学习总结 思考感悟 知识管理">
   
     <link rel="alternative" href="/atom.xml" title="Li_xiaodian&#39;s personal blog" type="application/atom+xml">
   
@@ -142,71 +140,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-git命令小结" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      git命令总结
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/11/09/git命令小结/" class="archive-article-date">
+  	<time datetime="2017-11-09T02:58:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/11/09/git命令小结/">git命令总结</a>
     </h1>
   
 
-        
-        <a href="/2017/11/09/git命令小结/" class="archive-article-date">
-  	<time datetime="2017-11-09T02:58:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>(以下是入职以来，经常用到的一些命令，可以说是频繁，以此总结希望大家一起进步，在总结中收获成长)</p>
-<h5 id="远程有仓库，怎样才能拉下代码至本地-（相当于开始的初始化）"><a href="#远程有仓库，怎样才能拉下代码至本地-（相当于开始的初始化）" class="headerlink" title="远程有仓库，怎样才能拉下代码至本地 （相当于开始的初始化）"></a>远程有仓库，怎样才能拉下代码至本地 （相当于开始的初始化）</h5><p>这里以远程B仓库为例<br><a id="more"></a></p>
-<ul>
-<li>git clone B test<br>或者 git remote add origin B test  //把仓库克隆到本地并命名一个项目名称test</li>
-<li>git init   //在本地初始化创建仓库<br></li>
-<li>git branch master    //创建主支</li>
-<li>git branch dev //本地创建dev分支</li>
-<li>git checkout dev  //切换到dev分支</li>
-<li>git branch -b dev-1 //基于dev分支创建dev-1分支</li>
-<li>git checkout -b dev-1 //切换到dev-1分支并在其上操作</li>
-</ul>
-<h5 id="本地修改代码后，怎样使用git命令提交到远程仓库呢？"><a href="#本地修改代码后，怎样使用git命令提交到远程仓库呢？" class="headerlink" title="本地修改代码后，怎样使用git命令提交到远程仓库呢？"></a>本地修改代码后，怎样使用git命令提交到远程仓库呢？</h5><ul>
-<li>git status   //看本地修改状态</li>
-<li>git diff  ||  git diff (src)   //查看执行 git status 的结果的详细信息</li>
-<li>git rm <file>   //删除文件</file></li>
-<li>git add .（所有改变提交） //把改变添加到本地仓库</li>
-<li>git commit -m “提交信息   //提交到本地仓库</li>
-<li>git pull origin 远程分支名称   //先把远程分支拉取下来</li>
-<li>git push origin 自己的分支  //再把本地修改提交到远程</li>
-</ul>
-<h5 id="关于分支"><a href="#关于分支" class="headerlink" title="关于分支"></a>关于分支</h5><ul>
-<li>git branch //查看分支</li>
-<li>git branch -d <name> //删除分支</name></li>
-<li>git merge <name> //合并dev分支到当前分支</name></li>
-</ul>
-<h5 id="解决冲突，假定和A合作"><a href="#解决冲突，假定和A合作" class="headerlink" title="解决冲突，假定和A合作"></a>解决冲突，假定和A合作</h5><ul>
-<li>git reset –hard (跟A不一样，用A的)</li>
-<li>git status</li>
-<li>git stash (把自己本地的修改先暂存起来，避免冲突，再去拉A代码)</li>
-<li>git pull origin 分支名 (拉下来A的代码)</li>
-<li>git stash pop (把自己的代码释放)</li>
-<li>git log –pretty=oneline<br>//关于版本回退<br>//从最近到最远的提交日志 其中–pretty=oneline 目的为减少信息显示<br>3628164fb26d48395383f8f31179f24e0882e1e0 append GPL  //commit id + commit Msg<br>ea34578d5496d7dd233c827ed32a8cd576c5ee85 add distributed<br>cb926e7ea50ad11b8f9e909c05226233bf755030 wrote a readme file</li>
-<li>git reset –hard HEAD^ ||  git reset —hard HEAD~1 <br> //回退到 上一个版本 GPL -&gt; add distributed<br><br>注意：但是git log信息时，已经没有了 GPL的相关信息了</li>
-<li>再回到最新版本：<br>$ git reflog   //命令历史可以得到 commit id<br><br>$ git reset –hard 3628164 //回到 commit id  版本</li>
-<li>把远程主机更新版本重新拉取回本地<br><br>git fetch<h5 id="如何打tag"><a href="#如何打tag" class="headerlink" title="如何打tag"></a>如何打tag</h5>1.git tag -a 版本 -m “备注信息”<br><br>2.git push origin 版本 || git push origin –tags   // 把tag上传到远程<br><br>3.git show 版本 查看标签版本信息<br><br>4.git tag -d 版本  // 删除标签<br><br>5.git tag  // 查看当前分支下的标签</li>
-</ul>
-<h6 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章<br></h6><p>1.<a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">https://git-scm.com/book/zh/v2</a><br><br>2.<a href="http://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">http://www.bootcss.com/p/git-guide/</a><br><br>3.<a href="https://segmentfault.com/a/1190000009565961本" target="_blank" rel="noopener">https://segmentfault.com/a/1190000009565961本</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -218,7 +181,7 @@
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -231,128 +194,20 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://xiaodian-li.github.io/2017/11/09/git命令小结/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017/11/11/HTTP基础指南（图解http总结）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          HTTP基础指南（图解http总结）
-        
-      </div>
-    </a>
   
   
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "https://xiaodian-li.github.io/2017/11/09/git命令小结/", 
-    sourceId: "git命令小结",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="git命令小结" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "true",
-        conf: "true"
-    });
-</script>
-</script>
-  
-
-  
-
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/page/5/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span>
+    </nav>
   
 
 
@@ -376,8 +231,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
