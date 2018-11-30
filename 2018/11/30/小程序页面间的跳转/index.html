@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://little_lion.github.io">
-  <title>小程序开发问题总结3(分享相关) | little_lion&#39;s personal blog</title>
+  <title>小程序页面间的跳转 | little_lion&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="跟着小程序重构迭代4个版本,总结一些开发中遇到的问题， 第四个版本，可以说是功能真的很杂，也很乱，下面我主要说下我负责的司乘同显的调整优化，行程分享一系列相关需求以及用户感知的随单返 1.页面按钮分享wxml只能用button   在页面的js文件中定义 onShareAppMessage 函数时，表示该页面可以进行转发。可以在函数中设置页面转发的信息。">
+  <meta name="description" content="微信小程序页面跳转有5种方式1.wx.navigateTo(Object object)2.wx.redirectTo(Object object)3.wx.switchTab(Object object)4.wx.navigateBack(Object object)5.wx.reLaunch(Object object)">
 <meta name="keywords" content="微信小程序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小程序开发问题总结3(分享相关)">
-<meta property="og:url" content="https://little_lion.github.io/2018/10/25/小程序开发问题总结3(分享相关)/index.html">
+<meta property="og:title" content="小程序页面间的跳转">
+<meta property="og:url" content="https://little_lion.github.io/2018/11/30/小程序页面间的跳转/index.html">
 <meta property="og:site_name" content="little_lion&#39;s personal blog">
-<meta property="og:description" content="跟着小程序重构迭代4个版本,总结一些开发中遇到的问题， 第四个版本，可以说是功能真的很杂，也很乱，下面我主要说下我负责的司乘同显的调整优化，行程分享一系列相关需求以及用户感知的随单返 1.页面按钮分享wxml只能用button   在页面的js文件中定义 onShareAppMessage 函数时，表示该页面可以进行转发。可以在函数中设置页面转发的信息。">
+<meta property="og:description" content="微信小程序页面跳转有5种方式1.wx.navigateTo(Object object)2.wx.redirectTo(Object object)3.wx.switchTab(Object object)4.wx.navigateBack(Object object)5.wx.reLaunch(Object object)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-30T09:05:37.005Z">
+<meta property="og:updated_time" content="2018-11-30T09:32:31.541Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小程序开发问题总结3(分享相关)">
-<meta name="twitter:description" content="跟着小程序重构迭代4个版本,总结一些开发中遇到的问题， 第四个版本，可以说是功能真的很杂，也很乱，下面我主要说下我负责的司乘同显的调整优化，行程分享一系列相关需求以及用户感知的随单返 1.页面按钮分享wxml只能用button   在页面的js文件中定义 onShareAppMessage 函数时，表示该页面可以进行转发。可以在函数中设置页面转发的信息。">
+<meta name="twitter:title" content="小程序页面间的跳转">
+<meta name="twitter:description" content="微信小程序页面跳转有5种方式1.wx.navigateTo(Object object)2.wx.redirectTo(Object object)3.wx.switchTab(Object object)4.wx.navigateBack(Object object)5.wx.reLaunch(Object object)">
   
     <link rel="alternative" href="/atom.xml" title="little_lion&#39;s personal blog" type="application/atom+xml">
   
@@ -142,42 +142,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-小程序开发问题总结3(分享相关)" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-小程序页面间的跳转" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      小程序开发问题总结3(分享相关)
+      小程序页面间的跳转
     </h1>
   
 
         
-        <a href="/2018/10/25/小程序开发问题总结3(分享相关)/" class="archive-article-date">
-  	<time datetime="2018-10-25T11:09:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-25</time>
+        <a href="/2018/11/30/小程序页面间的跳转/" class="archive-article-date">
+  	<time datetime="2018-11-30T09:31:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>跟着小程序重构迭代4个版本,总结一些开发中遇到的问题， 第四个版本，可以说是功能真的很杂，也很乱，下面我主要说下我负责的司乘同显的调整优化，行程分享一系列相关需求以及用户感知的随单返</p>
-<h4 id="1-页面按钮分享"><a href="#1-页面按钮分享" class="headerlink" title="1.页面按钮分享"></a>1.页面按钮分享</h4><p>wxml只能用button  </p>
-<p>在页面的js文件中定义 onShareAppMessage 函数时，表示该页面可以进行转发。可以在函数中设置页面转发的信息。<br><a id="more"></a></p>
-<p>只有定义了该函数，小程序右上角的菜单中才会有转发按钮<br>用户点击转发按钮的时候回调用该函数<br>该函数内需要 return 一个 Object，Object中包含转发的信息（可自定义转发的内容</p>
-<h4 id="2-触发分享转发位置"><a href="#2-触发分享转发位置" class="headerlink" title="2.触发分享转发位置"></a>2.触发分享转发位置</h4><p>页面中可以触发转发的地方有两个：<br>　　一个是右上角菜单中的转发按钮<br>　　另一个是页面中具有属性open-type且其值为share的button。（注：必须是button组件，其他组件中设置 open-type=”share” 无效）<br>即:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button data-name=&quot;shareBtn&quot; open-type=&quot;share&quot;&gt;转发&lt;/button&gt;</span><br></pre></td></tr></table></figure></p>
-<p>注意：实际开发中会发现这个 button 自带有样式，当背景颜色设置为白色的时候还有一个黑色的边框，刚开始那个边框怎么都去不掉，后来给button加了一个样式属性 plain=”true” 以后，再在样式文件中控制样式 button[plain]{ border:0 } ，就可以比较随便的自定义样式了。<br>eg:<br>将分享按钮做成一个图标等<br>或者不加 plain=”true”,用伪类<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">button::after&#123;</span><br><span class="line">   border: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="3-页面跳转传递参数"><a href="#3-页面跳转传递参数" class="headerlink" title="3.页面跳转传递参数"></a>3.页面跳转传递参数</h4><p>就算传入的参和接的参不一致，也尽量不要在传参的地方做修改。不改变原有的，</p>
-<h4 id="4-分享后页面"><a href="#4-分享后页面" class="headerlink" title="4.分享后页面"></a>4.分享后页面</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 分享来自页面内转发按钮</span><br><span class="line">onShareAppMessage: function (res) &#123;</span><br><span class="line">  if (res.from === &apos;button&apos;) &#123;</span><br><span class="line">    console.log(res.target)</span><br><span class="line">  &#125;</span><br><span class="line">  return &#123;</span><br><span class="line">    title: 自定义标题,</span><br><span class="line">    imageUrl: 自定义图片,</span><br><span class="line">    path: 用户点击分享卡片后看见的页面，注意必须以‘/’开头,</span><br><span class="line">    success: function (res) &#123;</span><br><span class="line">      console.log(&apos;分享成功的处理&apos;)</span><br><span class="line">    &#125;,</span><br><span class="line">    fail: function (res) &#123;</span><br><span class="line">       console.log(&apos;分享失败的处理&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-<h4 id="5-从何处分享来"><a href="#5-从何处分享来" class="headerlink" title="5.从何处分享来"></a>5.从何处分享来</h4><ul>
-<li>从小程序分享过来的只能打开小程序</li>
-<li>从app分享过来的既能打开小程序也能打开app<br><strong>==打开app==</strong><br>需要用户主动触发才能打开 APP，所以不由 API 来调用，需要用 open-type 的值设置为 launchApp 的 button 组件的点击来触发。  </li>
-</ul>
-<p>eg:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button open-type=&quot;launchApp&quot; app-parameter=&quot;wechat&quot; binderror=&quot;launchAppError&quot;&gt;打开APP&lt;/button&gt;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  launchAppError (e) &#123;</span><br><span class="line">    console.log(e.detail.errMsg)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+        <h3 id="微信小程序页面跳转有5种方式"><a href="#微信小程序页面跳转有5种方式" class="headerlink" title="微信小程序页面跳转有5种方式"></a>微信小程序页面跳转有5种方式</h3><p>1.wx.navigateTo(Object object)<br>2.wx.redirectTo(Object object)<br>3.wx.switchTab(Object object)<br>4.wx.navigateBack(Object object)<br>5.wx.reLaunch(Object object)<br><br><a id="more"></a></p>
+<h3 id="跳转详解"><a href="#跳转详解" class="headerlink" title="跳转详解"></a>跳转详解</h3><p>1.navigateTo是将原来的页面保存在页面栈中，在跳入到下一个页面的时候目标页面也进栈，只有在这个情况下点击手机的返回按钮才可以跳转到上一个页面  </p>
+<p>2.redirectTo和switchTab都是先清除栈中原来的页面，然后目标页面进栈，使用这两种跳转方式，都不能通过系统的返回键回到上一个页面，而是直接退出小程序；<br>redirectTo使用的时候一定要配合tabBar或是页面里面可以再次跳转按钮，否则无法回到上一个页面  </p>
+<p>3.switchTab跳转的页面必须是tabBar中声明的页面；<br>tabBar中定义的字段不能超过5个页面，小程序的页面栈层次也不能超过5层  </p>
+<p>4.navigateBack只能返回到页面栈中的指定页面，一般和navigateTo配合使用  </p>
+<p>5.reLaunch关闭所有页面，打开到应用内的某个页面  </p>
+<p>注意：wx.navigateTo 和 wx.redirectTo 不允许跳转到 tabbar 页面，只能用 wx.switchTab 跳转到 tabbar 页面  </p>
 <blockquote>
-<p>相关文档： <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/launchApp.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/launchApp.html</a></p>
+<p>参考官网:  <a href="https://developers.weixin.qq.com/miniprogram/dev/api/wx.navigateBack.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/api/wx.navigateBack.html</a></p>
 </blockquote>
 
       
@@ -248,7 +241,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://little_lion.github.io/2018/10/25/小程序开发问题总结3(分享相关)/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://little_lion.github.io/2018/11/30/小程序页面间的跳转/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -262,18 +255,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/11/29/小程序内嵌H5页面自定义导航栏消失/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          小程序内嵌H5页面自定义导航栏消失
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/10/08/Node学习随笔—http相关-URL模块/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Node学习随笔—http相关__URL模块</div>
+    <a href="/2018/11/29/小程序内嵌H5页面自定义导航栏消失/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">小程序内嵌H5页面自定义导航栏消失</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -304,8 +288,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://little_lion.github.io/2018/10/25/小程序开发问题总结3(分享相关)/", 
-    sourceId: "小程序开发问题总结3(分享相关)",
+    url: "https://little_lion.github.io/2018/11/30/小程序页面间的跳转/", 
+    sourceId: "小程序页面间的跳转",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -314,7 +298,7 @@
   
 
   
-  <div id="SOHUCS" sid="小程序开发问题总结3(分享相关)" ></div> 
+  <div id="SOHUCS" sid="小程序页面间的跳转" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
