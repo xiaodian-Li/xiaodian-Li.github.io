@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="little_lion&#39;s personal blog">
 <meta property="og:description" content="微信小程序页面跳转有5种方式1.wx.navigateTo(Object object)2.wx.redirectTo(Object object)3.wx.switchTab(Object object)4.wx.navigateBack(Object object)5.wx.reLaunch(Object object)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-30T09:32:31.541Z">
+<meta property="og:updated_time" content="2018-11-30T09:35:05.223Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小程序页面间的跳转">
 <meta name="twitter:description" content="微信小程序页面跳转有5种方式1.wx.navigateTo(Object object)2.wx.redirectTo(Object object)3.wx.switchTab(Object object)4.wx.navigateBack(Object object)5.wx.reLaunch(Object object)">
@@ -162,7 +162,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="微信小程序页面跳转有5种方式"><a href="#微信小程序页面跳转有5种方式" class="headerlink" title="微信小程序页面跳转有5种方式"></a>微信小程序页面跳转有5种方式</h3><p>1.wx.navigateTo(Object object)<br>2.wx.redirectTo(Object object)<br>3.wx.switchTab(Object object)<br>4.wx.navigateBack(Object object)<br>5.wx.reLaunch(Object object)<br><br><a id="more"></a></p>
+        <h3 id="微信小程序页面跳转有5种方式"><a href="#微信小程序页面跳转有5种方式" class="headerlink" title="微信小程序页面跳转有5种方式"></a>微信小程序页面跳转有5种方式</h3><p>1.wx.navigateTo(Object object)<br>2.wx.redirectTo(Object object)<br>3.wx.switchTab(Object object)<br>4.wx.navigateBack(Object object)<br>5.wx.reLaunch(Object object)<br><a id="more"></a></p>
 <h3 id="跳转详解"><a href="#跳转详解" class="headerlink" title="跳转详解"></a>跳转详解</h3><p>1.navigateTo是将原来的页面保存在页面栈中，在跳入到下一个页面的时候目标页面也进栈，只有在这个情况下点击手机的返回按钮才可以跳转到上一个页面  </p>
 <p>2.redirectTo和switchTab都是先清除栈中原来的页面，然后目标页面进栈，使用这两种跳转方式，都不能通过系统的返回键回到上一个页面，而是直接退出小程序；<br>redirectTo使用的时候一定要配合tabBar或是页面里面可以再次跳转按钮，否则无法回到上一个页面  </p>
 <p>3.switchTab跳转的页面必须是tabBar中声明的页面；<br>tabBar中定义的字段不能超过5个页面，小程序的页面栈层次也不能超过5层  </p>
@@ -396,11 +396,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">http网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">http网络</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -416,15 +416,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http模块</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">路由</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -440,11 +440,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -464,6 +464,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">单测</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
               </li>
              
@@ -473,10 +477,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">单测</a>
               </li>
              
               <li class="article-tag-list-item">
