@@ -142,6 +142,103 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-font-size的可用单位有哪些？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/21/font-size的可用单位有哪些？/">font-size的可用单位有哪些？</a>
+    </h1>
+  
+
+        
+        <a href="/2019/02/21/font-size的可用单位有哪些？/" class="archive-article-date">
+  	<time datetime="2019-02-21T03:58:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>font-size的长度单位汇总如下：  </p>
+<ul>
+<li>像素单位（px）</li>
+<li>em</li>
+<li>rem</li>
+<li>百分比（%）</li>
+<li>视窗单位（vw，vh，vmin，vmax）</li>
+<li>绝对以及相对关键字设置字体大小（small,x-small等）</li>
+<li>其他（英寸-in，厘米-cm等）  </li>
+</ul>
+<p>就上面的长度单位，我们简单说一下：</p>
+<h3 id="1-像素单位（px）"><a href="#1-像素单位（px）" class="headerlink" title="1.像素单位（px）"></a>1.像素单位（px）</h3><p>绝对长度单位。像素px是相对于显示器屏幕分辨率而言的，不支持IE的缩放</p>
+<h3 id="2-em"><a href="#2-em" class="headerlink" title="2.em"></a>2.em</h3><p>相对长度单位。相对于当前对象内文本的字体尺寸。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸 </p>
+<ul>
+<li>em的值并不是固定的；</li>
+<li>em会继承父级元素的字体大小。 </li>
+</ul>
+<p>++任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px ；<br>那么12px=0.75em,10px=0.625em  ；<br>so,为了简化font-size换算，在body选择器中设置 Font-size=62.5%  ；<br>这样em的值只需要将你的原来的px数值除以10，然后换上em作为单位就可以<br>18px=1.8em, 10px=1em++</p>
+<h3 id="3-rem"><a href="#3-rem" class="headerlink" title="3.rem"></a>3.rem</h3><p>相对长度单位。使用rem为元素设定字体大小时，仍然是相对大小，但相对的是网页的根元素（html）元素<br>关于rem的文章：<a href="http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/" target="_blank" rel="noopener">http://www.alloyteam.com/2016/03/mobile-web-adaptation-tool-rem/</a></p>
+<h3 id="4-百分比（-）"><a href="#4-百分比（-）" class="headerlink" title="4.百分比（%）"></a>4.百分比（%）</h3><p>16px = 1em = 100% = 12pt<br>单位换算网址：<a href="http://pxtoem.com/" target="_blank" rel="noopener">http://pxtoem.com/</a></p>
+<h3 id="5-vw"><a href="#5-vw" class="headerlink" title="5.vw"></a>5.vw</h3><p>视口百分比长度定义相对于viewport的大小的<length>值，即文档的可见部分。<br>vw 代表视口宽度的 1/100。</length></p>
+<blockquote>
+<p>参考：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/length" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/length</a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/02/21/font-size的可用单位有哪些？/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-json-parse和json-stringfy" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -870,83 +967,6 @@
 
 
   
-    <article id="post-小程序开发问题总结1(推送+地图相关)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/23/小程序开发问题总结1(推送+地图相关)/">小程序开发问题总结1(推送+地图相关)</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/23/小程序开发问题总结1(推送+地图相关)/" class="archive-article-date">
-  	<time datetime="2018-08-23T07:34:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-实时显示状态"><a href="#1-实时显示状态" class="headerlink" title="1.实时显示状态"></a>1.实时显示状态</h3><p>用websocket</p>
-<h3 id="2-多状态逻辑"><a href="#2-多状态逻辑" class="headerlink" title="2.多状态逻辑"></a>2.多状态逻辑</h3><p><br>
-        
-          <a class="article-more-a" href="/2018/08/23/小程序开发问题总结1(推送+地图相关)/#more">还有更多 = = Read More >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/23/小程序开发问题总结1(推送+地图相关)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -961,7 +981,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 little_lion
+    		&copy; 2019 little_lion
     	</div>
       	<div class="footer-right">
       		欢迎来到<a href="https://weibo.com/5073475647/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank">李小点</a>的blog
@@ -1048,23 +1068,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">node基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">http模块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">路由</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1080,11 +1084,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color2">http模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">路由</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1100,6 +1112,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">modules.exports/exports</a>
               </li>
              
@@ -1108,11 +1128,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
+                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
+                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1120,11 +1140,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开发中的一些事</a>
+                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
+                <a href="javascript:void(0)" class="js-tag color3">开发中的一些事</a>
               </li>
              
               <li class="article-tag-list-item">
