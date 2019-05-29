@@ -142,6 +142,123 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-构造函数，实例，原型关系详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/29/构造函数，实例，原型关系详解/">构造函数，实例，原型关系详解</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/29/构造函数，实例，原型关系详解/" class="archive-article-date">
+  	<time datetime="2019-05-29T06:35:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-构造函数，实例，原型三者关系如下"><a href="#1-构造函数，实例，原型三者关系如下" class="headerlink" title="1.构造函数，实例，原型三者关系如下"></a>1.构造函数，实例，原型三者关系如下</h4><ul>
+<li>构造函数的prototype指向其原型对象</li>
+<li>原型对象的constructor指向其构造函数</li>
+<li>使用new关键字实例化构造函数</li>
+<li>实例化对象的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">![image](https://static.daojia.com/assets/project/tosimple-pic/js_1559107462665.png)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 2.构造函数：</span><br><span class="line">js中使用构造函数作为对象的模板,提供一个生成对象的模板，并描述对象的基本结构的函数  </span><br><span class="line">（eg: 简单讲相当于一个造月饼的模子）</span><br><span class="line">* 一个构造函数，可以生成多个对象，每个对象都有相同的结构。</span><br><span class="line">* 构造函数默认无返回值</span><br><span class="line">* 构造函数的this就是指的实例对象</span><br><span class="line"></span><br><span class="line">#### 3.实例</span><br><span class="line">new构造函数就可以创建该构造函数的实例</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 4.原型</span><br><span class="line">在 JavaScript 中，除了null 所有对象都有一个与之关联的对象，既原型  </span><br><span class="line">* 每当定义一个对象（函数也是对象）时候，对象中都会包含一些预定义的属性。其中每个函数对象都有一个prototype 属性，这个属性指向函数的原型对象</span><br><span class="line">* 所有对象实例共享原型对象的属性和方法</span><br><span class="line"></span><br><span class="line">### 5.原型链</span><br><span class="line">用来实现继承和共享属性的有限对象链  </span><br><span class="line"></span><br><span class="line">__proto__任何对象都有，js万物皆对象，由__proto__链接起来的链条，一直访问直到出现null,这种关系被称为原型链</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">### 6.js变量/属性在原型链上的查找顺序</span><br><span class="line">先找自有（特权方法）-&gt;原型（公有方法）-&gt;原型再向上的原型__proto__ -&gt; Object -&gt; undefined</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>eg:</p>
+<p>var A = function () {<br>    this.i = 2;<br>}<br>A.prototype.i = 3;</p>
+<p>var B = function() {<br>    this.i = 4;<br>}</p>
+<p>B.prototype = new A();</p>
+<p>var b = new B();</p>
+<p>console.log(b.i); //4;<br>delete b.i;<br>console.log(b.i); // 2;<br>delete B.prototype.i;<br>console.log(b.i); //3</p>
+<pre><code>### 7.构造函数与普通函数区别
+* 构造函数：  
+函数用来初始化(使用new运算符)一个新建的对象  
+
+当以new调用构造函数(执行var person = new Person())时，函数内部会发生以下情况:  
+
+1.创建空对象  
+```var person = {}
+</code></pre><p>2.构造函数的this.指向person<br><code>Person.call(p)</code><br>3.person继承了构造函数Person()的原型<br><code>person.__proto__ = Person.prototype</code><br>4.执行构造函数Person()内的代码</p>
+<ul>
+<li>普通函数：<br>不使用new运算符的函数</li>
+<li>this<br>构造函数this指向构造出来新对象<br>在普通函数this指向的是window全局对象（不建议使用）</li>
+<li>return返回值<br>构造函数默认不用return返回值；普通函数一般都有return返回值  </li>
+</ul>
+<blockquote>
+<p>1.构造函数会默认返回this，也就是新的实例对象<br>2.普通函数如果没有return值的话，返回undefined<br>3.如果使用了return，那返回值会根据return值的类型而有所不同<br>return的是五种简单数据类型，普通函数返回，构造函数仍返回this对象<br>return的是引用类型，构造函数和普通函数都会返回return后面的值</p>
+</blockquote>
+<ul>
+<li>写法<br>构造函数首字母建议大写；普通函数首字母建议小写</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">构造函数</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">实例</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原型</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/29/构造函数，实例，原型关系详解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vue-cli-中为单独页面设置背景色" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -854,98 +971,6 @@
 
 
   
-    <article id="post-小程序内嵌H5页面自定义导航栏消失" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/29/小程序内嵌H5页面自定义导航栏消失/">小程序内嵌H5页面自定义导航栏消失</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/29/小程序内嵌H5页面自定义导航栏消失/" class="archive-article-date">
-  	<time datetime="2018-11-29T07:32:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>背景：我们的QA找到我，说OPPO系的手机都会出现H5导航栏消失，我以为兼容性问题，各种找资料发现了坑  </p>
-<p>1.如下同样在小程序中嵌入H5对比图：</p>
-<table>
-<thead>
-<tr>
-<th>有导航栏</th>
-<th>无导航栏</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="http://images.daojia.com/assets/other/images/2agreement.jpg" alt="row 1 col"></td>
-<td><img src="http://images.daojia.com/assets/other/images/1agreement.jpg" alt="image"></td>
-</tr>
-</tbody>
-</table>
-<p><br>
-        
-          <a class="article-more-a" href="/2018/11/29/小程序内嵌H5页面自定义导航栏消失/#more">还有更多 = = Read More >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/29/小程序内嵌H5页面自定义导航栏消失/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1035,11 +1060,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">http网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">http网络</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1048,6 +1073,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">node基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">http模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">路由</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1063,27 +1100,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">http模块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">路由</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1091,19 +1108,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">单页背景色</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">modules.exports/exports</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">单页背景色</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1115,7 +1136,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1123,7 +1144,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1131,11 +1152,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
+                <a href="javascript:void(0)" class="js-tag color3">开发中的一些事</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开发中的一些事</a>
+                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1147,7 +1168,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">构造函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">实例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">原型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
               </li>
             
             <div class="clearfix"></div>
