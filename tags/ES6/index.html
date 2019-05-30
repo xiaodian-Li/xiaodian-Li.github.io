@@ -6,20 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://rainLi.github.io">
-  <title>pwa+lavas简述 | rainLi&#39;s personal blog</title>
+  <title>Tag: ES6 | rainLi&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以下文章只是自己学习的小总结，“我不生产知识，我只是知识的搬运工。” PWA1.首先，什么是pwa?Progressive Web App, 简称 PWA，是提升 Web App 的体验的一种新方法，能给用户原生应用的体验">
-<meta name="keywords" content="性能,pwa,lavas">
-<meta property="og:type" content="article">
-<meta property="og:title" content="pwa+lavas简述">
-<meta property="og:url" content="https://rainLi.github.io/2018/05/17/PWA-LAVAS简述/index.html">
+  <meta name="description" content="学习总结 思考感悟 知识管理">
+<meta property="og:type" content="website">
+<meta property="og:title" content="rainLi&#39;s personal blog">
+<meta property="og:url" content="https://rainLi.github.io/tags/ES6/index.html">
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
-<meta property="og:description" content="以下文章只是自己学习的小总结，“我不生产知识，我只是知识的搬运工。” PWA1.首先，什么是pwa?Progressive Web App, 简称 PWA，是提升 Web App 的体验的一种新方法，能给用户原生应用的体验">
+<meta property="og:description" content="学习总结 思考感悟 知识管理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-20T08:30:35.528Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pwa+lavas简述">
-<meta name="twitter:description" content="以下文章只是自己学习的小总结，“我不生产知识，我只是知识的搬运工。” PWA1.首先，什么是pwa?Progressive Web App, 简称 PWA，是提升 Web App 的体验的一种新方法，能给用户原生应用的体验">
+<meta name="twitter:title" content="rainLi&#39;s personal blog">
+<meta name="twitter:description" content="学习总结 思考感悟 知识管理">
   
     <link rel="alternative" href="/atom.xml" title="rainLi&#39;s personal blog" type="application/atom+xml">
   
@@ -142,290 +140,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-PWA-LAVAS简述" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      pwa+lavas简述
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/05/30/ES6新特性/" class="archive-article-date">
+  	<time datetime="2019-05-30T06:17:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-30</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/05/30/ES6新特性/">ES6新特性</a>
     </h1>
   
 
-        
-        <a href="/2018/05/17/PWA-LAVAS简述/" class="archive-article-date">
-  	<time datetime="2018-05-17T03:45:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>以下文章只是自己学习的小总结，“我不生产知识，我只是知识的搬运工。”</p>
-<h2 id="PWA"><a href="#PWA" class="headerlink" title="PWA"></a>PWA</h2><h3 id="1-首先，什么是pwa"><a href="#1-首先，什么是pwa" class="headerlink" title="1.首先，什么是pwa?"></a>1.首先，什么是pwa?</h3><p>Progressive Web App, 简称 PWA，是提升 Web App 的体验的一种新方法，能给用户原生应用的体验  <br><a id="more"></a></p>
-<h3 id="2-pwa的优点？"><a href="#2-pwa的优点？" class="headerlink" title="2.pwa的优点？"></a>2.pwa的优点？</h3><p>PWA 本质上是 Web App，借助一些新技术也具备了 Native App 的一些特性，兼具 Web App 和 Native App 的优点。  </p>
-<h3 id="3-pwa的主要特点？"><a href="#3-pwa的主要特点？" class="headerlink" title="3.pwa的主要特点？"></a>3.pwa的主要特点？</h3><ul>
-<li>可靠 - 即使在不稳定的网络环境下，也能瞬间加载并展现</li>
-</ul>
-<p>1）当用户打开站点后，通过Service Worker 能让用户在网络很差的情况下也能瞬间加载展现<br>2） 开发者可以预存储关键文件，淘汰过期文件，给用户提供可靠体验</p>
-<ul>
-<li>体验 - 快速响应，并且有平滑的动画响应用户的操作</li>
-</ul>
-<p>1） 页面在展现之后，有平滑的体验和过渡动画以及快速响应<br>2）在内容请求完成后，优先保证App shell的渲染，做到和 Native App 一样的体验，App Shell 是 PWA 界面展现所需的最小资源。</p>
-<ul>
-<li>粘性 - 像设备上的原生应用，具有沉浸式的用户体验，用户可以添加到桌面</li>
-</ul>
-<p>1） 用户点击（pwa）可以安装到桌面，创建一个PWA应用，不需从应用商店下载<br>2） 可以借助 Web App Manifest 提供给用户和 Native App 一样的沉浸式体验<br>3） 可以通过给用户发送离线通知</p>
-<h3 id="4-pwa的特性？"><a href="#4-pwa的特性？" class="headerlink" title="4.pwa的特性？"></a>4.pwa的特性？</h3><ul>
-<li>渐进式 - 适用于所有浏览器，因为它是以渐进式增强作为宗旨开发的</li>
-<li>连接无关性 - 能够借助 Service Worker 在离线或者网络较差的情况下正常访问</li>
-<li>类似应用 - 由于是在 App Shell 模型基础上开发，因为应具有 Native App 的交互和导航，给用户 Native App 的体验</li>
-<li>持续更新 - 始终是最新的，无版本和更新问题</li>
-<li>安全 - 通过 HTTPS 协议提供服务，防止窥探和确保内容不被篡改</li>
-<li>可索引 - 应用清单文件和 Service Worker 可以让搜索引擎索引到，从而将其识别为『应用』</li>
-<li>粘性 - 通过推送离线通知等，可以让用户回流</li>
-<li>可安装 - 用户可以添加常用的 webapp 到桌面，免去去应用商店下载的麻烦</li>
-<li>可链接 - 通过链接即可分享内容，无需下载安装</li>
-</ul>
-<h3 id="5-PWA-改造的成本考虑"><a href="#5-PWA-改造的成本考虑" class="headerlink" title="5.PWA 改造的成本考虑"></a>5.PWA 改造的成本考虑</h3><ul>
-<li>第一步，应该是安全，将全站 HTTPS 化，因为这是 PWA 的基础，没有 HTTPS，就没有 Service Worker</li>
-<li>第二步，应该是 Service Worker 来提升基础性能，离线提供静态文件，把用户首屏体验提升上来</li>
-<li>第三步，App Manifest，这一步可以和第二步同时进行<br>后续，再考虑其他的特性，离线消息推送等  </li>
-</ul>
-<p>另外，PWA 采用的最新技术，当前浏览器还没有达到完全支持的程度。W3C 关于这些技术的标准也没有定稿。</p>
-<blockquote>
-<p>关于更多pwa请查看pwa文档<br><a href="https://lavas.baidu.com/doc" target="_blank" rel="noopener">https://lavas.baidu.com/doc</a></p>
-</blockquote>
-<h2 id="LAVAS"><a href="#LAVAS" class="headerlink" title="LAVAS"></a>LAVAS</h2><h3 id="1-什么是lavas"><a href="#1-什么是lavas" class="headerlink" title="1.什么是lavas?"></a>1.什么是lavas?</h3><p>Lavas = Vue + PWA  </p>
-<p>LAVAS基于 Vue.js 的 PWA 解决方案<br>帮助开发者快速搭建 PWA 应用，解决接入 PWA 的各种问题，<br>且开发者无须过多的关注 PWA 开发本身。  </p>
-<h3 id="2-学习lavas前提你需要掌握？"><a href="#2-学习lavas前提你需要掌握？" class="headerlink" title="2.学习lavas前提你需要掌握？"></a>2.学习lavas前提你需要掌握？</h3><ul>
-<li>HTML, CSS(less或stylus), JavaScript 等前端编程基础</li>
-<li>ES6/7 部分常用语法，如 Promise, import/export 等</li>
-<li>Vue, Vuex, Vue-router 等基本的开发知识 (教程、API 文档 和 编程风格指南)</li>
-<li>Webpack, Node.js 等基本知识 （推荐）  </li>
-</ul>
-<h3 id="3-Lavas-解决方案能够帮助开发者完成？"><a href="#3-Lavas-解决方案能够帮助开发者完成？" class="headerlink" title="3.Lavas 解决方案能够帮助开发者完成？"></a>3.Lavas 解决方案能够帮助开发者完成？</h3><ul>
-<li>最基本的移动站点建设，包括 Vue, Vuex, Vue-router, webpack 等常用且成套的技术提供支持</li>
-<li>允许站点添加至手机桌面，再次打开时全屏运行，摆脱浏览器的固定显示框架(地址栏，菜单栏等)</li>
-<li>强化缓存，允许站点在弱网甚至离线的情况下继续显示内容</li>
-<li>支持消息推送，帮助站长主动推送用户感兴趣的信息，提升业务指标</li>
-<li>支持服务端渲染(SSR)，对搜索引擎更加友好</li>
-<li>支持App Shell模型，在正常情况下提升加载性能，在异常情况下优化错误显示。   </li>
-</ul>
-<h3 id="4-Lavas-2-0新增功能？"><a href="#4-Lavas-2-0新增功能？" class="headerlink" title="4.Lavas 2.0新增功能？"></a>4.Lavas 2.0新增功能？</h3><ul>
-<li>服务端渲染 (SSR) 和浏览器端渲染 (SPA) 可以快速切换</li>
-<li>自动生成路由规则，避免重复代码</li>
-<li>针对 SSR 提供了更加合理的AppShell支持，享受更加顺滑和健壮的浏览体验</li>
-</ul>
-<h3 id="5-lavas基本命令？"><a href="#5-lavas基本命令？" class="headerlink" title="5.lavas基本命令？"></a>5.lavas基本命令？</h3><h6 id="安装"><a href="#安装" class="headerlink" title="(安装)"></a>(安装)</h6><ul>
-<li><p>安装lavas命令行工具</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i lavas -g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在所需的工程目录新建项目并命名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lavas init</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入项目安装依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动开发服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lavas dev</span><br><span class="line">lavas dev --port 8000 监听其他端口，eg:8000</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h6 id="构建"><a href="#构建" class="headerlink" title="(构建)"></a>(构建)</h6><ul>
-<li><p>使用 Lavas 对项目进行构建(内部会调用 babel, webpack 等，最终生成在 /dist/ 目录中,可以通过 /lavas.config.js 进行修改)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lavas build</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>lavas build 之后加入第三个参数以使用特定的配置文件进行构建，用以取代默认的 /lavas.config.js</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lavas build config/lavas.another.config.js</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h6 id="其他"><a href="#其他" class="headerlink" title="(其他)"></a>(其他)</h6><ul>
-<li><p>启动内置的正式服务器启动服务端渲染</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">build之后进入/dist/使用</span><br><span class="line">npm i</span><br><span class="line">lavas start</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用 Lavas 内置的静态服务器以当前目录为基准启动,(使用 localhost 访问即可预览带有 Service Worker 的站点效果)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">用法：</span><br><span class="line">1.在 构建后的 Lavas SPA 项目(默认 /dist/)启动</span><br><span class="line">2.在任何其他目录启动</span><br><span class="line"></span><br><span class="line">lavas static</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><br></p>
-<blockquote>
-<p>关于更多lavas请查看lavas文档 <a href="https://lavas.baidu.com/guide" target="_blank" rel="noopener">https://lavas.baidu.com/guide</a></p>
-</blockquote>
-<blockquote>
-<p>代码演练： <a href="https://lavas.baidu.com/codelab" target="_blank" rel="noopener">https://lavas.baidu.com/codelab</a></p>
-</blockquote>
-<blockquote>
-<p>github地址： <a href="https://github.com/lavas-project/lavas" target="_blank" rel="noopener">https://github.com/lavas-project/lavas</a></p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">性能</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pwa</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">lavas</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端知识//" class="article-tag-list-link color5">前端知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
+          
 
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://rainLi.github.io/2018/05/17/PWA-LAVAS简述/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/05/18/几张图让你彻底弄懂git工作流-一-——git简史与git基础.md/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          git工作流(一)——git简史与git基础
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/05/10/开发之余的心灵鸡汤/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">开发之余的心灵鸡汤</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "https://rainLi.github.io/2018/05/17/PWA-LAVAS简述/", 
-    sourceId: "PWA-LAVAS简述",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="PWA-LAVAS简述" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "true",
-        conf: "true"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -448,9 +220,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
