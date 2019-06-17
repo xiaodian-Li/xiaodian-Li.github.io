@@ -6,23 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://rainLi.github.io">
-  <title>小程序内嵌H5页面自定义导航栏消失 | rainLi&#39;s personal blog</title>
+  <title>Archives: 2019/6 | rainLi&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景：我们的QA找到我，说OPPO系的手机都会出现H5导航栏消失，我以为兼容性问题，各种找资料发现了坑   1.如下同样在小程序中嵌入H5对比图：    有导航栏 无导航栏">
-<meta name="keywords" content="微信小程序">
-<meta property="og:type" content="article">
-<meta property="og:title" content="小程序内嵌H5页面自定义导航栏消失">
-<meta property="og:url" content="https://rainLi.github.io/2018/11/29/小程序内嵌H5页面自定义导航栏消失/index.html">
+  <meta name="description" content="学习总结 思考感悟 知识管理">
+<meta property="og:type" content="website">
+<meta property="og:title" content="rainLi&#39;s personal blog">
+<meta property="og:url" content="https://rainLi.github.io/archives/2019/06/index.html">
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
-<meta property="og:description" content="背景：我们的QA找到我，说OPPO系的手机都会出现H5导航栏消失，我以为兼容性问题，各种找资料发现了坑   1.如下同样在小程序中嵌入H5对比图：    有导航栏 无导航栏">
+<meta property="og:description" content="学习总结 思考感悟 知识管理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://images.daojia.com/assets/other/images/2agreement.jpg">
-<meta property="og:image" content="http://images.daojia.com/assets/other/images/1agreement.jpg">
-<meta property="og:updated_time" content="2018-11-29T07:33:30.789Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小程序内嵌H5页面自定义导航栏消失">
-<meta name="twitter:description" content="背景：我们的QA找到我，说OPPO系的手机都会出现H5导航栏消失，我以为兼容性问题，各种找资料发现了坑   1.如下同样在小程序中嵌入H5对比图：    有导航栏 无导航栏">
-<meta name="twitter:image" content="http://images.daojia.com/assets/other/images/2agreement.jpg">
+<meta name="twitter:title" content="rainLi&#39;s personal blog">
+<meta name="twitter:description" content="学习总结 思考感悟 知识管理">
   
     <link rel="alternative" href="/atom.xml" title="rainLi&#39;s personal blog" type="application/atom+xml">
   
@@ -145,195 +140,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-小程序内嵌H5页面自定义导航栏消失" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      小程序内嵌H5页面自定义导航栏消失
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/06/17/Grid网格布局，了解一下？/" class="archive-article-date">
+  	<time datetime="2019-06-17T13:18:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-17</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/06/17/Grid网格布局，了解一下？/">Grid网格布局，了解一下？</a>
     </h1>
   
 
-        
-        <a href="/2018/11/29/小程序内嵌H5页面自定义导航栏消失/" class="archive-article-date">
-  	<time datetime="2018-11-29T07:32:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>背景：我们的QA找到我，说OPPO系的手机都会出现H5导航栏消失，我以为兼容性问题，各种找资料发现了坑  </p>
-<p>1.如下同样在小程序中嵌入H5对比图：</p>
-<table>
-<thead>
-<tr>
-<th>有导航栏</th>
-<th>无导航栏</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="http://images.daojia.com/assets/other/images/2agreement.jpg" alt="row 1 col"></td>
-<td><img src="http://images.daojia.com/assets/other/images/1agreement.jpg" alt="image"></td>
-</tr>
-</tbody>
-</table>
-<p><br><a id="more"></a><br>2.为什么会出现这种情况呢？<br>小程序官方给出说法：<br>是因为微信的版本–要升级到6.7.2以上版本  </p>
-<p>Ennn…..经过验证确实有效。。。。  </p>
-<p>另附相关官方文档一份：<br><a href="https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html</a>  </p>
-<p>3.最后， 有问题一定先去找文档，再去社区<br><a href="https://developers.weixin.qq.com/community/" target="_blank" rel="noopener">https://developers.weixin.qq.com/community/</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://rainLi.github.io/2018/11/29/小程序内嵌H5页面自定义导航栏消失/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/11/30/小程序页面间的跳转/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          小程序页面间的跳转
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/10/25/小程序开发问题总结3(分享相关)/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">小程序开发问题总结3(分享相关)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "https://rainLi.github.io/2018/11/29/小程序内嵌H5页面自定义导航栏消失/", 
-    sourceId: "小程序内嵌H5页面自定义导航栏消失",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="小程序内嵌H5页面自定义导航栏消失" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "true",
-        conf: "true"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -356,8 +216,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
