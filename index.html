@@ -162,197 +162,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Grid布局定义"><a href="#Grid布局定义" class="headerlink" title="Grid布局定义"></a>Grid布局定义</h2><p>CSS的网格布局模块提供了一个基于网格的布局系统，能够以行和列来进行布局，使其更容易设计网页，而不必使用浮标和定位。<br>只要给块级元素设置display:grid<br>或者给内联元素设置display:inline-grid，<br>Grid布局就可以创建</p>
-<h2 id="先看一下效果"><a href="#先看一下效果" class="headerlink" title="先看一下效果"></a>先看一下效果</h2><p>display属性被设置为网格或内联网格。  </p>
-<p>使用grid布局主要需要做的是将display设置为grid(块级元素)或inline-grid(内联元素)</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// grid-container称为grid容器</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"grid-container"</span>&gt;</span></span><br><span class="line">  // grid-item称为grid子项</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"grid-item"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"grid-item"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"grid-item"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"grid-item"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"grid-item"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"grid-item"</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">.grid-container &#123;</span></span><br><span class="line"><span class="undefined">  display: grid;</span></span><br><span class="line"><span class="undefined">  grid-template-columns: auto auto auto;</span></span><br><span class="line"><span class="undefined">  background-color: #2196F3;</span></span><br><span class="line"><span class="undefined">  padding: 10px;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined">.grid-item &#123;</span></span><br><span class="line"><span class="undefined">  background-color: rgba(255, 255, 255, 0.8);</span></span><br><span class="line"><span class="undefined">  border: 1px solid rgba(0, 0, 0, 0.8);</span></span><br><span class="line"><span class="undefined">  padding: 20px;</span></span><br><span class="line"><span class="undefined">  font-size: 30px;</span></span><br><span class="line"><span class="undefined">  text-align: center;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://static.daojia.com/assets/project/tosimple-pic/WechatIMG51_1560738512366.png" alt="image"></p>
-<h2 id="主要属性介绍"><a href="#主要属性介绍" class="headerlink" title="主要属性介绍"></a>主要属性介绍</h2><p>为了使一个HTML元素表现为一个网格容器，你必须设置显示属性为网格或内联网格。网格容器组成的网格项目，网格项目又置于行和列内。</p>
-<h4 id="grid-template-columns"><a href="#grid-template-columns" class="headerlink" title="grid-template-columns"></a>grid-template-columns</h4><p>该属性定义的列数在网格布局，它可以定义每个列的宽度。其值是一个空格分隔列表，其中每个值定义的相应列的长度。<br>css数据类型，表示网格容器内的灵活长度（如1fr,1.5fr)</p>
-<blockquote>
-<p>注意：为了方便表示比例关系，网格布局提供了fr关键字（fraction 的缩写，意为”片段”）。如果两列的宽度分别为1fr和1.5fr，就表示后者是前者的1.5倍。</p>
-</blockquote>
-<p>语法：<br><figure class="highlight plain"><figcaption><span><track-size> ... | <line-name> <track-size>... ```</track-size></line-name></track-size></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* &lt;track-size&gt;：宽度尺寸。可以是长度值，百分比值，以及fr单位（网格剩余空间比例单位）。</span><br><span class="line">* &lt;line-name&gt;：自定义的命名。</span><br></pre></td></tr></table></figure></p>
-<p>.grid-container {<br>  display: grid;<br>  //网格布局有4列,所占宽度分别为50px 40px 30nepx 20px<br>  grid-template-columns: 50px 40px 30px 20px;<br>  //网格布局有5列,所占宽度分别如下<br>  grid-template-columns: 50px 40px 30px 20px 10px;<br>  // 容器分成3列，一列宽度为50px，然后将容器剩下的部分成2个部分,第二列和第三列各占1个部分<br>  grid-template-columns: 50px 1fr 1fr;<br>  // 自定义命名<br>  grid-template-columns: [第一纵线] 80px [纵线2] auto [纵线3] 100px [最后的结束线];<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#### grid-template-rows</span><br><span class="line">该属性定义每一行的高度。  </span><br><span class="line">语法：  </span><br><span class="line">```grid-template-rows: &lt;track-size&gt; ... | &lt;line-name&gt; &lt;track-size&gt; ...</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><track-size>：宽度尺寸。可以是长度值，百分比值，以及fr单位（网格剩余空间比例单位）。</track-size></li>
-<li><line-name>：自定义的命名。</line-name></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.grid-container &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  // 网格布局有2行,所占高度分别如下80px 200px</span><br><span class="line">  grid-template-rows: 80px 200px;</span><br><span class="line">  // 容器分成3行，一行高度为50px，然后将容器剩下的高度分为2个部分,第二行和第三行高度各占1个部分</span><br><span class="line">  grid-template-rows: 50px 1fr 1fr;</span><br><span class="line">  // 任意命名</span><br><span class="line">  grid-template-rows: [第一行开始] 25% [第一行结束] 100px [行3] auto [行4] 60px [行末];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h4><p>该属性用于横向对准容器内整个网格<br>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">justify-content: stretch | start | end | center | space-between | space-around | space-evenly</span><br></pre></td></tr></table></figure></p>
-<p>可能取值  </p>
-<ul>
-<li>stretch：默认值。拉伸，宽度填满grid容器，拉伸效果需要网格目标尺寸设为auto时候才有效，如果定死了宽度，则无法拉伸。  </li>
-<li>space-evenly：evenly是匀称、平等的意思。也就是视觉上，每个flex子项两侧空白间距完全相等。   </li>
-<li>space-around：around是环绕的意思，意思是每个flex子项两侧都环绕互不干扰的等宽的空白间距，最终视觉上边缘两侧的空白只有中间空白宽度一半。   </li>
-<li>space-between：表现为两端对齐。between是中间的意思，意思是多余的空白间距只在元素中间区域分配。   </li>
-<li>center：表现为居中对齐。   </li>
-<li>start: 逻辑CSS属性值，与文档流方向相关。对齐容器的起始边框,默认表现为左对齐。   </li>
-<li>end：逻辑CSS属性值，与文档流方向相关。对齐容器的结束边框,默认表现为右对齐。</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.grid-container &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  justify-content: end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>space-evenly</th>
-<th>space-around</th>
-<th>space-between</th>
-<th>center</th>
-<th>start</th>
-<th>end</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><img src="https://static.daojia.com/assets/project/tosimple-pic/1_1560824999398.jpg" alt=""></td>
-<td><img src="https://static.daojia.com/assets/project/tosimple-pic/2_1560824999458.jpg" alt=""></td>
-<td><img src="https://static.daojia.com/assets/project/tosimple-pic/3_1560824999457.jpg" alt=""></td>
-<td><img src="https://static.daojia.com/assets/project/tosimple-pic/4_1560824999457.jpg" alt=""></td>
-<td><img src="https://static.daojia.com/assets/project/tosimple-pic/5_1560824999369.jpg" alt=""></td>
-<td><img src="https://static.daojia.com/assets/project/tosimple-pic/6_1560824999397.jpg" alt=""></td>
-</tr>
-</tbody>
-</table>
-<h4 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h4><p>该属性用于竖直地对准在容器内部的整个网格。<br>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">align-content: stretch | start | end | center | space-between | space-around | space-evenly</span><br></pre></td></tr></table></figure></p>
-<p>可能取值</p>
-<ul>
-<li>stretch：默认值。每一行flex子元素都等比例拉伸。例如，如果共两行flex子元素，则每一行拉伸高度是50%。</li>
-<li>start： 逻辑CSS属性值，与文档流方向相关。默认表现为顶部开始。</li>
-<li>end： 逻辑CSS属性值，与文档流方向相关。默认表现为底部开始。</li>
-<li>center： 表现为整体垂直居中对齐。</li>
-<li>space-between: 上下两行两端对齐。剩下每一行元素等分剩余空间。</li>
-<li>space-around：<br>每一行元素上下都享有独立不重叠的空白空间。</li>
-<li>space-evenly：<br>每一行元素都完全上下等分。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.grid-container &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  height: 400px;</span><br><span class="line">  align-content: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="place-content"><a href="#place-content" class="headerlink" title="place-content"></a>place-content</h4><p>该属性可以让align-content和justify-content属性缩写在一个CSS声明中<br>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 由于兼容性问题， 不建议合在一起</span><br><span class="line">place-items: &lt;align-content&gt; / &lt;justify-content&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="网格间隙"><a href="#网格间隙" class="headerlink" title="网格间隙"></a>网格间隙</h2><p>每列/行之间的间隙被称为间隙<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.grid-container &#123;</span><br><span class="line">  display: grid; // 网格布局</span><br><span class="line">  grid-column-gap: 50px; // 列间距50px</span><br><span class="line">  grid-row-gap: 10px; // 行间距10px</span><br><span class="line">  grid-gap: 10px 50px ; // 分别设置行间距10px, 列间距50px</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://static.daojia.com/assets/project/tosimple-pic/WechatIMG50_1560738319166.png" alt="image"></p>
-<h2 id="网格线"><a href="#网格线" class="headerlink" title="网格线"></a>网格线</h2><p>列之间的线被称为列线。<br>行之间的线被称为行线。<br><img src="https://static.daojia.com/assets/project/tosimple-pic/WechatIMG52_1560739613322.png" alt="image"></p>
-<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p>放置在列线1的网格项目，并让它结束对列线3。  </p>
-<p>可能取值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid-column-start: &lt;number&gt; | &lt;name&gt; | span &lt;number&gt; | span &lt;name&gt; | auto</span><br></pre></td></tr></table></figure></p>
-<p><number>：起止于第几条网格线。  </number></p>
-<p><name>：自定义的网格线的名称。<br>span <number>：当前网格会自动跨越指定的网格数量。<br>span <name>：当前网格会自动扩展，直到命中指定的网格线名称。<br>auto：全自动，包括定位，跨度等。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item1</span> &#123;</span><br><span class="line">  <span class="attribute">grid-column-start</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">grid-column-end</span>: <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></name></number></name></p>
-<p><img src="https://static.daojia.com/assets/project/tosimple-pic/WechatIMG53_1560740516610.png" alt="image"></p>
-<h4 id="同理放在在排线-行线-1的网格项目，并让它结束对排线3"><a href="#同理放在在排线-行线-1的网格项目，并让它结束对排线3" class="headerlink" title="同理放在在排线(行线)1的网格项目，并让它结束对排线3"></a>同理放在在排线(行线)1的网格项目，并让它结束对排线3</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item1</span> &#123;</span><br><span class="line">  <span class="attribute">grid-row-start</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">grid-row-end</span>: <span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="grid-column（grid-column-start-grid-column-end）属性定义在其上的列（多个）放置的一个项目"><a href="#grid-column（grid-column-start-grid-column-end）属性定义在其上的列（多个）放置的一个项目" class="headerlink" title="grid-column（grid-column-start + grid-column-end）属性定义在其上的列（多个）放置的一个项目"></a>grid-column（grid-column-start + grid-column-end）属性定义在其上的列（多个）放置的一个项目</h4><p>可能取值：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid-column: &lt;start-line&gt; / &lt;end-line&gt; | &lt;start-line&gt; / span &lt;value&gt;;</span><br></pre></td></tr></table></figure></p>
-<p>eg:让item1在1号线开始和3号线结束：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item1 &#123;</span><br><span class="line">  grid-column: 1 / 3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://static.daojia.com/assets/project/tosimple-pic/WechatIMG53_1560740516610.png" alt="image"><br>eg:让item1开始在1号线开始和跨度3列结束：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item1 &#123;</span><br><span class="line">  grid-column: 1 / span 3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://static.daojia.com/assets/project/tosimple-pic/WechatIMG55_1560742198725.png" alt="image"><br>eg:让item1开始在2号线开始和跨度2列结束：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item1 &#123;</span><br><span class="line">  grid-column: 2 / span 3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://static.daojia.com/assets/project/tosimple-pic/WechatIMG58_1560742987625.png" alt="image"></p>
-<h4 id="grid-row（grid-row-start-grid-row-end）属性定义哪一行放置一个项目"><a href="#grid-row（grid-row-start-grid-row-end）属性定义哪一行放置一个项目" class="headerlink" title="grid-row（grid-row-start + grid-row-end）属性定义哪一行放置一个项目"></a>grid-row（grid-row-start + grid-row-end）属性定义哪一行放置一个项目</h4><p>可能取值及原理同grid-column</p>
-<h2 id="grid-area"><a href="#grid-area" class="headerlink" title="grid-area"></a>grid-area</h2><p>该属性表示当前网格所占用的区域，可以被用作速记属性为 网格行启动，网格列启动，网格行截止和网格列截止的特性   </p>
-<p>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grid-area: &lt;name&gt; | &lt;row-start&gt; / &lt;column-start&gt; / &lt;row-end&gt; / &lt;column-end&gt;</span><br></pre></td></tr></table></figure></p>
-<p>可能取值：</p>
-<ul>
-<li><name>: 区域名称。由grid-template-areas属性创建。</name></li>
-<li><row-start> / <column-start> / <row-end> / <column-end>:<br>占据网格区域的纵横起始位置。</column-end></row-end></column-start></row-start></li>
-</ul>
-<p>eg:使“item1”上行线1和列线2开始，上行线4和列线3结束<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item1 &#123;</span><br><span class="line">  grid-area: 1 / 2 / 4 / 3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://static.daojia.com/assets/project/tosimple-pic/WechatIMG60_1560743684962.png" alt="image"></p>
-<p>eg:使“item1”对行线1和列2号线和跨度2行跨度3列结束<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.item1 &#123;</span><br><span class="line">  grid-area: 1 / 2 / span 2 / span 3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://static.daojia.com/assets/project/tosimple-pic/WechatIMG62_1560750913864.png" alt="image"></p>
-<h2 id="命名网格项目"><a href="#命名网格项目" class="headerlink" title="命名网格项目"></a>命名网格项目</h2><p>grid-area属性也可以为网格项目Item命名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.item1 &#123;</span><br><span class="line">  // item1将被命名为“myArea”</span><br><span class="line">  grid-area: myArea;</span><br><span class="line">&#125;</span><br><span class="line">.grid-container &#123;</span><br><span class="line">  //item1跨越的3列网格布局所有3列：</span><br><span class="line">  grid-template-areas: &apos;myArea myArea myArea&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://static.daojia.com/assets/project/tosimple-pic/WechatIMG64_1560751982883.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.item1 &#123;</span><br><span class="line">  // item1将被命名为“myArea”</span><br><span class="line">  grid-area: myArea;</span><br><span class="line">&#125;</span><br><span class="line">.grid-container &#123;</span><br><span class="line">  //item1跨越的5列网格布局中的3列</span><br><span class="line">  grid-template-areas: &apos;myArea myArea myArea . . &apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://static.daojia.com/assets/project/tosimple-pic/WechatIMG65_1560752041895.png" alt="image"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.item1 &#123;</span><br><span class="line">  grid-area: myArea;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.grid-container &#123;</span><br><span class="line">  // 让item1跨越两列和两行：</span><br><span class="line">  grid-template-areas: &apos;myArea myArea . . .&apos; &apos;myArea myArea . . .&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://static.daojia.com/assets/project/tosimple-pic/WechatIMG66_1560752312852.png" alt="image"></p>
-<h2 id="隐式网格"><a href="#隐式网格" class="headerlink" title="隐式网格"></a>隐式网格</h2><p>使用grid-auto-rows, grid-auto-columns, grid-auto-flow来设置隐式网格  </p>
-<ul>
-<li>grid-auto-rows：隐含创建的网格行的大小</li>
-<li>grid-auto-columns：隐含创建的网格列的大小轨道</li>
-<li>grid-auto-flow：隐含创建的网格的默认流方向<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.grid-container &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  background-color: #2196F3;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  grid-gap:5px;</span><br><span class="line">  // 行高度70px</span><br><span class="line">  grid-template-rows: 70px;</span><br><span class="line">  // 2列铺满各站1半</span><br><span class="line">  grid-template-columns: repeat(2, 1fr);</span><br><span class="line">  // 隐含创建的网格行的大小140px</span><br><span class="line">  grid-auto-rows: 140px;</span><br><span class="line">  // 隐含创建的网格的默认流方向: 行方向</span><br><span class="line">  grid-auto-flow: row;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="https://static.daojia.com/assets/project/tosimple-pic/WechatIMG69_1560759889368.png" alt="image"></p>
-<h2 id="Grid属性集"><a href="#Grid属性集" class="headerlink" title="Grid属性集"></a>Grid属性集</h2><table>
-<thead>
-<tr>
-<th>作用在grid容器上</th>
-<th>作用在grid子项上</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>grid-template-columns（列宽）</td>
-<td>grid-column-start</td>
-</tr>
-<tr>
-<td>grid-template-rows（行高）</td>
-<td>grid-column-end</td>
-</tr>
-<tr>
-<td>grid-template-areas（命名网格）</td>
-<td>grid-row-start</td>
-</tr>
-<tr>
-<td>grid-template</td>
-<td>grid-row-end</td>
-</tr>
-<tr>
-<td>grid-column-gap（列间距）</td>
-<td>grid-column</td>
-</tr>
-<tr>
-<td>grid-row-gap</td>
-<td>grid-row</td>
-</tr>
-<tr>
-<td>grid-gap</td>
-<td>grid-area</td>
-</tr>
-<tr>
-<td>justify-items（水平呈现方式）</td>
-<td>justify-self</td>
-</tr>
-<tr>
-<td>align-items（垂直呈现方式）</td>
-<td>align-self</td>
-</tr>
-<tr>
-<td>place-items （水平垂直呈现方式）</td>
-<td>place-self</td>
-</tr>
-<tr>
-<td>justify-content（水平分布方式）</td>
-<td></td>
-</tr>
-<tr>
-<td>align-content（垂直方向的分布方式）</td>
-<td></td>
-</tr>
-<tr>
-<td>place-content</td>
-<td></td>
-</tr>
-<tr>
-<td>grid-auto-columns（隐式创建列大小）</td>
-<td></td>
-</tr>
-<tr>
-<td>grid-auto-rows</td>
-<td></td>
-</tr>
-<tr>
-<td>grid-auto-flow</td>
-<td></td>
-</tr>
-<tr>
-<td>grid（网格布局）</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="Grid与Flex主要区别"><a href="#Grid与Flex主要区别" class="headerlink" title="Grid与Flex主要区别"></a>Grid与Flex主要区别</h2><ul>
-<li>Grid布局则适用于更大规模的布局（二维布局），<br>处理一些不规则和非对称的设计。  </li>
-<li>Flexbox布局最适合应用程序的组件和小规模布局（一维布局）  </li>
-</ul>
-<hr>
-<p>虽然grid存在一定的兼容（如下图），但是依照flex的趋势，grid的时代必然会来<br><img src="https://static.daojia.com/assets/project/tosimple-pic/1_1563245417637.png" alt="image"></p>
-<blockquote>
-<p>参考文章：<br><a href="https://www.w3schools.com/css/css_grid.asp" target="_blank" rel="noopener">https://www.w3schools.com/css/css_grid.asp</a><br><a href="https://learncssgrid.com/" target="_blank" rel="noopener">https://learncssgrid.com/</a></p>
-</blockquote>
-
+        <h2 id="Grid布局定义"><a href="#Grid布局定义" class="headerlink" title="Grid布局定义"></a>Grid布局定义</h2><p>CSS的网格布局模块提供了一个基于网格的布局系统，能够以行和列来进行布局，使其更容易设计网页，而不必使用浮标和定位。<br>只要给块级元素设置display:grid<br>或者给内联元素设置display:inline-grid，<br>Grid布局就可以创建<br>
+        
+          <a class="article-more-a" href="/2019/06/17/Grid网格布局，了解一下？/#more">还有更多 = = Read More >></a>
+        
       
 
       
@@ -1233,7 +1046,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">http网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1249,6 +1062,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">http网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http模块</a>
               </li>
              
@@ -1257,11 +1078,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
+                <a href="javascript:void(0)" class="js-tag color3">性能</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pwa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">lavas</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1270,10 +1099,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1293,10 +1118,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">性能</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
               </li>
              
@@ -1313,7 +1134,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开发中的一些事</a>
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">异步</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1333,27 +1162,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">异步</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pwa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">lavas</a>
+                <a href="javascript:void(0)" class="js-tag color3">开发中的一些事</a>
               </li>
             
             <div class="clearfix"></div>
