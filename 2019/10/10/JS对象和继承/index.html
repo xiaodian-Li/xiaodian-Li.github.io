@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://rainLi.github.io">
   <title>JS对象和继承 | rainLi&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="对象创建的三种方式字面量创建方式123var person =｛  name: &amp;apos;Tom&amp;apos;　｝ 系统内置构造函数方式12var person = new Object()person.name = &amp;apos;Tom&amp;apos;">
+  <meta name="description" content="JS 对象创建的三种方式字面量创建方式123var person =｛  name: &amp;apos;Tom&amp;apos;　｝ 系统内置构造函数方式12var person = new Object()person.name = &amp;apos;Tom&amp;apos;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS对象和继承">
 <meta property="og:url" content="https://rainLi.github.io/2019/10/10/JS对象和继承/index.html">
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
-<meta property="og:description" content="对象创建的三种方式字面量创建方式123var person =｛  name: &amp;apos;Tom&amp;apos;　｝ 系统内置构造函数方式12var person = new Object()person.name = &amp;apos;Tom&amp;apos;">
+<meta property="og:description" content="JS 对象创建的三种方式字面量创建方式123var person =｛  name: &amp;apos;Tom&amp;apos;　｝ 系统内置构造函数方式12var person = new Object()person.name = &amp;apos;Tom&amp;apos;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-10T07:15:25.350Z">
+<meta property="og:updated_time" content="2019-10-10T12:50:16.609Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS对象和继承">
-<meta name="twitter:description" content="对象创建的三种方式字面量创建方式123var person =｛  name: &amp;apos;Tom&amp;apos;　｝ 系统内置构造函数方式12var person = new Object()person.name = &amp;apos;Tom&amp;apos;">
+<meta name="twitter:description" content="JS 对象创建的三种方式字面量创建方式123var person =｛  name: &amp;apos;Tom&amp;apos;　｝ 系统内置构造函数方式12var person = new Object()person.name = &amp;apos;Tom&amp;apos;">
   
     <link rel="alternative" href="/atom.xml" title="rainLi&#39;s personal blog" type="application/atom+xml">
   
@@ -161,15 +161,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="对象创建的三种方式"><a href="#对象创建的三种方式" class="headerlink" title="对象创建的三种方式"></a>对象创建的三种方式</h2><h4 id="字面量创建方式"><a href="#字面量创建方式" class="headerlink" title="字面量创建方式"></a>字面量创建方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var person =｛</span><br><span class="line">  name: &apos;Tom&apos;　</span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
+        <h2 id="JS-对象创建的三种方式"><a href="#JS-对象创建的三种方式" class="headerlink" title="JS 对象创建的三种方式"></a>JS 对象创建的三种方式</h2><h4 id="字面量创建方式"><a href="#字面量创建方式" class="headerlink" title="字面量创建方式"></a>字面量创建方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var person =｛</span><br><span class="line">  name: &apos;Tom&apos;　</span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
 <h4 id="系统内置构造函数方式"><a href="#系统内置构造函数方式" class="headerlink" title="系统内置构造函数方式"></a>系统内置构造函数方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var person = new Object()</span><br><span class="line">person.name = &apos;Tom&apos;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="自定义构造函数"><a href="#自定义构造函数" class="headerlink" title="自定义构造函数"></a>自定义构造函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function Person(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">&#125;</span><br><span class="line">var person = new Person(&apos;Tom&apos;);</span><br></pre></td></tr></table></figure>
 <h2 id="继承方式"><a href="#继承方式" class="headerlink" title="继承方式"></a>继承方式</h2><h4 id="for-in-继承"><a href="#for-in-继承" class="headerlink" title="for in 继承"></a>for in 继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function Person () &#123;</span><br><span class="line">  this.name = &apos;Tom&apos;</span><br><span class="line">  this.age = 25</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Son () &#123;&#125;</span><br><span class="line">var p = new Person()</span><br><span class="line">var s = new Son()</span><br><span class="line">for (var k in p) &#123;</span><br><span class="line">  s[k] = p[k]</span><br><span class="line">&#125;</span><br><span class="line">console.log(s.name) // Tom</span><br><span class="line">console.log(s.age) // 25</span><br></pre></td></tr></table></figure>
-<h4 id="原型-构造函数的继承"><a href="#原型-构造函数的继承" class="headerlink" title="原型 + 构造函数的继承"></a>原型 + 构造函数的继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Person () &#123;</span><br><span class="line">  this.name = &apos;Tom&apos;</span><br><span class="line">  this.age = 25</span><br><span class="line">&#125;</span><br><span class="line">function Son () &#123;&#125;</span><br><span class="line">Son.prototype = new Person() // Son的原型指向Person的实例</span><br><span class="line">var m = new Son() // 实例赋值给m</span><br><span class="line"></span><br><span class="line">console.log(m.name) // Tom</span><br><span class="line">console.log(m.age) // 25</span><br></pre></td></tr></table></figure>
+<h4 id="原型-原型链继承"><a href="#原型-原型链继承" class="headerlink" title="原型/原型链继承"></a>原型/原型链继承</h4><ul>
+<li>使子类的原型指向父类的实例实现继承<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Person () &#123;</span><br><span class="line">  this.name = &apos;Tom&apos;</span><br><span class="line">  this.age = 25</span><br><span class="line">&#125;</span><br><span class="line">function Son () &#123;&#125;</span><br><span class="line">Son.prototype = new Person() // Son的原型指向Person的实例</span><br><span class="line">var m = new Son() // 实例赋值给m</span><br><span class="line"></span><br><span class="line">console.log(m.name) // Tom</span><br><span class="line">console.log(m.age) // 25</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 <h4 id="Object-create经典继承"><a href="#Object-create经典继承" class="headerlink" title="Object.create经典继承"></a>Object.create经典继承</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var person = &#123;</span><br><span class="line">  name: &apos;Tom&apos;,</span><br><span class="line">  age: 25</span><br><span class="line">&#125;</span><br><span class="line">var son  = Object.create(person)</span><br><span class="line">console.log(son.name) // Tom</span><br><span class="line">console.log(son.age) // 25</span><br><span class="line"></span><br><span class="line">&lt;!-- Object.create()是让一个对象的原型继承另外一个对象；所以虽然a.name和a.age是可以访问成功的，但实际上a本身并没有这些属性，而是a的原型上有这些属性。 --&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="call-apply实现继承"><a href="#call-apply实现继承" class="headerlink" title="call, apply实现继承"></a>call, apply实现继承</h4><ul>
 <li>构造函数的名字.call( 当前对象，属性，属性….) 解决了属性继承问题，但是不能继承父级的方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function Person (name, age) &#123;</span><br><span class="line">  this.name = name</span><br><span class="line">  this.age = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Student (name, age, score) &#123;</span><br><span class="line">  // Person.apply(this, [name, age]) // apply实现继承</span><br><span class="line">  Person.call(this, name, age) // call实现继承</span><br><span class="line">  this.score = score</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var a = new Student(&apos;李四&apos;, &apos;25&apos;, &apos;100&apos;);</span><br><span class="line">console.log(a.name) // 李四</span><br><span class="line">console.log(a.age) // 25</span><br><span class="line">console.log(a.score) // 100</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="对象冒充继承"><a href="#对象冒充继承" class="headerlink" title="对象冒充继承"></a>对象冒充继承</h4><ul>
+<li>让父类的构造函数成为子类的方法，然后调用孩子类的方法，并通过this给所有的属性和方法赋值<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function Person (name, age) &#123;  // Person函数被Son继承</span><br><span class="line">  this.name = name</span><br><span class="line">  this.age = age</span><br><span class="line">  this.showAge=function() &#123; </span><br><span class="line">    console.log(this.age)</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line">function Son (name, age)&#123;  // 被用作构造函数，创建一个实例对象。</span><br><span class="line">  this.newMethod = Person // 将函数Person赋值给属性newMethod。</span><br><span class="line">  this.newMethod(name, age) // 执行函数newMethod，对函数Person中的属性赋值，完成继承。</span><br><span class="line">  delete this.newMethod // 删除属性（可删可不删）</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var obj = new Son(&quot;Tom&quot;, &quot;25&quot;)</span><br><span class="line"></span><br><span class="line">console.log(obj.showAge())//  25</span><br><span class="line">console.log(obj.name) // Tom</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>相关文章： <a href="https://www.jianshu.com/p/b163e72aa8ae" target="_blank" rel="noopener">https://www.jianshu.com/p/b163e72aa8ae</a></p>
@@ -386,14 +393,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http网络</a>
               </li>
              
@@ -410,6 +409,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">http模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">路由</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">性能</a>
               </li>
              
@@ -419,6 +430,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">lavas</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,19 +517,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">node基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">http模块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">路由</a>
               </li>
             
             <div class="clearfix"></div>
