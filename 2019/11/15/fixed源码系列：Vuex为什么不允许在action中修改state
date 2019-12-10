@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
 <meta property="og:description" content="背景在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-10T09:59:15.926Z">
+<meta property="og:updated_time" content="2019-12-10T11:03:36.607Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="fixed源码系列：Vuex为什么不允许在action中修改state?">
 <meta name="twitter:description" content="背景在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱">
@@ -162,7 +162,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱<br><a id="more"></a></p>
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱<br><br><a id="more"></a></p>
 <h3 id="一起阅读源码吧"><a href="#一起阅读源码吧" class="headerlink" title="一起阅读源码吧~"></a>一起阅读源码吧~</h3><p>1.首先我们可以在src/store.js这个文件的Store类中找到下面这段代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">this</span>.dispatch = <span class="function"><span class="keyword">function</span> <span class="title">boundDispatch</span> (<span class="params">type, payload</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> dispatch.call(store, type, payload)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.commit = <span class="function"><span class="keyword">function</span> <span class="title">boundCommit</span> (<span class="params">type, payload, options</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> commit.call(store, type, payload, options)</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure></p>
 <p>上面是Vuex两个最核心的API：dispatch &amp; commit，它们是分别用来提交action和mutation的<br>那么既然我们今天的目的是为了“了解为什么不能在action中修改state”，所以我们就先看看mutation是怎样修改state的，然而mutation是通过commit提交的，所以我们先看一下commit的内部实现</p>
 <h4 id="commit-amp-mutation"><a href="#commit-amp-mutation" class="headerlink" title="commit&amp;mutation"></a>commit&amp;mutation</h4><p>2.commit方法的核心代码大致如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">commit (_type, _payload, _options) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">this</span>._withCommit(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      entry.forEach(<span class="function"><span class="keyword">function</span> <span class="title">commitIterator</span> (<span class="params">handler</span>) </span>&#123;</span><br><span class="line">        handler(payload)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -423,11 +423,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">http网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">http网络</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,10 +475,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -487,11 +483,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">单页背景色</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">modules.exports/exports</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">单页背景色</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,7 +507,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,11 +515,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开发中的一些事</a>
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,19 +523,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">开发中的一些事</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">调试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">异步</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,6 +540,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">原型</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">异步</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
             
             <div class="clearfix"></div>
