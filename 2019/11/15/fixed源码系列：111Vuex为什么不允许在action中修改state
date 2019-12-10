@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://rainLi.github.io">
-  <title>小程序实践问题记录 | rainLi&#39;s personal blog</title>
+  <title>fixed源码系列：Vuex为什么不允许在action中修改state? | rainLi&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.开始添加项目，报错如下VM838:2 未找到入口 app.json 文件，或者文件读取失败，请检查后重新编译。原因的项目目录不对，只识别app,文件夹下不能有二级目录，什么配置以及docs都是自己加的 ，小程序不识别">
-<meta name="keywords" content="微信小程序">
+  <meta name="description" content="背景在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱">
+<meta name="keywords" content="vue,vuex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小程序实践问题记录">
-<meta property="og:url" content="https://rainLi.github.io/2018/07/22/小程序实践问题记录/index.html">
+<meta property="og:title" content="fixed源码系列：Vuex为什么不允许在action中修改state?">
+<meta property="og:url" content="https://rainLi.github.io/2019/11/15/fixed源码系列：111Vuex为什么不允许在action中修改state">
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
-<meta property="og:description" content="1.开始添加项目，报错如下VM838:2 未找到入口 app.json 文件，或者文件读取失败，请检查后重新编译。原因的项目目录不对，只识别app,文件夹下不能有二级目录，什么配置以及docs都是自己加的 ，小程序不识别">
+<meta property="og:description" content="背景在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-23T07:19:02.745Z">
+<meta property="og:updated_time" content="2019-12-10T11:05:12.932Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小程序实践问题记录">
-<meta name="twitter:description" content="1.开始添加项目，报错如下VM838:2 未找到入口 app.json 文件，或者文件读取失败，请检查后重新编译。原因的项目目录不对，只识别app,文件夹下不能有二级目录，什么配置以及docs都是自己加的 ，小程序不识别">
+<meta name="twitter:title" content="fixed源码系列：Vuex为什么不允许在action中修改state?">
+<meta name="twitter:description" content="背景在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱">
   
     <link rel="alternative" href="/atom.xml" title="rainLi&#39;s personal blog" type="application/atom+xml">
   
@@ -142,74 +142,52 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-小程序实践问题记录" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-fixed源码系列：111Vuex为什么不允许在action中修改state?" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      小程序实践问题记录
+      fixed源码系列：Vuex为什么不允许在action中修改state?
     </h1>
   
 
         
-        <a href="/2018/07/22/小程序实践问题记录/" class="archive-article-date">
-  	<time datetime="2018-07-22T06:35:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-22</time>
+        <a href="/2019/11/15/fixed源码系列：111Vuex为什么不允许在action中修改state?/" class="archive-article-date">
+  	<time datetime="2019-11-15T03:42:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-开始添加项目，报错如下VM838-2-未找到入口-app-json-文件，或者文件读取失败，请检查后重新编译。"><a href="#1-开始添加项目，报错如下VM838-2-未找到入口-app-json-文件，或者文件读取失败，请检查后重新编译。" class="headerlink" title="1.开始添加项目，报错如下VM838:2 未找到入口 app.json 文件，或者文件读取失败，请检查后重新编译。"></a>1.开始添加项目，报错如下VM838:2 未找到入口 app.json 文件，或者文件读取失败，请检查后重新编译。</h3><p>原因的项目目录不对，只识别app,文件夹下不能有二级目录，什么配置以及docs都是自己加的 ，小程序不识别 <br><a id="more"></a></p>
-<h3 id="2-地图开发"><a href="#2-地图开发" class="headerlink" title="2.地图开发"></a>2.地图开发</h3><p>2-0.map等组件是由客户端创建的原生组件，层级最高，不能通过z-index控制层级覆盖<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cover-view、cover-image 只有这两个可以在地图层级之上。</span><br><span class="line"></span><br><span class="line">1.9.0之下，上述两个标签只能嵌套在 map 等原生组件里面，以后的版本可以嵌套在view组件之上</span><br><span class="line"></span><br><span class="line">cover-view嵌套在map组件中时，宽高超过map的宽高的时候，会被剪切。</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-1-地图满屏：-设置width：-100-；-height：100-不管用"><a href="#2-1-地图满屏：-设置width：-100-；-height：100-不管用" class="headerlink" title="2-1.地图满屏： 设置width： 100%； height：100% 不管用"></a>2-1.地图满屏： 设置width： 100%； height：100% 不管用</h3><p>这时候用，整个屏幕默认满屏为100vh;所以将地图的高度设置为100vh宽度设置为100% 即width： 100%； height：100vh即可 </p>
-<ul>
-<li><p>覆盖在原生组件之上的文本视图，可覆盖的原生组件包括map、video、canvas、camera、live-player、live-pusher，只支持嵌套cover-view、cover-image</p>
-</li>
-<li><p>我也不知道经纬度中心设置之后，markers开始不显示，</p>
-</li>
-</ul>
-<p>到最后就好了，不知道是缓存还是因为我设置的marker标记点离中心点太远，我没看见——–待解</p>
-<ul>
-<li>其他看文档就很详细</li>
-</ul>
-<h3 id="3-点击事件"><a href="#3-点击事件" class="headerlink" title="3.点击事件"></a>3.点击事件</h3><ul>
-<li><p>事件是视图层到逻辑层的通信方式</p>
-</li>
-<li><p>事件可以将用户的行为反馈到逻辑层进行处理</p>
-</li>
-<li><p>事件可以绑定在组件上，当达到触发事件，就会执行逻辑层中对应的事件处理函数。</p>
-</li>
-<li><p>事件对象可以携带额外信息，如 id, dataset, touches。</p>
-</li>
-<li><p>3-1. 使用 bind<br>开头的事件绑定，这种绑定不会阻止冒泡事件向上冒泡—bindtap</p>
-</li>
-<li><p>3-2. 使用 catch 开头的事件绑定，这种绑定可以阻止冒泡事件向上冒泡—catchtap</p>
-</li>
-<li><p>3-3. tapName函数事件提供了足够多的信息，也就是event对象   </p>
-</li>
-</ul>
-<p>event对象中的target是事件产生的源头组件，而currentTarget则是当前捕获这个事件的组件</p>
-<ul>
-<li>3-4.子组件的事件传给父组件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.triggerEvent(&apos;PayDetail&apos;) // PayDetail为自定义名字</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>在父组件接收使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在wxll中：</span><br><span class="line">bind:PayDetail=&apos;PayDetail&apos;</span><br><span class="line"></span><br><span class="line">在js中：</span><br><span class="line">PayDetail () &#123;</span><br><span class="line">    console.log(PayDetail具体方法内容)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="4-map下marker的气泡动态传入值？"><a href="#4-map下marker的气泡动态传入值？" class="headerlink" title="4.map下marker的气泡动态传入值？"></a>4.map下marker的气泡动态传入值？</h3><p>不在data里，在发布里利用ES6字符串模板动态添加</p>
-<h3 id="5-组件形式和vue如出一辙"><a href="#5-组件形式和vue如出一辙" class="headerlink" title="5.组件形式和vue如出一辙"></a>5.组件形式和vue如出一辙</h3><p>需要注意text标签，合并写分开写的不同，分开写默认空行会解析，并不是传统的行级标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">如下lixiaodian  </span><br><span class="line">一行展示为</span><br><span class="line">lixiaodian  </span><br><span class="line"></span><br><span class="line">在li处换行展示为  </span><br><span class="line">li</span><br><span class="line">xiaodian</span><br></pre></td></tr></table></figure></p>
-<h3 id="6-微信的滑块视图容器swiper组件"><a href="#6-微信的滑块视图容器swiper组件" class="headerlink" title="6.微信的滑块视图容器swiper组件"></a>6.微信的滑块视图容器swiper组件</h3><p>一个swiper会嵌套swiper-item，横向有几个就套几个swiper-item，  </p>
-<p>but  </p>
-<p>当纵向是列表时，ios8,9,10会出现swiper-item里的所有内容是150px;并出现滚动条， 下方留白，目前微信并没有修复这个问题  </p>
-<p>暂时解决，不用swiper，自己用view写，缺点是少了过度动画，但是加上wx.loading会好很多</p>
-<h3 id="7-判断条件"><a href="#7-判断条件" class="headerlink" title="7.判断条件"></a>7.判断条件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wx:if ==&gt; v-if // 保条件块在切换时销毁或重新渲染</span><br><span class="line">wx:elif</span><br><span class="line">wx:else</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">hidden=&apos;&#123;&#123;haveOrders&#125;&#125;&apos;  ==&gt; v-show // 组件始终会被渲染，只是简单的控制显示与隐藏。 判断如果haveOrders是不展示，用于多种状态是很好选择</span><br></pre></td></tr></table></figure>
-<h3 id="8、-lt-block-gt"><a href="#8、-lt-block-gt" class="headerlink" title="8、&lt;block/&gt;"></a>8、<code>&lt;block/&gt;</code></h3><p>并不是一个组件，它仅仅是一个包装元素，不会在页面中做任何渲染，只接受控制属性。</p>
-<h3 id="9-写法"><a href="#9-写法" class="headerlink" title="9.写法"></a>9.写法</h3><p>wx:if这种需要有双大括号， 事件不需要，定义的文本需要</p>
-<h3 id="10-列表切换可以在请求前加wx-showLoading提升体验"><a href="#10-列表切换可以在请求前加wx-showLoading提升体验" class="headerlink" title="10.列表切换可以在请求前加wx.showLoading提升体验"></a>10.列表切换可以在请求前加wx.showLoading提升体验</h3><h3 id="11-组件中使用slot插槽"><a href="#11-组件中使用slot插槽" class="headerlink" title="11.组件中使用slot插槽"></a>11.组件中使用slot插槽</h3><p>插槽的样式需要定义在组件调用的页面；并且在开发工具上看可能样式没有生效，在真机上看看。开发工具上显示的节点树有问题，如果真机上还不对，那可能是真的出问题了。</p>
-<h3 id="12-小程序接入高德地图"><a href="#12-小程序接入高德地图" class="headerlink" title="12.小程序接入高德地图"></a>12.小程序接入高德地图</h3><p>在真机上预览时，需要打开调试（放开url校验），否则地图不能正常显示</p>
-<h3 id="13-地图上的markers"><a href="#13-地图上的markers" class="headerlink" title="13.地图上的markers"></a>13.地图上的markers</h3><p>不管事markers，还是别的挂在data上的，赋值一定要找中间变量，否则就会覆盖掉原有的值</p>
-<h3 id="14-分包加载-核心在于-页面包分配，-只需要载app-json里面配置好对应的文件就可以"><a href="#14-分包加载-核心在于-页面包分配，-只需要载app-json里面配置好对应的文件就可以" class="headerlink" title="14. 分包加载  核心在于 页面包分配， 只需要载app.json里面配置好对应的文件就可以."></a>14. 分包加载  核心在于 <strong>页面包分配</strong>， 只需要载app.json里面配置好对应的文件就可以.</h3><h3 id="15-高德地图小程序sdk，路线规划，可以使用waypoints指定途径地点"><a href="#15-高德地图小程序sdk，路线规划，可以使用waypoints指定途径地点" class="headerlink" title="15. 高德地图小程序sdk，路线规划，可以使用waypoints指定途径地点"></a>15. 高德地图小程序sdk，路线规划，可以使用<code>waypoints</code>指定途径地点</h3><h3 id="16-polyline-是个数组，可以在地图上一次渲染多条线"><a href="#16-polyline-是个数组，可以在地图上一次渲染多条线" class="headerlink" title="16. polyline 是个数组，可以在地图上一次渲染多条线"></a>16. <code>polyline</code> 是个数组，可以在地图上一次渲染多条线</h3><h3 id="17-map等原生组件、自定义组件，外面不要再加一层-wrapper，-否则会产生不可知的问题"><a href="#17-map等原生组件、自定义组件，外面不要再加一层-wrapper，-否则会产生不可知的问题" class="headerlink" title="17. map等原生组件、自定义组件，外面不要再加一层 wrapper， 否则会产生不可知的问题."></a>17. <code>map</code>等原生组件、自定义组件，外面不要再加一层 wrapper， 否则会产生不可知的问题.</h3><h3 id="18-小程序的体验版默认的落地页是pages-index-index，-如果采用分包加载或者改变了入口页路径，需要在管理平台-开发版本-修改页面路径处，-更新落地页路径，否则会提示页面路径不存在。"><a href="#18-小程序的体验版默认的落地页是pages-index-index，-如果采用分包加载或者改变了入口页路径，需要在管理平台-开发版本-修改页面路径处，-更新落地页路径，否则会提示页面路径不存在。" class="headerlink" title="18. 小程序的体验版默认的落地页是pages/index/index， 如果采用分包加载或者改变了入口页路径，需要在管理平台-开发版本-修改页面路径处， 更新落地页路径，否则会提示页面路径不存在。"></a>18. 小程序的体验版默认的落地页是<code>pages/index/index</code>， 如果采用分包加载或者改变了入口页路径，需要在管理平台-开发版本-修改页面路径处， 更新落地页路径，否则会提示页面路径不存在。</h3><h3 id="19-更新data中数据this-setData-里面的数据不宜太多，多出2W1多就会报错-报错如下：vdSyncBatch-数据传输长度为-1304693-已经超过最大长度-1048576"><a href="#19-更新data中数据this-setData-里面的数据不宜太多，多出2W1多就会报错-报错如下：vdSyncBatch-数据传输长度为-1304693-已经超过最大长度-1048576" class="headerlink" title="19. 更新data中数据this.setData({}) 里面的数据不宜太多，多出2W1多就会报错 报错如下：vdSyncBatch 数据传输长度为 1304693 已经超过最大长度 1048576"></a>19. 更新data中数据<code>this.setData({})</code> 里面的数据不宜太多，多出2W1多就会报错 报错如下：vdSyncBatch 数据传输长度为 1304693 已经超过最大长度 1048576</h3><h3 id="20-接入passport登录，-提示5003-微信服务异常，需要提供小程序的-appid、appsecret，供平台注册，增加新的枚举值。然后，分配新的djfrtthsourceext值"><a href="#20-接入passport登录，-提示5003-微信服务异常，需要提供小程序的-appid、appsecret，供平台注册，增加新的枚举值。然后，分配新的djfrtthsourceext值" class="headerlink" title="20. 接入passport登录， 提示5003 微信服务异常，需要提供小程序的 appid、appsecret，供平台注册，增加新的枚举值。然后，分配新的djfrtthsourceext值"></a>20. 接入passport登录， 提示<code>5003 微信服务异常</code>，需要提供小程序的 appid、appsecret，供平台注册，增加新的枚举值。然后，分配新的djfrtthsourceext值</h3><h3 id="21-小程序中-图片名-有空格，在安卓手机中不能正常加载，而ios中正常显示，需要注意"><a href="#21-小程序中-图片名-有空格，在安卓手机中不能正常加载，而ios中正常显示，需要注意" class="headerlink" title="21. 小程序中 图片名 有空格，在安卓手机中不能正常加载，而ios中正常显示，需要注意"></a>21. 小程序中 <strong>图片名</strong> 有空格，在安卓手机中不能正常加载，而ios中正常显示，需要注意</h3><h3 id="22-cover-view-组件在设置背景色的时候，在部分ios手机上无效，需要给设置背景色的元素加上border-raius-0-1px即可"><a href="#22-cover-view-组件在设置背景色的时候，在部分ios手机上无效，需要给设置背景色的元素加上border-raius-0-1px即可" class="headerlink" title="22. cover-view 组件在设置背景色的时候，在部分ios手机上无效，需要给设置背景色的元素加上border-raius: 0.1px即可"></a>22. <code>cover-view</code> 组件在设置背景色的时候，在部分ios手机上无效，需要给设置背景色的元素加上<code>border-raius: 0.1px</code>即可</h3>
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱<br><br><a id="more"></a></p>
+<h3 id="一起阅读源码吧"><a href="#一起阅读源码吧" class="headerlink" title="一起阅读源码吧~"></a>一起阅读源码吧~</h3><p>1.首先我们可以在src/store.js这个文件的Store类中找到下面这段代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">this</span>.dispatch = <span class="function"><span class="keyword">function</span> <span class="title">boundDispatch</span> (<span class="params">type, payload</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> dispatch.call(store, type, payload)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.commit = <span class="function"><span class="keyword">function</span> <span class="title">boundCommit</span> (<span class="params">type, payload, options</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> commit.call(store, type, payload, options)</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure></p>
+<p>上面是Vuex两个最核心的API：dispatch &amp; commit，它们是分别用来提交action和mutation的<br>那么既然我们今天的目的是为了“了解为什么不能在action中修改state”，所以我们就先看看mutation是怎样修改state的，然而mutation是通过commit提交的，所以我们先看一下commit的内部实现</p>
+<h4 id="commit-amp-mutation"><a href="#commit-amp-mutation" class="headerlink" title="commit&amp;mutation"></a>commit&amp;mutation</h4><p>2.commit方法的核心代码大致如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">commit (_type, _payload, _options) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">this</span>._withCommit(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      entry.forEach(<span class="function"><span class="keyword">function</span> <span class="title">commitIterator</span> (<span class="params">handler</span>) </span>&#123;</span><br><span class="line">        handler(payload)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不难看出，Vuex在commit（提交）某种类型的mutation时，会先用_withCommit包裹一下这些mutation，即作为参数传入_withCommit；那么我们来看看_withCommit的内部实现（ps：这里之所以说”某种类型的mutation“，是因为Vuex的确支持声明多个同名的mutation，不过前提是它们在不同的namespace下；action同理）</p>
+<p>3._withCommit方法的代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_withCommit (fn) &#123;</span><br><span class="line">    <span class="keyword">const</span> committing = <span class="keyword">this</span>._committing</span><br><span class="line">    <span class="keyword">this</span>._committing = <span class="literal">true</span></span><br><span class="line">    fn()</span><br><span class="line">    <span class="keyword">this</span>._committing = committing</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>是的，你没有看错，它真的只有4行代码；这里我们注意到有一个标志位_committing，在执行fn前，这个标志位会被置为true，这个点我们先记下，一会儿会用到</p>
+<p>4.接下来，我要为大家要介绍的是resetStoreVM这个函数，它的作用是初始化store，它首次被执行是在Store的构造函数中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resetStoreVM</span> (<span class="params">store, state, hot</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">if</span> (store.strict) &#123;</span><br><span class="line">    enableStrictMode(store)</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在这里有一处需要我们注意：resetStoreVM对strict（是否启用严格模式）做了判断，这里假设我们启用严格模式，那么就会执行enableStrictMode这个函数，下面继续来看看它的内部实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">enableStrictMode</span> (<span class="params">store</span>) </span>&#123;</span><br><span class="line">  store._vm.$watch(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>._data.$$state &#125;, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">      assert(store._committing, <span class="string">`do not mutate vuex store state outside mutation handlers.`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, &#123; <span class="attr">deep</span>: <span class="literal">true</span>, <span class="attr">sync</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里对Vue组件实例的state做了监听，一旦监听到变化，就会执行asset（断言），它断言的恰巧就是刚才我让大家记住的那个_committing标志位，那么我们再来看看这个asset做了些什么</p>
+<p>5.asset方法在src/util.js这个文件中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">assert</span> (<span class="params">condition, msg</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!condition) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`[vuex] <span class="subst">$&#123;msg&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个方法很简单，就是判断第一个参数是否为truly值，如果不为真，就抛出一个异常  </p>
+<p>到此，我们已简单地了解了commit和mutation的逻辑，下面再来看看dispatch和action</p>
+<h4 id="dispatch-amp-action"><a href="#dispatch-amp-action" class="headerlink" title="dispatch&amp;action"></a>dispatch&amp;action</h4><p>6.dispatch代码大致如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">dispatch (_type, _payload) &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;</span><br><span class="line">      type,</span><br><span class="line">      payload</span><br><span class="line">    &#125; = unifyObjectStyle(_type, _payload)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> action = &#123; type, payload &#125;</span><br><span class="line">    <span class="keyword">const</span> entry = <span class="keyword">this</span>._actions[type]</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">const</span> result = entry.length &gt; <span class="number">1</span></span><br><span class="line">      ? <span class="built_in">Promise</span>.all(entry.map(<span class="function"><span class="params">handler</span> =&gt;</span> handler(payload)))</span><br><span class="line">      : entry[<span class="number">0</span>](payload)</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里我们注意到，当某种类型的action只有一个声明时，action的回调会被当作普通函数执行，而当如果有多个声明时，它们是被视为Promise实例，并且用Promise.all执行，总所周知，Promise.all在执行Promise时是不保证顺序的，也就是说，假如有3个Promise实例：P1、P2、P3，它们3个之中不一定哪个先有返回结果，那么我们仔细思考一下：如果同时在多个action中修改了同一个state，那会有什么样的结果？</p>
+<p>其实很简单，我们在多个action中修改同一个state，因为很有可能每个action赋给state的新值都有所不同，并且不能保证最后一个有返回结果action是哪一个action，所以最后赋予state的值可能是错误的</p>
+<p>那么Vuex为什么要使用Promise.all执行action呢？其实也是出于性能考虑，这样我们就可以最大限度进行异步操作并发</p>
+<p>眼尖的同学可能已经发现在dispatch中并没有看到_committing的身影，就是Vuex对action修改state的限制：当action想要修改state时，因为_committing没有事先被置为true，而导致asset阶段无法通过</p>
+<p>但这个限制只限于开发阶段，因为在enableStrictMode函数中，Webpack加入了对环境的判断，如果不是生产环境（也就是开发环境）才会输出asset（断言）这行代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">enableStrictMode</span> (<span class="params">store</span>) </span>&#123;</span><br><span class="line">  store._vm.$watch(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>._data.$$state &#125;, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">      assert(store._committing, <span class="string">`do not mutate vuex store state outside mutation handlers.`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, &#123; <span class="attr">deep</span>: <span class="literal">true</span>, <span class="attr">sync</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么也就是说如果你强行在生产环境中用action修改state，Vuex也不会阻止你，它可能仅仅是给你一个警告；而且按道理来说，如果我们能够保证同一类型的action只有一个声明，那么无论是使用action还是mutation来修改state结果都是一样的，因为Vuex针对这种情况，没有使用Promise.all执行action，所以也就不会存在返回结果先后问题</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dispatch (_type, _payload) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">const</span> result = entry.length &gt; <span class="number">1</span></span><br><span class="line">      ? <span class="built_in">Promise</span>.all(entry.map(<span class="function"><span class="params">handler</span> =&gt;</span> handler(payload)))</span><br><span class="line">      : entry[<span class="number">0</span>](payload)</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>但是凡是靠人遵守的约定都是不靠谱的，所以我们在平时使用Vuex时，最好还是遵守官方的约束，否则线上代码有可能出现bug，这不是我们所期望的</p>
+<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>Vuex这一限制其实也是出于代码设计考虑，action和mutation各司其事，本质上也是遵守了“单一职责”原则。以上就是我对“Vuex为什么不允许在action中修改状态“这个问题的分析，希望对大家有所帮助，也欢迎指正</p>
+
       
 
       
@@ -222,7 +200,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vuex</a>
         		</li>
       		
 		</ul>
@@ -278,7 +260,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://rainLi.github.io/2018/07/22/小程序实践问题记录/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://rainLi.github.io/2019/11/15/fixed源码系列：111Vuex为什么不允许在action中修改state" alt="微信分享二维码">
     </div>
 </div>
 
@@ -292,18 +274,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/07/26/利用Storage-Event实现页面间通信/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/12/10/源码系列：Vuex为什么不允许在action中修改state/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          利用Storage Event实现页面间通信
+          源码系列：Vuex为什么不允许在action中修改state?
         
       </div>
     </a>
   
   
-    <a href="/2018/06/20/Linux中常用指令/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux中常用指令</div>
+    <a href="/2019/10/12/Babel的简单了解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Babel的简单了解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -334,8 +316,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://rainLi.github.io/2018/07/22/小程序实践问题记录/", 
-    sourceId: "小程序实践问题记录",
+    url: "https://rainLi.github.io/2019/11/15/fixed源码系列：111Vuex为什么不允许在action中修改state?/", 
+    sourceId: "fixed源码系列：111Vuex为什么不允许在action中修改state?",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -344,7 +326,7 @@
   
 
   
-  <div id="SOHUCS" sid="小程序实践问题记录" ></div> 
+  <div id="SOHUCS" sid="fixed源码系列：111Vuex为什么不允许在action中修改state?" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
