@@ -142,19 +142,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-VUEX-action可以修改state吗？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-fixed源码系列：Vuex为什么不允许在action中修改state?" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/15/VUEX-action可以修改state吗？/">VUEX-action可以修改state吗？</a>
+      <a class="article-title" href="/2019/11/15/fixed源码系列：Vuex为什么不允许在action中修改state?/">fixed源码系列：Vuex为什么不允许在action中修改state?</a>
     </h1>
   
 
         
-        <a href="/2019/11/15/VUEX-action可以修改state吗？/" class="archive-article-date">
+        <a href="/2019/11/15/fixed源码系列：Vuex为什么不允许在action中修改state?/" class="archive-article-date">
   	<time datetime="2019-11-15T03:42:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-15</time>
 </a>
         
@@ -162,9 +162,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="首先回顾下vuex，官网图如下："><a href="#首先回顾下vuex，官网图如下：" class="headerlink" title="首先回顾下vuex，官网图如下："></a>首先回顾下vuex，官网图如下：</h3><p><img src="https://static.daojia.com/assets/project/tosimple-pic/vuexstate_1573783585247.png" alt="image"><br>
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱<br>
         
-          <a class="article-more-a" href="/2019/11/15/VUEX-action可以修改state吗？/#more">还有更多 = = Read More >></a>
+          <a class="article-more-a" href="/2019/11/15/fixed源码系列：Vuex为什么不允许在action中修改state?/#more">还有更多 = = Read More >></a>
         
       
 
@@ -192,7 +192,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/11/15/VUEX-action可以修改state吗？/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/11/15/fixed源码系列：Vuex为什么不允许在action中修改state?/">展开全文 >></a>
         </p>
       
 
@@ -1023,10 +1023,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
@@ -1035,15 +1031,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http模块</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">路由</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1059,6 +1059,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -1067,23 +1079,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">单页背景色</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1099,11 +1095,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
+                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
+                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1123,6 +1119,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">异步</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">调试</a>
               </li>
              
@@ -1139,15 +1139,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">异步</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">单页背景色</a>
               </li>
             
             <div class="clearfix"></div>

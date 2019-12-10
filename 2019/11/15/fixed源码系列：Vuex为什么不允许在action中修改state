@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://rainLi.github.io">
-  <title>VUEX-action可以修改state吗？ | rainLi&#39;s personal blog</title>
+  <title>fixed源码系列：Vuex为什么不允许在action中修改state? | rainLi&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先回顾下vuex，官网图如下：">
+  <meta name="description" content="背景在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱">
 <meta name="keywords" content="vue,vuex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="VUEX-action可以修改state吗？">
-<meta property="og:url" content="https://rainLi.github.io/2019/11/15/VUEX-action可以修改state吗？/index.html">
+<meta property="og:title" content="fixed源码系列：Vuex为什么不允许在action中修改state?">
+<meta property="og:url" content="https://rainLi.github.io/2019/11/15/fixed源码系列：Vuex为什么不允许在action中修改state">
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
-<meta property="og:description" content="首先回顾下vuex，官网图如下：">
+<meta property="og:description" content="背景在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://static.daojia.com/assets/project/tosimple-pic/vuexstate_1573783585247.png">
-<meta property="og:image" content="https://static.daojia.com/assets/project/tosimple-pic/vuexstateexplain_1573784451155.png">
-<meta property="og:updated_time" content="2019-11-15T03:48:47.736Z">
+<meta property="og:updated_time" content="2019-12-10T09:59:15.926Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VUEX-action可以修改state吗？">
-<meta name="twitter:description" content="首先回顾下vuex，官网图如下：">
-<meta name="twitter:image" content="https://static.daojia.com/assets/project/tosimple-pic/vuexstate_1573783585247.png">
+<meta name="twitter:title" content="fixed源码系列：Vuex为什么不允许在action中修改state?">
+<meta name="twitter:description" content="背景在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱">
   
     <link rel="alternative" href="/atom.xml" title="rainLi&#39;s personal blog" type="application/atom+xml">
   
@@ -145,19 +142,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-VUEX-action可以修改state吗？" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-fixed源码系列：Vuex为什么不允许在action中修改state?" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      VUEX-action可以修改state吗？
+      fixed源码系列：Vuex为什么不允许在action中修改state?
     </h1>
   
 
         
-        <a href="/2019/11/15/VUEX-action可以修改state吗？/" class="archive-article-date">
+        <a href="/2019/11/15/fixed源码系列：Vuex为什么不允许在action中修改state?/" class="archive-article-date">
   	<time datetime="2019-11-15T03:42:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-15</time>
 </a>
         
@@ -165,34 +162,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="首先回顾下vuex，官网图如下："><a href="#首先回顾下vuex，官网图如下：" class="headerlink" title="首先回顾下vuex，官网图如下："></a>首先回顾下vuex，官网图如下：</h3><p><img src="https://static.daojia.com/assets/project/tosimple-pic/vuexstate_1573783585247.png" alt="image"><br><a id="more"></a></p>
-<ul>
-<li>Vuex 的 store 中的状态的唯一方法是提交 mutation（mutation类似于事件且必须是同步函数）  </li>
-<li>action 提交的是 mutation，而不是直接变更状态且可以包含任意异步操作（Action通过 store.dispatch 方法触发）</li>
-</ul>
-<h3 id="一幅图看清只能通过mutation修改state的原因："><a href="#一幅图看清只能通过mutation修改state的原因：" class="headerlink" title="一幅图看清只能通过mutation修改state的原因："></a>一幅图看清只能通过mutation修改state的原因：</h3><p><img src="https://static.daojia.com/assets/project/tosimple-pic/vuexstateexplain_1573784451155.png" alt="image"></p>
-<ul>
-<li><p>commit函数源码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">commit (_type, _payload, _options) &#123;</span><br><span class="line">   // check object-style commit</span><br><span class="line">   const &#123;</span><br><span class="line">     type,</span><br><span class="line">     payload,</span><br><span class="line">     options</span><br><span class="line">   &#125; = unifyObjectStyle(_type, _payload, _options)</span><br><span class="line"></span><br><span class="line">   const mutation = &#123; type, payload &#125;</span><br><span class="line">   const entry = this._mutations[type]</span><br><span class="line">   if (!entry) &#123;</span><br><span class="line">     if (process.env.NODE_ENV !== &apos;production&apos;) &#123;</span><br><span class="line">       console.error(`[vuex] unknown mutation type: $&#123;type&#125;`)</span><br><span class="line">     &#125;</span><br><span class="line">     return</span><br><span class="line">   &#125;</span><br><span class="line">   // 用来修改state</span><br><span class="line">   this._withCommit(() =&gt; &#123;</span><br><span class="line">     entry.forEach(function commitIterator (handler) &#123;</span><br><span class="line">       handler(payload)</span><br><span class="line">     &#125;)</span><br><span class="line">   &#125;)</span><br><span class="line">   this._subscribers.forEach(sub =&gt; sub(mutation, this.state))</span><br><span class="line"></span><br><span class="line">   if (</span><br><span class="line">     process.env.NODE_ENV !== &apos;production&apos; &amp;&amp;</span><br><span class="line">     options &amp;&amp; options.silent</span><br><span class="line">   ) &#123;</span><br><span class="line">     console.warn(</span><br><span class="line">       `[vuex] mutation type: $&#123;type&#125;. Silent option has been removed. ` +</span><br><span class="line">       &apos;Use the filter functionality in the vue-devtools&apos;</span><br><span class="line">     )</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>this._withCommit来修改state，其源代码如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_withCommit (fn) &#123;</span><br><span class="line">   const committing = this._committing</span><br><span class="line">   this._committing = true</span><br><span class="line">   fn()</span><br><span class="line">   this._committing = committing</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>其中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<p>if (store.strict) {<br>  enableStrictMode(store)<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 当 vuex设置为严格模式， 执行enableStrictMode函数， 源码如下：</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>function enableStrictMode (store) {<br>    // $watch 函数来观察 state的变化<br>    store._vm.$watch(function () { return this._data.$$state }, () =&gt; {<br>    // tate变化时,调用 assert函数<br>    if (process.env.NODE_ENV !== ‘production’) {<br>    // 判断 store._committing<br>      assert(store._committing, <code>do not mutate vuex store state outside mutation handlers.</code>)<br>    }<br>    }, { deep: true, sync: true })<br>}<br>  <code>`</code></p>
-<ul>
-<li>当<code>store._committing</code>（this._committing）不为true，就会报出异常。</li>
-</ul>
-<p>所以，当不是触发mutation来修改state， 就不会执行commit函数，也不会执行<code>_withcommit</code>函数，进而<code>this._committing</code>不会被修改成true,当执行 enableStrictMode 时,会执行 assert 函数，就会报出异常。</p>
-<h3 id="回归标题-action可以修改state吗？"><a href="#回归标题-action可以修改state吗？" class="headerlink" title="回归标题,action可以修改state吗？"></a>回归标题,action可以修改state吗？</h3><p>可以，但是不提倡。  </p>
-<p>综上所述，经测试得知可以修改并修改成功，但是严格模式下控制台会抛异常</p>
-<h3 id="结语："><a href="#结语：" class="headerlink" title="结语："></a>结语：</h3><p>我们开发要严格按照官方文档开发，避免不必要的错误产生。</p>
+        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱<br><a id="more"></a></p>
+<h3 id="一起阅读源码吧"><a href="#一起阅读源码吧" class="headerlink" title="一起阅读源码吧~"></a>一起阅读源码吧~</h3><p>1.首先我们可以在src/store.js这个文件的Store类中找到下面这段代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">this</span>.dispatch = <span class="function"><span class="keyword">function</span> <span class="title">boundDispatch</span> (<span class="params">type, payload</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> dispatch.call(store, type, payload)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.commit = <span class="function"><span class="keyword">function</span> <span class="title">boundCommit</span> (<span class="params">type, payload, options</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> commit.call(store, type, payload, options)</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure></p>
+<p>上面是Vuex两个最核心的API：dispatch &amp; commit，它们是分别用来提交action和mutation的<br>那么既然我们今天的目的是为了“了解为什么不能在action中修改state”，所以我们就先看看mutation是怎样修改state的，然而mutation是通过commit提交的，所以我们先看一下commit的内部实现</p>
+<h4 id="commit-amp-mutation"><a href="#commit-amp-mutation" class="headerlink" title="commit&amp;mutation"></a>commit&amp;mutation</h4><p>2.commit方法的核心代码大致如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">commit (_type, _payload, _options) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">this</span>._withCommit(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      entry.forEach(<span class="function"><span class="keyword">function</span> <span class="title">commitIterator</span> (<span class="params">handler</span>) </span>&#123;</span><br><span class="line">        handler(payload)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不难看出，Vuex在commit（提交）某种类型的mutation时，会先用_withCommit包裹一下这些mutation，即作为参数传入_withCommit；那么我们来看看_withCommit的内部实现（ps：这里之所以说”某种类型的mutation“，是因为Vuex的确支持声明多个同名的mutation，不过前提是它们在不同的namespace下；action同理）</p>
+<p>3._withCommit方法的代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_withCommit (fn) &#123;</span><br><span class="line">    <span class="keyword">const</span> committing = <span class="keyword">this</span>._committing</span><br><span class="line">    <span class="keyword">this</span>._committing = <span class="literal">true</span></span><br><span class="line">    fn()</span><br><span class="line">    <span class="keyword">this</span>._committing = committing</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>是的，你没有看错，它真的只有4行代码；这里我们注意到有一个标志位_committing，在执行fn前，这个标志位会被置为true，这个点我们先记下，一会儿会用到</p>
+<p>4.接下来，我要为大家要介绍的是resetStoreVM这个函数，它的作用是初始化store，它首次被执行是在Store的构造函数中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resetStoreVM</span> (<span class="params">store, state, hot</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">if</span> (store.strict) &#123;</span><br><span class="line">    enableStrictMode(store)</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在这里有一处需要我们注意：resetStoreVM对strict（是否启用严格模式）做了判断，这里假设我们启用严格模式，那么就会执行enableStrictMode这个函数，下面继续来看看它的内部实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">enableStrictMode</span> (<span class="params">store</span>) </span>&#123;</span><br><span class="line">  store._vm.$watch(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>._data.$$state &#125;, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">      assert(store._committing, <span class="string">`do not mutate vuex store state outside mutation handlers.`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, &#123; <span class="attr">deep</span>: <span class="literal">true</span>, <span class="attr">sync</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里对Vue组件实例的state做了监听，一旦监听到变化，就会执行asset（断言），它断言的恰巧就是刚才我让大家记住的那个_committing标志位，那么我们再来看看这个asset做了些什么</p>
+<p>5.asset方法在src/util.js这个文件中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">assert</span> (<span class="params">condition, msg</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!condition) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`[vuex] <span class="subst">$&#123;msg&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个方法很简单，就是判断第一个参数是否为truly值，如果不为真，就抛出一个异常  </p>
+<p>到此，我们已简单地了解了commit和mutation的逻辑，下面再来看看dispatch和action</p>
+<h4 id="dispatch-amp-action"><a href="#dispatch-amp-action" class="headerlink" title="dispatch&amp;action"></a>dispatch&amp;action</h4><p>6.dispatch代码大致如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">dispatch (_type, _payload) &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;</span><br><span class="line">      type,</span><br><span class="line">      payload</span><br><span class="line">    &#125; = unifyObjectStyle(_type, _payload)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> action = &#123; type, payload &#125;</span><br><span class="line">    <span class="keyword">const</span> entry = <span class="keyword">this</span>._actions[type]</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">const</span> result = entry.length &gt; <span class="number">1</span></span><br><span class="line">      ? <span class="built_in">Promise</span>.all(entry.map(<span class="function"><span class="params">handler</span> =&gt;</span> handler(payload)))</span><br><span class="line">      : entry[<span class="number">0</span>](payload)</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>这里我们注意到，当某种类型的action只有一个声明时，action的回调会被当作普通函数执行，而当如果有多个声明时，它们是被视为Promise实例，并且用Promise.all执行，总所周知，Promise.all在执行Promise时是不保证顺序的，也就是说，假如有3个Promise实例：P1、P2、P3，它们3个之中不一定哪个先有返回结果，那么我们仔细思考一下：如果同时在多个action中修改了同一个state，那会有什么样的结果？</p>
+<p>其实很简单，我们在多个action中修改同一个state，因为很有可能每个action赋给state的新值都有所不同，并且不能保证最后一个有返回结果action是哪一个action，所以最后赋予state的值可能是错误的</p>
+<p>那么Vuex为什么要使用Promise.all执行action呢？其实也是出于性能考虑，这样我们就可以最大限度进行异步操作并发</p>
+<p>眼尖的同学可能已经发现在dispatch中并没有看到_committing的身影，就是Vuex对action修改state的限制：当action想要修改state时，因为_committing没有事先被置为true，而导致asset阶段无法通过</p>
+<p>但这个限制只限于开发阶段，因为在enableStrictMode函数中，Webpack加入了对环境的判断，如果不是生产环境（也就是开发环境）才会输出asset（断言）这行代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">enableStrictMode</span> (<span class="params">store</span>) </span>&#123;</span><br><span class="line">  store._vm.$watch(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>._data.$$state &#125;, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">      assert(store._committing, <span class="string">`do not mutate vuex store state outside mutation handlers.`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, &#123; <span class="attr">deep</span>: <span class="literal">true</span>, <span class="attr">sync</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么也就是说如果你强行在生产环境中用action修改state，Vuex也不会阻止你，它可能仅仅是给你一个警告；而且按道理来说，如果我们能够保证同一类型的action只有一个声明，那么无论是使用action还是mutation来修改state结果都是一样的，因为Vuex针对这种情况，没有使用Promise.all执行action，所以也就不会存在返回结果先后问题</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dispatch (_type, _payload) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">const</span> result = entry.length &gt; <span class="number">1</span></span><br><span class="line">      ? <span class="built_in">Promise</span>.all(entry.map(<span class="function"><span class="params">handler</span> =&gt;</span> handler(payload)))</span><br><span class="line">      : entry[<span class="number">0</span>](payload)</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>但是凡是靠人遵守的约定都是不靠谱的，所以我们在平时使用Vuex时，最好还是遵守官方的约束，否则线上代码有可能出现bug，这不是我们所期望的</p>
+<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>Vuex这一限制其实也是出于代码设计考虑，action和mutation各司其事，本质上也是遵守了“单一职责”原则。以上就是我对“Vuex为什么不允许在action中修改状态“这个问题的分析，希望对大家有所帮助，也欢迎指正</p>
 
       
 
@@ -266,7 +260,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://rainLi.github.io/2019/11/15/VUEX-action可以修改state吗？/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://rainLi.github.io/2019/11/15/fixed源码系列：Vuex为什么不允许在action中修改state" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,8 +307,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://rainLi.github.io/2019/11/15/VUEX-action可以修改state吗？/", 
-    sourceId: "VUEX-action可以修改state吗？",
+    url: "https://rainLi.github.io/2019/11/15/fixed源码系列：Vuex为什么不允许在action中修改state?/", 
+    sourceId: "fixed源码系列：Vuex为什么不允许在action中修改state?",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -323,7 +317,7 @@
   
 
   
-  <div id="SOHUCS" sid="VUEX-action可以修改state吗？" ></div> 
+  <div id="SOHUCS" sid="fixed源码系列：Vuex为什么不允许在action中修改state?" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -433,10 +427,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
@@ -445,15 +435,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http模块</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">路由</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -469,6 +463,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -477,23 +483,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">单页背景色</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,11 +499,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
+                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
+                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,6 +523,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">异步</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">调试</a>
               </li>
              
@@ -549,15 +543,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">异步</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">单页背景色</a>
               </li>
             
             <div class="clearfix"></div>
