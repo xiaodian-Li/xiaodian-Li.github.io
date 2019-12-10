@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
 <meta property="og:description" content="背景在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-10T11:06:14.492Z">
+<meta property="og:updated_time" content="2019-12-10T11:07:13.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="源码系列：Vuex为什么不允许在action中修改state?">
 <meta name="twitter:description" content="背景在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱">
@@ -275,8 +275,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2019/11/15/fixed源码系列：111Vuex为什么不允许在action中修改state?/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">fixed源码系列：Vuex为什么不允许在action中修改state?</div>
+    <a href="/2019/10/12/Babel的简单了解/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Babel的简单了解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -423,6 +423,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">http网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
@@ -431,11 +435,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
+                <a href="javascript:void(0)" class="js-tag color2">node基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">http网络</a>
+                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -451,10 +455,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">性能</a>
               </li>
              
@@ -467,19 +467,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vuex</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">modules.exports/exports</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,10 +488,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">modules.exports/exports</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,15 +511,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">开发中的一些事</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">开发中的一些事</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">异步</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">调试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">面试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,19 +547,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">异步</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">面试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">node基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">vuex</a>
               </li>
             
             <div class="clearfix"></div>
