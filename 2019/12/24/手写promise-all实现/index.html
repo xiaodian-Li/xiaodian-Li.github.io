@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://rainLi.github.io">
-  <title>node中modules.exports与exports导出 | rainLi&#39;s personal blog</title>
+  <title>手写promise.all实现 | rainLi&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一：node是什么？node只是平台，或者说是环境，其实用的还是js语法   主要框架express以及koa，两个框架是同一个团队开发，node中也有类似于php的Ci框架的MVC模式    M-&amp;gt;model数据层的增删改差操作">
-<meta name="keywords" content="node,modules.exports&#x2F;exports">
+  <meta name="description" content="promise.all()返回new promise 需要一个数组存放promise的结果值 遍历参数数组，判断是否是promise，是的话执行得到结果后压入结果数组；否则直接放入结果数组。 当每个都成功执行后，resolve（result） 当有一个失败，reject">
 <meta property="og:type" content="article">
-<meta property="og:title" content="node中modules.exports与exports导出">
-<meta property="og:url" content="https://rainLi.github.io/2018/06/06/node中modules-exports与exports导出/index.html">
+<meta property="og:title" content="手写promise.all实现">
+<meta property="og:url" content="https://rainLi.github.io/2019/12/24/手写promise-all实现/index.html">
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
-<meta property="og:description" content="一：node是什么？node只是平台，或者说是环境，其实用的还是js语法   主要框架express以及koa，两个框架是同一个团队开发，node中也有类似于php的Ci框架的MVC模式    M-&amp;gt;model数据层的增删改差操作">
+<meta property="og:description" content="promise.all()返回new promise 需要一个数组存放promise的结果值 遍历参数数组，判断是否是promise，是的话执行得到结果后压入结果数组；否则直接放入结果数组。 当每个都成功执行后，resolve（result） 当有一个失败，reject">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-21T03:35:42.245Z">
+<meta property="og:updated_time" content="2019-12-24T08:53:51.731Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="node中modules.exports与exports导出">
-<meta name="twitter:description" content="一：node是什么？node只是平台，或者说是环境，其实用的还是js语法   主要框架express以及koa，两个框架是同一个团队开发，node中也有类似于php的Ci框架的MVC模式    M-&amp;gt;model数据层的增删改差操作">
+<meta name="twitter:title" content="手写promise.all实现">
+<meta name="twitter:description" content="promise.all()返回new promise 需要一个数组存放promise的结果值 遍历参数数组，判断是否是promise，是的话执行得到结果后压入结果数组；否则直接放入结果数组。 当每个都成功执行后，resolve（result） 当有一个失败，reject">
   
     <link rel="alternative" href="/atom.xml" title="rainLi&#39;s personal blog" type="application/atom+xml">
   
@@ -142,52 +141,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-node中modules-exports与exports导出" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-手写promise-all实现" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      node中modules.exports与exports导出
+      手写promise.all实现
     </h1>
   
 
         
-        <a href="/2018/06/06/node中modules-exports与exports导出/" class="archive-article-date">
-  	<time datetime="2018-06-06T03:28:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-06</time>
+        <a href="/2019/12/24/手写promise-all实现/" class="archive-article-date">
+  	<time datetime="2019-12-24T08:37:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="一：node是什么？"><a href="#一：node是什么？" class="headerlink" title="一：node是什么？"></a>一：node是什么？</h5><p>node只是平台，或者说是环境，其实用的还是js语法  </p>
-<p>主要框架express以及koa，两个框架是同一个团队开发，node中也有类似于php的Ci框架的MVC模式  </p>
-<ul>
-<li>M-&gt;model数据层的增删改差操作<br><a id="more"></a></li>
-<li>V-&gt;view视图层   </li>
-<li>C-&gt;controller路由控制，主要起到转发工作   </li>
+        <ul>
+<li>promise.all()返回new promise</li>
+<li>需要一个数组存放promise的结果值</li>
+<li>遍历参数数组，判断是否是promise，是的话执行得到结果后压入结果数组；否则直接放入结果数组。</li>
+<li>当每个都成功执行后，resolve（result）</li>
+<li>当有一个失败，reject<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">function isPromise (obj) &#123;</span><br><span class="line">  return !!obj &amp;&amp; (typeof obj === &apos;object&apos; &amp;&amp; typeof obj === &apos;function&apos;) &amp;&amp; typeof obj.then === &apos;function&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const promiseAll = (arr) =&gt; &#123;</span><br><span class="line">  //用于存放每次执行后返回结果</span><br><span class="line">  let result = []</span><br><span class="line">  return new promise ((resolve, reject) =&gt; &#123;</span><br><span class="line">    for (let i=0; i&lt;arr.length, i++) &#123;</span><br><span class="line">      // 确保每一项都是数组</span><br><span class="line">      if (isPromise(arr[i]) &#123;</span><br><span class="line">        arr[i].then((data) =&gt; &#123;</span><br><span class="line">          result[i] = data</span><br><span class="line">          // 如果函数数组中的函数都执行完，便resolve</span><br><span class="line">          if (result.length === arr.length) &#123;</span><br><span class="line">            resolve()</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;, reject)</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        result[i] = arr[i]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>一个完整的node构成：node.js+express+mysql  </p>
-<h5 id="二：工作代码的顺序："><a href="#二：工作代码的顺序：" class="headerlink" title="二：工作代码的顺序："></a>二：工作代码的顺序：</h5><ol>
-<li>app.js为node的入口文件，  </li>
-<li>在view写好html文件，模板可以任意，  </li>
-<li>rouer负责路由跳转  </li>
-<li>controllers负责具体业务方法的操作，在这个文件里涉及到的增删改差放在model中  </li>
-<li>model负责数据的操作    </li>
-</ol>
-<p>此外，默认的端口号为3000，底层如启动命令也可以配置，node支持的导出为module.exports（整体导出） / exports（单个导出），模块引用为require  </p>
-<h5 id="三：node中modules-exports与exports"><a href="#三：node中modules-exports与exports" class="headerlink" title="三：node中modules.exports与exports"></a>三：node中modules.exports与exports</h5><p>node中使用require和modules.exports以及exports是因为node遵循CommonJS规范。</p>
-<p>CommonJS定义的模块分为: 模块标识(module)、模块定义(exports) 、模块引用(require)</p>
-<h6 id="使用范围"><a href="#使用范围" class="headerlink" title="使用范围"></a>使用范围</h6><figure class="highlight plain"><figcaption><span>| ```export / import``` | ```module.exports / exports```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---|---|---|</span><br><span class="line">node 和 es6 都支持的引入 | 只有es6 支持的导出引入| 只有 node 支持的导出  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">exports与modules.exports指向相同地址  </span><br><span class="line"></span><br><span class="line">```exports -&gt;&#123;&#125;&lt;- modules.exports```  </span><br><span class="line"></span><br><span class="line">我理解为实际上每次都是导出```modules.exports```,本来指向一个地址，如下会切断```modules.exports```和```exports```分别指向两个地址</span><br></pre></td></tr></table></figure>
-<p>a.js</p>
-<p>modules.exports = {a:2}<br>exports.a = 1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">app.js</span><br><span class="line"></span><br><span class="line">var a = require (&apos;./a&apos;)</span><br><span class="line">console.log(a.a) // 执行node app 打印2</span><br></pre></td></tr></table></figure></p>
-<h6 id="类比"><a href="#类比" class="headerlink" title="类比"></a>类比</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">var obj = new Object();</span><br><span class="line">obj.name = &apos;lisi&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">情况一：对象.属性</span><br><span class="line">// obj.sayHello 相当于export.sayHello</span><br><span class="line">obj.sayHello = function () &#123;</span><br><span class="line">    console.log(this.name) // lisi</span><br><span class="line">&#125;</span><br><span class="line">obj.sayHello(); </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">情况二：对象.方法</span><br><span class="line">//obj相当于module.exports</span><br><span class="line">obj = &#123;</span><br><span class="line">    sayHello: function () &#123;</span><br><span class="line">      console.log(this.name) // null</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.sayHello(); </span><br><span class="line">obj.name()； // 打印不出lisi,已经重写obj,obj下面没有name方法</span><br></pre></td></tr></table></figure>
-<p>此文章也是自己的学习记录，如有不足，欢迎指正知道</p>
-<blockquote>
-<p>更多文章： <a href="https://www.jianshu.com/u/f250f42cc28d" target="_blank" rel="noopener">https://www.jianshu.com/u/f250f42cc28d</a></p>
-</blockquote>
 
       
 
@@ -196,21 +177,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">modules.exports/exports</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -261,7 +227,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://rainLi.github.io/2018/06/06/node中modules-exports与exports导出/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://rainLi.github.io/2019/12/24/手写promise-all实现/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -275,18 +241,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/20/Linux中常用指令/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Linux中常用指令
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/06/05/开发微信小程序前期准备/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">开发微信小程序前期准备</div>
+    <a href="/2019/12/24/手写实现一个promise/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">手写实现一个promise</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -317,8 +274,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://rainLi.github.io/2018/06/06/node中modules-exports与exports导出/", 
-    sourceId: "node中modules-exports与exports导出",
+    url: "https://rainLi.github.io/2019/12/24/手写promise-all实现/", 
+    sourceId: "手写promise-all实现",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -327,7 +284,7 @@
   
 
   
-  <div id="SOHUCS" sid="node中modules-exports与exports导出" ></div> 
+  <div id="SOHUCS" sid="手写promise-all实现" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
