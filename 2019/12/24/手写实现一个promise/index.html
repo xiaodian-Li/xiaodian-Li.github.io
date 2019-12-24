@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://rainLi.github.io">
-  <title>源码系列：Vuex为什么不允许在action中修改state? | rainLi&#39;s personal blog</title>
+  <title>手写实现一个promise | rainLi&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="背景在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱">
-<meta name="keywords" content="vue,vuex">
+  <meta name="description" content="Promise是构造函数，new 出来的实例有then方法。 new Promise时，传递一个参数，这个参数是函数，又被称为执行器函数(executor)， 并执行器会被立即调用，也就是上面结果中start最先输出的原因。 executor是函数，它接受两个参数 resolve reject ，同时这两个参数也是函数。 new Promise后的实例具有状态， 默认状态是等待，当执行器调用re">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="源码系列：Vuex为什么不允许在action中修改state?">
-<meta property="og:url" content="https://rainLi.github.io/2019/12/10/源码系列：Vuex为什么不允许在action中修改state/index.html">
+<meta property="og:title" content="手写实现一个promise">
+<meta property="og:url" content="https://rainLi.github.io/2019/12/24/手写实现一个promise/index.html">
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
-<meta property="og:description" content="背景在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱">
+<meta property="og:description" content="Promise是构造函数，new 出来的实例有then方法。 new Promise时，传递一个参数，这个参数是函数，又被称为执行器函数(executor)， 并执行器会被立即调用，也就是上面结果中start最先输出的原因。 executor是函数，它接受两个参数 resolve reject ，同时这两个参数也是函数。 new Promise后的实例具有状态， 默认状态是等待，当执行器调用re">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-10T11:07:13.856Z">
+<meta property="og:updated_time" content="2019-12-24T08:28:59.146Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="源码系列：Vuex为什么不允许在action中修改state?">
-<meta name="twitter:description" content="背景在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱">
+<meta name="twitter:title" content="手写实现一个promise">
+<meta name="twitter:description" content="Promise是构造函数，new 出来的实例有then方法。 new Promise时，传递一个参数，这个参数是函数，又被称为执行器函数(executor)， 并执行器会被立即调用，也就是上面结果中start最先输出的原因。 executor是函数，它接受两个参数 resolve reject ，同时这两个参数也是函数。 new Promise后的实例具有状态， 默认状态是等待，当执行器调用re">
   
     <link rel="alternative" href="/atom.xml" title="rainLi&#39;s personal blog" type="application/atom+xml">
   
@@ -142,51 +142,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-源码系列：Vuex为什么不允许在action中修改state" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-手写实现一个promise" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      源码系列：Vuex为什么不允许在action中修改state?
+      手写实现一个promise
     </h1>
   
 
         
-        <a href="/2019/12/10/源码系列：Vuex为什么不允许在action中修改state/" class="archive-article-date">
-  	<time datetime="2019-12-10T11:05:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
+        <a href="/2019/12/24/手写实现一个promise/" class="archive-article-date">
+  	<time datetime="2019-12-24T08:09:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>在最近的一次需求开发过程中，有再次使用到Vuex，在状态更新这一方面，我始终遵循着官方的“叮嘱”，谨记“一定不要在action中修改state，而是要在mutation中修改”；于是我不禁产生了一个疑问：Vuex为什么要给出这个限制，它是基于什么原因呢？带着这个疑问我查看Vuex的源码，下面请大家跟着我的脚步，来一起揭开这个问题的面纱<br><a id="more"></a></p>
-<h3 id="一起阅读源码吧"><a href="#一起阅读源码吧" class="headerlink" title="一起阅读源码吧~"></a>一起阅读源码吧~</h3><p>1.首先我们可以在src/store.js这个文件的Store类中找到下面这段代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="keyword">this</span>.dispatch = <span class="function"><span class="keyword">function</span> <span class="title">boundDispatch</span> (<span class="params">type, payload</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> dispatch.call(store, type, payload)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.commit = <span class="function"><span class="keyword">function</span> <span class="title">boundCommit</span> (<span class="params">type, payload, options</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> commit.call(store, type, payload, options)</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure></p>
-<p>上面是Vuex两个最核心的API：dispatch &amp; commit，它们是分别用来提交action和mutation的<br>那么既然我们今天的目的是为了“了解为什么不能在action中修改state”，所以我们就先看看mutation是怎样修改state的，然而mutation是通过commit提交的，所以我们先看一下commit的内部实现</p>
-<h4 id="commit-amp-mutation"><a href="#commit-amp-mutation" class="headerlink" title="commit&amp;mutation"></a>commit&amp;mutation</h4><p>2.commit方法的核心代码大致如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">commit (_type, _payload, _options) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">this</span>._withCommit(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      entry.forEach(<span class="function"><span class="keyword">function</span> <span class="title">commitIterator</span> (<span class="params">handler</span>) </span>&#123;</span><br><span class="line">        handler(payload)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>不难看出，Vuex在commit（提交）某种类型的mutation时，会先用_withCommit包裹一下这些mutation，即作为参数传入_withCommit；那么我们来看看_withCommit的内部实现（ps：这里之所以说”某种类型的mutation“，是因为Vuex的确支持声明多个同名的mutation，不过前提是它们在不同的namespace下；action同理）</p>
-<p>3._withCommit方法的代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_withCommit (fn) &#123;</span><br><span class="line">    <span class="keyword">const</span> committing = <span class="keyword">this</span>._committing</span><br><span class="line">    <span class="keyword">this</span>._committing = <span class="literal">true</span></span><br><span class="line">    fn()</span><br><span class="line">    <span class="keyword">this</span>._committing = committing</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>是的，你没有看错，它真的只有4行代码；这里我们注意到有一个标志位_committing，在执行fn前，这个标志位会被置为true，这个点我们先记下，一会儿会用到</p>
-<p>4.接下来，我要为大家要介绍的是resetStoreVM这个函数，它的作用是初始化store，它首次被执行是在Store的构造函数中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resetStoreVM</span> (<span class="params">store, state, hot</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">if</span> (store.strict) &#123;</span><br><span class="line">    enableStrictMode(store)</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在这里有一处需要我们注意：resetStoreVM对strict（是否启用严格模式）做了判断，这里假设我们启用严格模式，那么就会执行enableStrictMode这个函数，下面继续来看看它的内部实现</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">enableStrictMode</span> (<span class="params">store</span>) </span>&#123;</span><br><span class="line">  store._vm.$watch(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>._data.$$state &#125;, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">      assert(store._committing, <span class="string">`do not mutate vuex store state outside mutation handlers.`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, &#123; <span class="attr">deep</span>: <span class="literal">true</span>, <span class="attr">sync</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里对Vue组件实例的state做了监听，一旦监听到变化，就会执行asset（断言），它断言的恰巧就是刚才我让大家记住的那个_committing标志位，那么我们再来看看这个asset做了些什么</p>
-<p>5.asset方法在src/util.js这个文件中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">assert</span> (<span class="params">condition, msg</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!condition) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`[vuex] <span class="subst">$&#123;msg&#125;</span>`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>这个方法很简单，就是判断第一个参数是否为truly值，如果不为真，就抛出一个异常  </p>
-<p>到此，我们已简单地了解了commit和mutation的逻辑，下面再来看看dispatch和action</p>
-<h4 id="dispatch-amp-action"><a href="#dispatch-amp-action" class="headerlink" title="dispatch&amp;action"></a>dispatch&amp;action</h4><p>6.dispatch代码大致如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">dispatch (_type, _payload) &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;</span><br><span class="line">      type,</span><br><span class="line">      payload</span><br><span class="line">    &#125; = unifyObjectStyle(_type, _payload)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> action = &#123; type, payload &#125;</span><br><span class="line">    <span class="keyword">const</span> entry = <span class="keyword">this</span>._actions[type]</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">const</span> result = entry.length &gt; <span class="number">1</span></span><br><span class="line">      ? <span class="built_in">Promise</span>.all(entry.map(<span class="function"><span class="params">handler</span> =&gt;</span> handler(payload)))</span><br><span class="line">      : entry[<span class="number">0</span>](payload)</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>这里我们注意到，当某种类型的action只有一个声明时，action的回调会被当作普通函数执行，而当如果有多个声明时，它们是被视为Promise实例，并且用Promise.all执行，总所周知，Promise.all在执行Promise时是不保证顺序的，也就是说，假如有3个Promise实例：P1、P2、P3，它们3个之中不一定哪个先有返回结果，那么我们仔细思考一下：如果同时在多个action中修改了同一个state，那会有什么样的结果？</p>
-<p>其实很简单，我们在多个action中修改同一个state，因为很有可能每个action赋给state的新值都有所不同，并且不能保证最后一个有返回结果action是哪一个action，所以最后赋予state的值可能是错误的</p>
-<p>那么Vuex为什么要使用Promise.all执行action呢？其实也是出于性能考虑，这样我们就可以最大限度进行异步操作并发</p>
-<p>眼尖的同学可能已经发现在dispatch中并没有看到_committing的身影，就是Vuex对action修改state的限制：当action想要修改state时，因为_committing没有事先被置为true，而导致asset阶段无法通过</p>
-<p>但这个限制只限于开发阶段，因为在enableStrictMode函数中，Webpack加入了对环境的判断，如果不是生产环境（也就是开发环境）才会输出asset（断言）这行代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">enableStrictMode</span> (<span class="params">store</span>) </span>&#123;</span><br><span class="line">  store._vm.$watch(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> <span class="keyword">this</span>._data.$$state &#125;, () =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">      assert(store._committing, <span class="string">`do not mutate vuex store state outside mutation handlers.`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, &#123; <span class="attr">deep</span>: <span class="literal">true</span>, <span class="attr">sync</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>那么也就是说如果你强行在生产环境中用action修改state，Vuex也不会阻止你，它可能仅仅是给你一个警告；而且按道理来说，如果我们能够保证同一类型的action只有一个声明，那么无论是使用action还是mutation来修改state结果都是一样的，因为Vuex针对这种情况，没有使用Promise.all执行action，所以也就不会存在返回结果先后问题</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dispatch (_type, _payload) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">const</span> result = entry.length &gt; <span class="number">1</span></span><br><span class="line">      ? <span class="built_in">Promise</span>.all(entry.map(<span class="function"><span class="params">handler</span> =&gt;</span> handler(payload)))</span><br><span class="line">      : entry[<span class="number">0</span>](payload)</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>但是凡是靠人遵守的约定都是不靠谱的，所以我们在平时使用Vuex时，最好还是遵守官方的约束，否则线上代码有可能出现bug，这不是我们所期望的</p>
-<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>Vuex这一限制其实也是出于代码设计考虑，action和mutation各司其事，本质上也是遵守了“单一职责”原则。以上就是我对“Vuex为什么不允许在action中修改状态“这个问题的分析，希望对大家有所帮助，也欢迎指正</p>
+        <ul>
+<li>Promise是构造函数，new 出来的实例有then方法。</li>
+<li>new Promise时，传递一个参数，这个参数是函数，又被称为执行器函数(executor)， 并执行器会被立即调用，也就是上面结果中start最先输出的原因。</li>
+<li>executor是函数，它接受两个参数 resolve reject ，同时这两个参数也是函数。</li>
+<li>new Promise后的实例具有状态， 默认状态是等待，当执行器调用resolve后， 实例状态为成功状态， 当执行器调用reject后，实例状态为失败状态。</li>
+<li>promise翻译过来是承诺的意思，实例的状态一经改变，不能再次修改，不能成功再变失败，或者反过来也不行。</li>
+<li>每一个promise实例都有方法 then ，then中有两个参数 ，我习惯把第一个参数叫做then的成功回调，把第二个参数叫做then的失败回调，这两个参数也都是函数，当执行器调用resolve后，then中第一个参数函数会执行。当执行器调用reject后，then中第二个参数函数会执行。<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">function MyPromise (executor) &#123;</span><br><span class="line">  let self = this</span><br><span class="line">  // 初始值</span><br><span class="line">  self.value = undefined</span><br><span class="line">  self.reason = undefined</span><br><span class="line">  // 初始状态</span><br><span class="line">  self.status = &apos;pending&apos;</span><br><span class="line">  // promise的then方法的第一参数，第二个参数</span><br><span class="line">  self.resolvedCallback = []</span><br><span class="line">  self.rejecteddCallback = []</span><br><span class="line"></span><br><span class="line">  function resolve (value) &#123;</span><br><span class="line">    // 保证promise实例状态一旦变更不能再次改变，只有在pending时候才可以变状态</span><br><span class="line">    if (self.status === &apos;pending&apos;) &#123;</span><br><span class="line">      self.value = value</span><br><span class="line">      self.status = &apos;resolved&apos;</span><br><span class="line">      self.resolvedCallback.forEach(fn =&gt;&#123;</span><br><span class="line">        fn()</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function reject (reason) &#123;</span><br><span class="line">    if (self.status === &apos;pending&apos;) &#123;</span><br><span class="line">      self.reason = reason</span><br><span class="line">      self.status = &apos;rejected&apos;</span><br><span class="line">      self.rejectedCallback.forEach(fn =&gt;&#123;</span><br><span class="line">        fn()</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  executor(resolve, reject) // 立即执行两个函数</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// new出来的实例具有then方法</span><br><span class="line">MyPromise.prototype.then = function (onFullfilled, onRejected) &#123;</span><br><span class="line">  let self = this</span><br><span class="line">  // 当执行器调用resolve后，then中第一个参数函数（成功回调）会执行,当执行器调用reject后，then中第二个参数函数（失败回调）会执行</span><br><span class="line">  if (self.status === &apos;resolved&apos;) &#123;</span><br><span class="line">    onFullfilled(self.value)</span><br><span class="line">  &#125;</span><br><span class="line">  if (self.status === &apos;rejected&apos;) &#123;</span><br><span class="line">    onFullfilled(self.reason)</span><br><span class="line">  &#125;</span><br><span class="line">  if (self.status === &apos;pending&apos;) &#123;</span><br><span class="line">    self.resolvedCallback.push (function() &#123;</span><br><span class="line">      onFullfilled(self.value)</span><br><span class="line">    &#125;)</span><br><span class="line">    self.rejectedCallback.push (function() &#123;</span><br><span class="line">     onFullfilled(self.reason)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">let p = new MyPromise(function (resolve, reject) &#123;</span><br><span class="line">  console.log(&apos;start&apos;)</span><br><span class="line">  setTimeout(function()&#123;</span><br><span class="line">      resolve(&apos;&apos;)</span><br><span class="line">  &#125;,2000)</span><br><span class="line">&#125;)</span><br><span class="line">p.then(</span><br><span class="line">  (v) =&gt; &#123;</span><br><span class="line">    console.log(&apos;success： &apos; + v)</span><br><span class="line">  &#125;,</span><br><span class="line">  (v) =&gt; &#123;</span><br><span class="line">    console.log(&apos;error： &apos; + v)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line">p.then(</span><br><span class="line">  (v) =&gt; &#123;</span><br><span class="line">    console.log(&apos;success： &apos; + v)</span><br><span class="line">  &#125;,</span><br><span class="line">  (v) =&gt; &#123;</span><br><span class="line">    console.log(&apos;error： &apos; + v)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line">console.log(&apos;end&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>执行结果为 <code>start, end, success：data1,  success：data1</code></p>
+<blockquote>
+<p>参考链接：<a href="https://juejin.im/post/5c6ad98e6fb9a049d51a0f5e" target="_blank" rel="noopener">https://juejin.im/post/5c6ad98e6fb9a049d51a0f5e</a></p>
+</blockquote>
 
       
 
@@ -200,11 +190,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vuex</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -260,7 +246,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://rainLi.github.io/2019/12/10/源码系列：Vuex为什么不允许在action中修改state/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://rainLi.github.io/2019/12/24/手写实现一个promise/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -274,18 +260,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/12/24/手写实现一个promise/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          手写实现一个promise
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/12/Babel的简单了解/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Babel的简单了解</div>
+    <a href="/2019/12/10/源码系列：Vuex为什么不允许在action中修改state/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">源码系列：Vuex为什么不允许在action中修改state?</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -316,8 +293,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "https://rainLi.github.io/2019/12/10/源码系列：Vuex为什么不允许在action中修改state/", 
-    sourceId: "源码系列：Vuex为什么不允许在action中修改state",
+    url: "https://rainLi.github.io/2019/12/24/手写实现一个promise/", 
+    sourceId: "手写实现一个promise",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -326,7 +303,7 @@
   
 
   
-  <div id="SOHUCS" sid="源码系列：Vuex为什么不允许在action中修改state" ></div> 
+  <div id="SOHUCS" sid="手写实现一个promise" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
