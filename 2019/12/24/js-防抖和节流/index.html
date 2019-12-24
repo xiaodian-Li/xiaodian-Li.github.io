@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
 <meta property="og:description" content="防抖：事件被触发n秒后再执行，n秒内重新触发重新计时应用场景：搜索、调整窗口大小">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-24T09:32:57.929Z">
+<meta property="og:updated_time" content="2019-12-24T09:33:50.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js 防抖和节流">
 <meta name="twitter:description" content="防抖：事件被触发n秒后再执行，n秒内重新触发重新计时应用场景：搜索、调整窗口大小">
@@ -162,17 +162,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>防抖：事件被触发n秒后再执行，n秒内重新触发重新计时<br>应用场景：搜索、调整窗口大小<br><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">function debounce (fn, wait, immediate) &#123;</span><br><span class="line">  let timer = null</span><br><span class="line"></span><br><span class="line">  return function () &#123;</span><br><span class="line">    let context = this</span><br><span class="line">    let args = arguments</span><br><span class="line">    if (immediate) &#123;</span><br><span class="line">      fn.call(context, ...args)</span><br><span class="line">      immediate = false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    clearTimeout(timer)</span><br><span class="line">    timer = setTimeout(function()&#123;</span><br><span class="line">      fn.call(context, ...args)</span><br><span class="line">    &#125;, wait)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">节流： 一个函数N秒内只执行一次  </span><br><span class="line">应用场景：监听滚动事件、鼠标不断点击触发</span><br></pre></td></tr></table></figure></p>
-<p>function throttle (fn, wait, immediate) {<br>  let timer = null<br>  return function () {<br>    let context = this<br>    let args = arguments<br>    if (immediate) {<br>      fn.call(context, …args)<br>      immediate = false<br>    }</p>
-<pre><code>// 如果当前存在定时器，返回；否则设置定时器
-if (timer) return 
-timer = setTimeout(function(){
-  fn.call(context, ...args)
-  // 函数执行完毕后，清除定时器
-  clearTimeout(timer)
-  timer = null
-}, wait)
-</code></pre><p>  }<br>}</p>
+        <p>防抖：事件被触发n秒后再执行，n秒内重新触发重新计时<br>应用场景：搜索、调整窗口大小<br><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function debounce (fn, wait, immediate) &#123;</span><br><span class="line">  let timer = null</span><br><span class="line"></span><br><span class="line">  return function () &#123;</span><br><span class="line">    let context = this</span><br><span class="line">    let args = arguments</span><br><span class="line">    if (immediate) &#123;</span><br><span class="line">      fn.call(context, ...args)</span><br><span class="line">      immediate = false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    clearTimeout(timer)</span><br><span class="line">    timer = setTimeout(function()&#123;</span><br><span class="line">      fn.call(context, ...args)</span><br><span class="line">    &#125;, wait)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>节流： 一个函数N秒内只执行一次<br>应用场景：监听滚动事件、鼠标不断点击触发<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function throttle (fn, wait, immediate) &#123;</span><br><span class="line">  let timer = null</span><br><span class="line">  return function () &#123;</span><br><span class="line">    let context = this</span><br><span class="line">    let args = arguments</span><br><span class="line">    if (immediate) &#123;</span><br><span class="line">      fn.call(context, ...args)</span><br><span class="line">      immediate = false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 如果当前存在定时器，返回；否则设置定时器</span><br><span class="line">    if (timer) return </span><br><span class="line">    timer = setTimeout(function()&#123;</span><br><span class="line">      fn.call(context, ...args)</span><br><span class="line">      // 函数执行完毕后，清除定时器</span><br><span class="line">      clearTimeout(timer)</span><br><span class="line">      timer = null</span><br><span class="line">    &#125;, wait)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -401,15 +392,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
