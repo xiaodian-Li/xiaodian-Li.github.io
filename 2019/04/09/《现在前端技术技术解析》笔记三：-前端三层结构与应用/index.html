@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://rainLi.github.io">
   <title>《现在前端技术技术解析》笔记三： 前端三层结构与应用 | rainLi&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、前端的三个基本构成结构层HTML、表现层CSS和行为层JavaScript 2.AMP HTML 定义：流动网页提速（Accelerated Mobile Pages，AMP）是google推行的一个提升页面资源载入效率的HTML提议规范。  基本思路有两点：   （1）使用严格受限的高效HTML标签以及使用静态网页缓存技术来提高网络访问静态资源的性能和用户体验。">
+  <meta name="description" content="1、前端的三个基本构成结构层HTML、表现层CSS和行为层JavaScript 2.AMP HTML 定义：流动网页提速（Accelerated Mobile Pages，AMP）是google推行的一个提升页面资源载入效率的HTML提议规范。">
 <meta name="keywords" content="前端基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《现在前端技术技术解析》笔记三： 前端三层结构与应用">
 <meta property="og:url" content="https://rainLi.github.io/2019/04/09/《现在前端技术技术解析》笔记三：-前端三层结构与应用/index.html">
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
-<meta property="og:description" content="1、前端的三个基本构成结构层HTML、表现层CSS和行为层JavaScript 2.AMP HTML 定义：流动网页提速（Accelerated Mobile Pages，AMP）是google推行的一个提升页面资源载入效率的HTML提议规范。  基本思路有两点：   （1）使用严格受限的高效HTML标签以及使用静态网页缓存技术来提高网络访问静态资源的性能和用户体验。">
+<meta property="og:description" content="1、前端的三个基本构成结构层HTML、表现层CSS和行为层JavaScript 2.AMP HTML 定义：流动网页提速（Accelerated Mobile Pages，AMP）是google推行的一个提升页面资源载入效率的HTML提议规范。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-09T12:07:16.417Z">
+<meta property="og:updated_time" content="2019-12-26T07:59:19.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《现在前端技术技术解析》笔记三： 前端三层结构与应用">
-<meta name="twitter:description" content="1、前端的三个基本构成结构层HTML、表现层CSS和行为层JavaScript 2.AMP HTML 定义：流动网页提速（Accelerated Mobile Pages，AMP）是google推行的一个提升页面资源载入效率的HTML提议规范。  基本思路有两点：   （1）使用严格受限的高效HTML标签以及使用静态网页缓存技术来提高网络访问静态资源的性能和用户体验。">
+<meta name="twitter:description" content="1、前端的三个基本构成结构层HTML、表现层CSS和行为层JavaScript 2.AMP HTML 定义：流动网页提速（Accelerated Mobile Pages，AMP）是google推行的一个提升页面资源载入效率的HTML提议规范。">
   
     <link rel="alternative" href="/atom.xml" title="rainLi&#39;s personal blog" type="application/atom+xml">
   
@@ -164,12 +164,11 @@
       
         <h3 id="1、前端的三个基本构成"><a href="#1、前端的三个基本构成" class="headerlink" title="1、前端的三个基本构成"></a>1、前端的三个基本构成</h3><p>结构层HTML、表现层CSS和行为层JavaScript</p>
 <h3 id="2-AMP-HTML"><a href="#2-AMP-HTML" class="headerlink" title="2.AMP HTML"></a>2.AMP HTML</h3><ul>
-<li><p>定义：流动网页提速（Accelerated Mobile Pages，AMP）是google推行的一个提升页面资源载入效率的HTML提议规范。</p>
-</li>
-<li><p>基本思路有两点：</p>
-</li>
+<li>定义：流动网页提速（Accelerated Mobile Pages，AMP）是google推行的一个提升页面资源载入效率的HTML提议规范。<a id="more"></a></li>
+<li>基本思路有两点：</li>
 </ul>
-<p>（1）使用严格受限的高效HTML标签以及使用静态网页缓存技术来提高网络访问静态资源的性能和用户体验。<br><a id="more"></a><br>（2）尽量避免使用目前网页上渲染或展示性能比较差的标签，并将部分网页静态内容缓存到页面上进行分发  </p>
+<p>（1）使用严格受限的高效HTML标签以及使用静态网页缓存技术来提高网络访问静态资源的性能和用户体验。</p>
+<p>（2）尽量避免使用目前网页上渲染或展示性能比较差的标签，并将部分网页静态内容缓存到页面上进行分发  </p>
 <p>内联体积较小的样式和图片、延时加载较大的静态资源文件等，进而提高网页的初始载入速度。  </p>
 <p>例如在AMP中，img、video、audio、embed、form、table、frame、object、iframe这类较慢或可能影响页面内容渲染的标签是不建议被直接使用的，因为它们常常在页面元素解析时就要去做较慢的渲染或者会立即直接下载src或param等属性里面的内容。  </p>
 <p>即使用amp-video、amp-img、amp-audio、amp-pixel等标签来做页面元素内容的延迟载入或渲染，其实本质上这类标签的逻辑封装实现和异步加载有点类似。  </p>
@@ -427,14 +426,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http网络</a>
               </li>
              
@@ -451,6 +442,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http模块</a>
               </li>
              
@@ -459,7 +454,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
+                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,7 +470,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,11 +502,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
+                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
+                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,6 +515,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,10 +531,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">调试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,6 +559,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
             
             <div class="clearfix"></div>

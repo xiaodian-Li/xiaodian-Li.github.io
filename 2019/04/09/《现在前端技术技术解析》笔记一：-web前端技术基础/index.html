@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://rainLi.github.io">
   <title>《现在前端技术技术解析》笔记一： web前端技术基础  | rainLi&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.Virtual DOM：用来描述页面DOM树节点之间关系的一种特殊JavaScript对象   2.为了让用户尽可能快速看到内容？ 将一部分内容先展示给用户，然后根据用户的操作，异步加载用户需要的其他内容  如使用更高压缩比webp格式的图片  合理地利用文件缓存">
+  <meta name="description" content="1.Virtual DOM：用来描述页面DOM树节点之间关系的一种特殊JavaScript对象   2.为了让用户尽可能快速看到内容？ 将一部分内容先展示给用户，然后根据用户的操作，异步加载用户需要的其他内容">
 <meta name="keywords" content="前端基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《现在前端技术技术解析》笔记一： web前端技术基础 ">
 <meta property="og:url" content="https://rainLi.github.io/2019/04/09/《现在前端技术技术解析》笔记一：-web前端技术基础/index.html">
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
-<meta property="og:description" content="1.Virtual DOM：用来描述页面DOM树节点之间关系的一种特殊JavaScript对象   2.为了让用户尽可能快速看到内容？ 将一部分内容先展示给用户，然后根据用户的操作，异步加载用户需要的其他内容  如使用更高压缩比webp格式的图片  合理地利用文件缓存">
+<meta property="og:description" content="1.Virtual DOM：用来描述页面DOM树节点之间关系的一种特殊JavaScript对象   2.为了让用户尽可能快速看到内容？ 将一部分内容先展示给用户，然后根据用户的操作，异步加载用户需要的其他内容">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-09T10:55:46.363Z">
+<meta property="og:updated_time" content="2019-12-26T07:59:25.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《现在前端技术技术解析》笔记一： web前端技术基础 ">
-<meta name="twitter:description" content="1.Virtual DOM：用来描述页面DOM树节点之间关系的一种特殊JavaScript对象   2.为了让用户尽可能快速看到内容？ 将一部分内容先展示给用户，然后根据用户的操作，异步加载用户需要的其他内容  如使用更高压缩比webp格式的图片  合理地利用文件缓存">
+<meta name="twitter:description" content="1.Virtual DOM：用来描述页面DOM树节点之间关系的一种特殊JavaScript对象   2.为了让用户尽可能快速看到内容？ 将一部分内容先展示给用户，然后根据用户的操作，异步加载用户需要的其他内容">
   
     <link rel="alternative" href="/atom.xml" title="rainLi&#39;s personal blog" type="application/atom+xml">
   
@@ -164,13 +164,13 @@
       
         <h3 id="1-Virtual-DOM："><a href="#1-Virtual-DOM：" class="headerlink" title="1.Virtual DOM："></a>1.Virtual DOM：</h3><p>用来描述页面DOM树节点之间关系的一种特殊JavaScript对象  </p>
 <h3 id="2-为了让用户尽可能快速看到内容？"><a href="#2-为了让用户尽可能快速看到内容？" class="headerlink" title="2.为了让用户尽可能快速看到内容？"></a>2.为了让用户尽可能快速看到内容？</h3><ul>
-<li><p>将一部分内容先展示给用户，然后根据用户的操作，异步加载用户需要的其他内容</p>
-</li>
+<li>将一部分内容先展示给用户，然后根据用户的操作，异步加载用户需要的其他内容<a id="more"></a></li>
 <li><p>如使用更高压缩比webp格式的图片</p>
 </li>
 <li><p>合理地利用文件缓存</p>
-<a id="more"></a>
-<h3 id="3-从我们打开浏览器输入一个网址到页面展示网页内容的这段时间内，浏览器和服务端都发生了什么事情？"><a href="#3-从我们打开浏览器输入一个网址到页面展示网页内容的这段时间内，浏览器和服务端都发生了什么事情？" class="headerlink" title="3.从我们打开浏览器输入一个网址到页面展示网页内容的这段时间内，浏览器和服务端都发生了什么事情？"></a>3.从我们打开浏览器输入一个网址到页面展示网页内容的这段时间内，浏览器和服务端都发生了什么事情？</h3></li>
+</li>
+</ul>
+<h3 id="3-从我们打开浏览器输入一个网址到页面展示网页内容的这段时间内，浏览器和服务端都发生了什么事情？"><a href="#3-从我们打开浏览器输入一个网址到页面展示网页内容的这段时间内，浏览器和服务端都发生了什么事情？" class="headerlink" title="3.从我们打开浏览器输入一个网址到页面展示网页内容的这段时间内，浏览器和服务端都发生了什么事情？"></a>3.从我们打开浏览器输入一个网址到页面展示网页内容的这段时间内，浏览器和服务端都发生了什么事情？</h3><ul>
 <li><p>在接收到用户输入的网址后，浏览器会开启一个线程来处理这个请求，对用户输入的URL地址进行分析判断，如果是HTTP协议就按照HTTP方式来处理。</p>
 </li>
 <li><p>调用浏览器引擎中的对应方法，比如WebView中的loadUrl方法，分析并加载这个URL地址。</p>
@@ -445,14 +445,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http网络</a>
               </li>
              
@@ -469,6 +461,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http模块</a>
               </li>
              
@@ -477,7 +473,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
+                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,7 +489,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,11 +521,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
+                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
+                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -538,6 +534,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,10 +550,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">调试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,6 +578,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://rainLi.github.io">
   <title>手写promise.all实现 | rainLi&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="promise.all()返回new promise 需要一个数组存放promise的结果值 遍历参数数组，判断是否是promise，是的话执行得到结果后压入结果数组；否则直接放入结果数组。 当每个都成功执行后，resolve（result） 当有一个失败，reject">
+  <meta name="description" content="promise.all()返回new promise 需要一个数组存放promise的结果值">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手写promise.all实现">
 <meta property="og:url" content="https://rainLi.github.io/2019/12/24/手写promise-all实现/index.html">
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
-<meta property="og:description" content="promise.all()返回new promise 需要一个数组存放promise的结果值 遍历参数数组，判断是否是promise，是的话执行得到结果后压入结果数组；否则直接放入结果数组。 当每个都成功执行后，resolve（result） 当有一个失败，reject">
+<meta property="og:description" content="promise.all()返回new promise 需要一个数组存放promise的结果值">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-24T08:54:08.114Z">
+<meta property="og:updated_time" content="2019-12-26T08:01:20.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手写promise.all实现">
-<meta name="twitter:description" content="promise.all()返回new promise 需要一个数组存放promise的结果值 遍历参数数组，判断是否是promise，是的话执行得到结果后压入结果数组；否则直接放入结果数组。 当每个都成功执行后，resolve（result） 当有一个失败，reject">
+<meta name="twitter:description" content="promise.all()返回new promise 需要一个数组存放promise的结果值">
   
     <link rel="alternative" href="/atom.xml" title="rainLi&#39;s personal blog" type="application/atom+xml">
   
@@ -164,11 +164,10 @@
       
         <ul>
 <li>promise.all()返回new promise</li>
-<li>需要一个数组存放promise的结果值</li>
+<li>需要一个数组存放promise的结果值<a id="more"></a></li>
 <li>遍历参数数组，判断是否是promise，是的话执行得到结果后压入结果数组；否则直接放入结果数组。</li>
 <li>当每个都成功执行后，resolve（result）</li>
-<li>当有一个失败，reject<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">function isPromise (obj) &#123;</span><br><span class="line">  return !!obj &amp;&amp; (typeof obj === &apos;object&apos; &amp;&amp; typeof obj === &apos;function&apos;) &amp;&amp; typeof obj.then === &apos;function&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const promiseAll = (arr) =&gt; &#123;</span><br><span class="line">  //用于存放每次执行后返回结果</span><br><span class="line">  let result = []</span><br><span class="line">  return new promise ((resolve, reject) =&gt; &#123;</span><br><span class="line">    for (let i=0; i&lt;arr.length, i++) &#123;</span><br><span class="line">      // 确保每一项都是数组</span><br><span class="line">      if (isPromise(arr[i]) &#123;</span><br><span class="line">        arr[i].then((data) =&gt; &#123;</span><br><span class="line">          result[i] = data</span><br><span class="line">          // 如果函数数组中的函数都执行完，便resolve</span><br><span class="line">          if (result.length === arr.length) &#123;</span><br><span class="line">            resolve()</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;, reject)</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        result[i] = arr[i]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>当有一个失败，reject<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">function isPromise (obj) &#123;</span><br><span class="line">  return !!obj &amp;&amp; (typeof obj === &apos;object&apos; &amp;&amp; typeof obj === &apos;function&apos;) &amp;&amp; typeof obj.then === &apos;function&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const promiseAll = (arr) =&gt; &#123;</span><br><span class="line">  //用于存放每次执行后返回结果</span><br><span class="line">  let result = []</span><br><span class="line">  return new promise ((resolve, reject) =&gt; &#123;</span><br><span class="line">    for (let i=0; i&lt;arr.length, i++) &#123;</span><br><span class="line">      // 确保每一项都是数组</span><br><span class="line">      if (isPromise(arr[i]) &#123;</span><br><span class="line">        arr[i].then((data) =&gt; &#123;</span><br><span class="line">          result[i] = data</span><br><span class="line">          // 如果函数数组中的函数都执行完，便resolve</span><br><span class="line">          if (result.length === arr.length) &#123;</span><br><span class="line">            resolve()</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;, reject)</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        result[i] = arr[i]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -403,14 +402,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http网络</a>
               </li>
              
@@ -427,6 +418,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http模块</a>
               </li>
              
@@ -435,7 +430,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
+                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -451,7 +446,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -483,11 +478,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
+                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
+                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -496,6 +491,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,10 +507,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">调试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -540,6 +535,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
             
             <div class="clearfix"></div>

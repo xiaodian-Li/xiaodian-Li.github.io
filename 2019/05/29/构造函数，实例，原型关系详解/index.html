@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="https://rainLi.github.io">
   <title>构造函数，实例，原型关系详解 | rainLi&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.构造函数，实例，原型三者关系如下 构造函数的prototype指向其原型对象 原型对象的constructor指向其构造函数 使用new关键字实例化构造函数 实例化对象的proto指向其原始的原型对象。">
+  <meta name="description" content="1.构造函数，实例，原型三者关系如下 构造函数的prototype指向其原型对象 原型对象的constructor指向其构造函数">
 <meta name="keywords" content="js,构造函数,实例,原型">
 <meta property="og:type" content="article">
 <meta property="og:title" content="构造函数，实例，原型关系详解">
 <meta property="og:url" content="https://rainLi.github.io/2019/05/29/构造函数，实例，原型关系详解/index.html">
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
-<meta property="og:description" content="1.构造函数，实例，原型三者关系如下 构造函数的prototype指向其原型对象 原型对象的constructor指向其构造函数 使用new关键字实例化构造函数 实例化对象的proto指向其原始的原型对象。">
+<meta property="og:description" content="1.构造函数，实例，原型三者关系如下 构造函数的prototype指向其原型对象 原型对象的constructor指向其构造函数">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://static.daojia.com/assets/project/tosimple-pic/js_1559107462665.png">
-<meta property="og:updated_time" content="2019-05-29T06:47:15.648Z">
+<meta property="og:updated_time" content="2019-12-26T08:00:07.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="构造函数，实例，原型关系详解">
-<meta name="twitter:description" content="1.构造函数，实例，原型三者关系如下 构造函数的prototype指向其原型对象 原型对象的constructor指向其构造函数 使用new关键字实例化构造函数 实例化对象的proto指向其原始的原型对象。">
+<meta name="twitter:description" content="1.构造函数，实例，原型三者关系如下 构造函数的prototype指向其原型对象 原型对象的constructor指向其构造函数">
 <meta name="twitter:image" content="https://static.daojia.com/assets/project/tosimple-pic/js_1559107462665.png">
   
     <link rel="alternative" href="/atom.xml" title="rainLi&#39;s personal blog" type="application/atom+xml">
@@ -166,9 +166,9 @@
       
         <h3 id="1-构造函数，实例，原型三者关系如下"><a href="#1-构造函数，实例，原型三者关系如下" class="headerlink" title="1.构造函数，实例，原型三者关系如下"></a>1.构造函数，实例，原型三者关系如下</h3><ul>
 <li>构造函数的prototype指向其原型对象</li>
-<li>原型对象的constructor指向其构造函数</li>
+<li>原型对象的constructor指向其构造函数<br><a id="more"></a></li>
 <li>使用new关键字实例化构造函数</li>
-<li>实例化对象的<strong>proto</strong>指向其原始的原型对象。<br><a id="more"></a><br><img src="https://static.daojia.com/assets/project/tosimple-pic/js_1559107462665.png" alt="image"></li>
+<li>实例化对象的<strong>proto</strong>指向其原始的原型对象。<br><img src="https://static.daojia.com/assets/project/tosimple-pic/js_1559107462665.png" alt="image"></li>
 </ul>
 <h3 id="2-构造函数："><a href="#2-构造函数：" class="headerlink" title="2.构造函数："></a>2.构造函数：</h3><p>js中使用构造函数作为对象的模板,提供一个生成对象的模板，并描述对象的基本结构的函数<br>（eg: 简单讲相当于一个造月饼的模子）</p>
 <ul>
@@ -449,14 +449,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http网络</a>
               </li>
              
@@ -473,6 +465,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">http模块</a>
               </li>
              
@@ -481,7 +477,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
+                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,7 +493,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">数据库（MongoDB，mongoose）</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,11 +525,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
+                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
+                <a href="javascript:void(0)" class="js-tag color1">ppt分享</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,6 +538,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,10 +554,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">调试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数组方法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,6 +582,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
             
             <div class="clearfix"></div>
