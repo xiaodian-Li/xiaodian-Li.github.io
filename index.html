@@ -552,9 +552,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在了解Babel之前我们有必要了解下AST， 什么是AST呢？</p>
-<h3 id="AST-抽象语法树"><a href="#AST-抽象语法树" class="headerlink" title="AST(抽象语法树)"></a>AST(抽象语法树)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function square(n) &#123;</span><br><span class="line">  return n * n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如上代码可以被表示如下的一棵树:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- FunctionDeclaration:</span><br><span class="line">  - id:</span><br><span class="line">    - Identifier:</span><br><span class="line">      - name: square</span><br><span class="line">  - params [1]</span><br><span class="line">    - Identifier</span><br><span class="line">      - name: n</span><br><span class="line">  - body:</span><br><span class="line">    - BlockStatement</span><br><span class="line">      - body [1]</span><br><span class="line">        - ReturnStatement</span><br><span class="line">          - argument</span><br><span class="line">            - BinaryExpression</span><br><span class="line">              - operator: *</span><br><span class="line">              - left</span><br><span class="line">                - Identifier</span><br><span class="line">                  - name: n</span><br><span class="line">              - right</span><br><span class="line">                - Identifier</span><br><span class="line">                  - name: n</span><br></pre></td></tr></table></figure></p>
+        <p>在了解Babel之前我们有必要了解下AST， 什么是AST呢？<br>
         
           <a class="article-more-a" href="/2019/10/12/Babel的简单了解/#more">还有更多 = = Read More >></a>
         
@@ -620,7 +618,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="JS-对象创建的三种方式"><a href="#JS-对象创建的三种方式" class="headerlink" title="JS 对象创建的三种方式"></a>JS 对象创建的三种方式</h2><h4 id="字面量创建方式"><a href="#字面量创建方式" class="headerlink" title="字面量创建方式"></a>字面量创建方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var person =｛</span><br><span class="line">  name: &apos;Tom&apos;　</span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
-<h4 id="系统内置构造函数方式"><a href="#系统内置构造函数方式" class="headerlink" title="系统内置构造函数方式"></a>系统内置构造函数方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var person = new Object()</span><br><span class="line">person.name = &apos;Tom&apos;</span><br></pre></td></tr></table></figure>
         
           <a class="article-more-a" href="/2019/10/10/JS对象和继承/#more">还有更多 = = Read More >></a>
         
@@ -1000,11 +997,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">http网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">http网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1017,6 +1018,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1044,7 +1049,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1052,11 +1061,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1068,15 +1073,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">单测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1100,14 +1101,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">异步</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">构造函数</a>
               </li>
              
@@ -1120,11 +1113,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">异步</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vuex</a>
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1136,7 +1129,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vuex</a>
               </li>
             
             <div class="clearfix"></div>

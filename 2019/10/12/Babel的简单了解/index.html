@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://rainLi.github.io">
   <title>Babel的简单了解 | rainLi&#39;s personal blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在了解Babel之前我们有必要了解下AST， 什么是AST呢？ AST(抽象语法树)123function square(n) &amp;#123;  return n * n;&amp;#125; 如上代码可以被表示如下的一棵树:1234567891011121314151617181920- FunctionDeclaration:  - id:    - Identifier:      - name: s">
+  <meta name="description" content="在了解Babel之前我们有必要了解下AST， 什么是AST呢？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Babel的简单了解">
 <meta property="og:url" content="https://rainLi.github.io/2019/10/12/Babel的简单了解/index.html">
 <meta property="og:site_name" content="rainLi&#39;s personal blog">
-<meta property="og:description" content="在了解Babel之前我们有必要了解下AST， 什么是AST呢？ AST(抽象语法树)123function square(n) &amp;#123;  return n * n;&amp;#125; 如上代码可以被表示如下的一棵树:1234567891011121314151617181920- FunctionDeclaration:  - id:    - Identifier:      - name: s">
+<meta property="og:description" content="在了解Babel之前我们有必要了解下AST， 什么是AST呢？">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-12T02:49:23.316Z">
+<meta property="og:updated_time" content="2019-12-26T08:04:45.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Babel的简单了解">
-<meta name="twitter:description" content="在了解Babel之前我们有必要了解下AST， 什么是AST呢？ AST(抽象语法树)123function square(n) &amp;#123;  return n * n;&amp;#125; 如上代码可以被表示如下的一棵树:1234567891011121314151617181920- FunctionDeclaration:  - id:    - Identifier:      - name: s">
+<meta name="twitter:description" content="在了解Babel之前我们有必要了解下AST， 什么是AST呢？">
   
     <link rel="alternative" href="/atom.xml" title="rainLi&#39;s personal blog" type="application/atom+xml">
   
@@ -161,10 +161,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在了解Babel之前我们有必要了解下AST， 什么是AST呢？</p>
+        <p>在了解Babel之前我们有必要了解下AST， 什么是AST呢？<br><a id="more"></a></p>
 <h3 id="AST-抽象语法树"><a href="#AST-抽象语法树" class="headerlink" title="AST(抽象语法树)"></a>AST(抽象语法树)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function square(n) &#123;</span><br><span class="line">  return n * n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如上代码可以被表示如下的一棵树:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- FunctionDeclaration:</span><br><span class="line">  - id:</span><br><span class="line">    - Identifier:</span><br><span class="line">      - name: square</span><br><span class="line">  - params [1]</span><br><span class="line">    - Identifier</span><br><span class="line">      - name: n</span><br><span class="line">  - body:</span><br><span class="line">    - BlockStatement</span><br><span class="line">      - body [1]</span><br><span class="line">        - ReturnStatement</span><br><span class="line">          - argument</span><br><span class="line">            - BinaryExpression</span><br><span class="line">              - operator: *</span><br><span class="line">              - left</span><br><span class="line">                - Identifier</span><br><span class="line">                  - name: n</span><br><span class="line">              - right</span><br><span class="line">                - Identifier</span><br><span class="line">                  - name: n</span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
 <p>或是如下所示的 JavaScript Object（对象）:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  type: &quot;FunctionDeclaration&quot;,</span><br><span class="line">  id: &#123;</span><br><span class="line">    type: &quot;Identifier&quot;,</span><br><span class="line">    name: &quot;square&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  params: [&#123;</span><br><span class="line">    type: &quot;Identifier&quot;,</span><br><span class="line">    name: &quot;n&quot;</span><br><span class="line">  &#125;],</span><br><span class="line">  body: &#123;</span><br><span class="line">    type: &quot;BlockStatement&quot;,</span><br><span class="line">    body: [&#123;</span><br><span class="line">      type: &quot;ReturnStatement&quot;,</span><br><span class="line">      argument: &#123;</span><br><span class="line">        type: &quot;BinaryExpression&quot;,</span><br><span class="line">        operator: &quot;*&quot;,</span><br><span class="line">        left: &#123;</span><br><span class="line">          type: &quot;Identifier&quot;,</span><br><span class="line">          name: &quot;n&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        right: &#123;</span><br><span class="line">          type: &quot;Identifier&quot;,</span><br><span class="line">          name: &quot;n&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>AST每一层的结构如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// 外层 节点（Node）</span><br><span class="line">&#123;</span><br><span class="line">  type: &quot;FunctionDeclaration&quot;,</span><br><span class="line">  id: &#123;...&#125;,</span><br><span class="line">  params: [...],</span><br><span class="line">  body: &#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 中层 节点（Node）</span><br><span class="line">&#123;</span><br><span class="line">  type: &quot;Identifier&quot;,</span><br><span class="line">  name: ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 里层 节点（Node）</span><br><span class="line">&#123;</span><br><span class="line">  type: &quot;BinaryExpression&quot;,</span><br><span class="line">  operator: ...,</span><br><span class="line">  left: &#123;...&#125;,</span><br><span class="line">  right: &#123;...&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 每一层都有如下节点</span><br><span class="line">interface Node &#123;</span><br><span class="line">  type: string;</span><br><span class="line">&#125;</span><br><span class="line">每一个节点都会有 start，end，loc 这几个属性。用于描述该节点在原始代码中的位置。</span><br></pre></td></tr></table></figure>
@@ -399,11 +398,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">http网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">http网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -416,6 +419,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">URL模块</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -443,7 +450,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -451,11 +462,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,15 +474,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">单测</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,14 +502,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">异步</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">调试</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">构造函数</a>
               </li>
              
@@ -519,11 +514,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">异步</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vuex</a>
+                <a href="javascript:void(0)" class="js-tag color3">调试</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,7 +530,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vuex</a>
               </li>
             
             <div class="clearfix"></div>
